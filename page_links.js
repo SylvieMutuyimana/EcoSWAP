@@ -75,7 +75,7 @@ export const all_page_links = [
 ]
 
 export const page_links = (userType) => {
-    let links = [...auth_pages]; 
+    let links = [...auth_pages, ...all_page_links]; 
     if (userType === 'seller') {
         links = [...links, ...seller_pages]; 
     } else {

@@ -38,7 +38,7 @@ const Login = ({authMessage, userType}) => {
       setError(`Invalid phone number`);
     } else {
       setError(null)
-      navigation.navigate("LoadingS");
+      navigation.navigate("Loading");
     }
   };
 
