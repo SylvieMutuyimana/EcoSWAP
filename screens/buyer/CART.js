@@ -2,11 +2,11 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import CartContainer from "../components/CartContainer";
-import WishlistContainer1 from "../components/WishlistContainer1";
-import WishlistContainer from "../components/WishlistContainer";
-import NavCart from "../components/NavCart";
-import { Border, Color } from "../GlobalStyles";
+import CartContainer from "../../components/CartContainer";
+import WishlistContainer1 from "../../components/WishlistContainer1";
+import WishlistContainer from "../../components/WishlistContainer";
+import NavCart from "../../components/NavCart";
+import { Border, Color } from "../../GlobalStyles";
 
 const CART = () => {
   const navigation = useNavigation();

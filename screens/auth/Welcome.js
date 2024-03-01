@@ -19,7 +19,7 @@ const Welcome = ({setUserType, userType}) => {
 
   console.log('usertype: ', userType)
   return (
-    <FullPageTemplate status_bar={true} green_back={true}>
+    <FullPageTemplate status_bar={true} green_back={true} footer = {false}>
       <View style={[pageStyles.pageContent, pageStyles.welcome]}>
         <View style={WelcomeStyles.title}>
           <Image

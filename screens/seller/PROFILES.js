@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, Pressable, View, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu from "../components/Menu";
+import Menu from "../../components/Menu";
 import { useNavigation } from "@react-navigation/native";
-import TITLEPAGE from "../components/TITLEPAGE";
-import NavProfileS from "../components/NavProfileS";
-import { Color, FontSize, Border, Padding, FontFamily } from "../GlobalStyles";
+import TITLEPAGE from "../../components/TITLEPAGE";
+import NavProfileS from "../../components/NavProfileS";
+import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
 const PROFILES = () => {
   const [
@@ -27,7 +27,7 @@ const PROFILES = () => {
       <View style={[styles.profileS, styles.detailsFlexBox]}>
         <TITLEPAGE
           pROFILE="PROFILE"
-          icon={require("../assets/fluentnavigation16filled1.png")}
+          icon={require("../../assets/fluentnavigation16filled1.png")}
           headerProfilePosition="unset"
           headerProfileBorderBottomRightRadius={15}
           headerProfileBorderBottomLeftRadius={15}
@@ -42,7 +42,7 @@ const PROFILES = () => {
             <Image
               style={styles.groupIcon}
               contentFit="cover"
-              source={require("../assets/group3.png")}
+              source={require("../../assets/group3.png")}
             />
           </View>
           <View style={styles.details1}>

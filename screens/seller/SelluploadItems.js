@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
-import TITLEPAGE from "../components/TITLEPAGE";
-import ImageContainer from "../components/ImageContainer";
-import PriceContainer from "../components/PriceContainer";
+import TITLEPAGE from "../../components/TITLEPAGE";
+import ImageContainer from "../../components/ImageContainer";
+import PriceContainer from "../../components/PriceContainer";
 import { useNavigation } from "@react-navigation/native";
-import NavUPLOAD from "../components/NavUPLOAD";
-import { Color, Border, FontFamily, FontSize, Padding } from "../GlobalStyles";
+import NavUPLOAD from "../../components/NavUPLOAD";
+import { Color, Border, FontFamily, FontSize, Padding } from "../../GlobalStyles";
 
 const SelluploadItems = () => {
   const navigation = useNavigation();
@@ -27,8 +27,8 @@ const SelluploadItems = () => {
           <View style={styles.details}>
             <View style={[styles.frameParent, styles.frameParentSpaceBlock]}>
               <ImageContainer
-                imageDimensions={require("../assets/vector12.png")}
-                productCode={require("../assets/icoutlinecloudupload.png")}
+                imageDimensions={require("../../assets/vector12.png")}
+                productCode={require("../../assets/icoutlinecloudupload.png")}
               />
               <View style={[styles.email, styles.emailShadowBox]}>
                 <Text style={[styles.email1, styles.emailTypo]}>Item Name</Text>
@@ -40,7 +40,7 @@ const SelluploadItems = () => {
                 <Image
                   style={styles.vectorIcon}
                   contentFit="cover"
-                  source={require("../assets/vector13.png")}
+                  source={require("../../assets/vector13.png")}
                 />
               </View>
               <View style={[styles.email4, styles.emailShadowBox]}>
@@ -50,15 +50,15 @@ const SelluploadItems = () => {
               </View>
               <PriceContainer
                 listingDetails="Price"
-                listingIdentifier={require("../assets/vector14.png")}
+                listingIdentifier={require("../../assets/vector14.png")}
                 locationType="Free"
-                dimensionIdentifier={require("../assets/vector15.png")}
+                dimensionIdentifier={require("../../assets/vector15.png")}
               />
               <PriceContainer
                 listingDetails="Province"
-                listingIdentifier={require("../assets/vector13.png")}
+                listingIdentifier={require("../../assets/vector13.png")}
                 locationType="District"
-                dimensionIdentifier={require("../assets/vector13.png")}
+                dimensionIdentifier={require("../../assets/vector13.png")}
                 propWidth={15}
                 propHeight={7}
               />

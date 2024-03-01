@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../components/Menu1";
+import Menu1 from "../../components/Menu1";
 import { useNavigation } from "@react-navigation/native";
-import TITLEPAGE from "../components/TITLEPAGE";
-import NavPROFILE from "../components/NavPROFILE";
-import { Color, FontSize, Border, Padding, FontFamily } from "../GlobalStyles";
+import TITLEPAGE from "../../components/TITLEPAGE";
+import NavPROFILE from "../../components/NavPROFILE";
+import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
 const PROFILE = () => {
   const [
@@ -29,7 +29,7 @@ const PROFILE = () => {
           <View style={styles.pagecontent}>
             <TITLEPAGE
               pROFILE="PROFILE"
-              icon={require("../assets/fluentnavigation16filled1.png")}
+              icon={require("../../assets/fluentnavigation16filled1.png")}
               headerProfilePosition="unset"
               headerProfileBorderBottomRightRadius={15}
               headerProfileBorderBottomLeftRadius={15}
@@ -43,7 +43,7 @@ const PROFILE = () => {
               <Image
                 style={styles.imageChild}
                 contentFit="cover"
-                source={require("../assets/frame-1644.png")}
+                source={require("../../assets/frame-1644.png")}
               />
             </View>
             <View style={[styles.details, styles.imageSpaceBlock]}>

@@ -41,7 +41,7 @@ const CategoryContainerPhonesTablets = memo(
     return (
       <View style={[styles.categories, cATEGORIESStyle]}>
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-1.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Home Applicances"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"
@@ -55,7 +55,7 @@ const CategoryContainerPhonesTablets = memo(
           onHomeAppliancesPress={() => navigation.navigate("CATEGORIES1")}
         />
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Phones/Tablets"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"
@@ -68,7 +68,7 @@ const CategoryContainerPhonesTablets = memo(
           homeApplicancesFontWeight="unset"
         />
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Phones/Tablets"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"
@@ -81,7 +81,7 @@ const CategoryContainerPhonesTablets = memo(
           homeApplicancesFontWeight="unset"
         />
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Phones/Tablets"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"
@@ -94,7 +94,7 @@ const CategoryContainerPhonesTablets = memo(
           homeApplicancesFontWeight="unset"
         />
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Phones/Tablets"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"

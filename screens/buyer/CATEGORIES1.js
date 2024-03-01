@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
-import Menu1 from "../components/Menu1";
+import Menu1 from "../../components/Menu1";
 import { useNavigation } from "@react-navigation/native";
-import CategoryFilterContainer3 from "../components/CategoryFilterContainer3";
-import ProductSearchContainer from "../components/ProductSearchContainer";
-import ContainerItem from "../components/ContainerItem";
-import NavCategories from "../components/NavCategories";
-import { FontSize, FontFamily, Color, Padding, Border } from "../GlobalStyles";
+import CategoryFilterContainer3 from "../../components/CategoryFilterContainer3";
+import ProductSearchContainer from "../../components/ProductSearchContainer";
+import ContainerItem from "../../components/ContainerItem";
+import NavCategories from "../../components/NavCategories";
+import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const CATEGORIES1 = () => {
   const [menuiconVisible, setMenuiconVisible] = useState(false);
@@ -36,38 +36,26 @@ const CATEGORIES1 = () => {
               </View>
               <View style={styles.items1}>
                 <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
+                  productDimensionsCode={require("../../assets/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop="unset"
                 />
                 <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
+                  productDimensionsCode={require("../../assets/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />
                 <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
+                  productDimensionsCode={require("../../assets/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />
                 <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
-                  propBackgroundColor="#c0c0c0"
-                  propMarginTop={10}
-                />
-                <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
-                  propBackgroundColor="#c0c0c0"
-                  propMarginTop={10}
-                />
-                <ContainerItem
-                  dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
+                  productDimensionsCode={require("../../assets/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />

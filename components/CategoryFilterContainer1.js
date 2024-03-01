@@ -14,7 +14,7 @@ const CategoryFilterContainer1 = memo(() => {
       />
       <View style={[styles.homeAppliancesParent, styles.categoriesFlexBox]}>
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-11.png")}
+          homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
           homeApplicances="Home Applicances"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"

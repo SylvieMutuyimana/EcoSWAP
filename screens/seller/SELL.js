@@ -2,12 +2,12 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import TITLEPAGE from "../components/TITLEPAGE";
-import ItemContainer1 from "../components/ItemContainer1";
-import SoldItemsContainer from "../components/SoldItemsContainer";
-import SaleItemsContainer from "../components/SaleItemsContainer";
-import NavUPLOAD from "../components/NavUPLOAD";
-import { Padding, Border, Color } from "../GlobalStyles";
+import TITLEPAGE from "../../components/TITLEPAGE";
+import ItemContainer1 from "../../components/ItemContainer1";
+import SoldItemsContainer from "../../components/SoldItemsContainer";
+import SaleItemsContainer from "../../components/SaleItemsContainer";
+import NavUPLOAD from "../../components/NavUPLOAD";
+import { Padding, Border, Color } from "../../GlobalStyles";
 
 const SELL = () => {
   const navigation = useNavigation();

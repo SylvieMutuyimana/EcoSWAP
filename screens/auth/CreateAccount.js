@@ -53,7 +53,7 @@ const CreateAccount = ({authMessage, userType}) => {
   };
 
   return (
-    <FullPageTemplate status_bar={true} green_back={true}>
+    <FullPageTemplate status_bar={true} green_back={true} footer = {false}>
       <View style={[pageStyles.pageContent, pageStyles.auth]}>
         <View style={authStyles.authHeader}>
           <Pressable style={authStyles.back} onPress={()=>navigation.goBack()}>

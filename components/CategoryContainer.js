@@ -16,11 +16,11 @@ const CategoryContainer = memo(() => {
         </View>
       </View>
       <CategoryContainerPhonesTablets
-        dimensionId={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-1.png")}
-        dimensionCode={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
-        dimensionIdentifier={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
-        dimensionCodeText={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
-        dimensionCodeValue={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-12.png")}
+        dimensionId={require("../assets/images/cat1.png")}
+        dimensionCode={require("../assets/images/cat1.png")}
+        dimensionIdentifier={require("../assets/images/cat1.png")}
+        dimensionCodeText={require("../assets/images/cat1.png")}
+        dimensionCodeValue={require("../assets/images/cat1.png")}
         onHomeAppliancesPress={() => navigation.navigate("CATEGORIES1")}
       />
     </View>

@@ -6,32 +6,37 @@ import Login from "./screens/auth/Login";
 import CreateAccount from "./screens/auth/CreateAccount";
 import Pin from "./screens/auth/Pin";
 
+//loading pages
+import Loading from "./screens/loading/Loading";
+import LoadingS from "./screens/loading/LoadingS";
+
 //buyer pages
-import HOME from "./screens/HOME";
-import CATEGORIES from "./screens/CATEGORIES";
-import CATEGORIES1 from "./screens/CATEGORIES1";
-import CART from "./screens/CART";
-import PROFILE from "./screens/PROFILE";
+import HOME from "./screens/buyer/HOME";
+import CATEGORIES from "./screens/buyer/CATEGORIES";
+import CATEGORIES1 from "./screens/buyer/CATEGORIES1";
+import CART from "./screens/buyer/CART";
+import CATEGORIES2 from "./screens/buyer/CATEGORIES2";
+import PROFILE from "./screens/buyer/PROFILE";
 
 //seller pages
-import HOMES from "./screens/HOMES";
-import MYITEMS from "./screens/MYITEMS";
-import PROFILES from "./screens/PROFILES";
+import HOMES from "./screens/seller/HOMES";
+import MYITEMS from "./screens/seller/MYITEMS";
+import PROFILES from "./screens/seller/PROFILES";
+import SelluploadItems from "./screens/seller/SelluploadItems";
+import SELL from "./screens/seller/SELL";
+import SELL1 from "./screens/seller/SELL1";
 
-import SelluploadItems from "./screens/SelluploadItems";
-import SELL from "./screens/SELL";
-import CATEGORIES2 from "./screens/CATEGORIES2";
-import Loading from "./screens/auth/Loading";
-import LoadingS from "./screens/auth/LoadingS";
-import Item2 from "./screens/Item2";
-import Item11 from "./screens/Item11";
+//item pages
+import Item from "./screens/item/Item";
+import Item1 from "./screens/item/Item1";
+import Item2 from "./screens/item/Item2";
+import Item11 from "./screens/item/Item11";
+
+//more pages
 import About from "./components/About";
-import Menu1 from "./components/Menu1";
 import Search from "./screens/Search";
-import Item from "./screens/Item";
-import Item1 from "./screens/Item1";
-import SELL1 from "./screens/SELL1";
 import Menu from "./components/Menu";
+import Menu1 from "./components/Menu1";
 
 export const auth_pages = [
     {name: "StartingPage1", component: StartingPage1, options: {headerShown: false }}, 
@@ -43,39 +48,41 @@ export const auth_pages = [
 ]
 
 export const buyer_pages = [
-    {name: "HOME", component: HOME, options: {headerShown: false }}, 
+    {name: "BuyerHome", component: HOME, options: {headerShown: false }}, 
     {name: "CATEGORIES", component: CATEGORIES, options: {headerShown: false }}, 
     {name: "CATEGORIES2", component: CATEGORIES2, options: {headerShown: false }}, 
     {name: "CATEGORIES1", component: CATEGORIES1, options: {headerShown: false }}, 
-    {name: "PROFILE", component: PROFILE, options: {headerShown: false }}, 
+    {name: "BuyerProfile", component: PROFILE, options: {headerShown: false }}, 
     {name: "CART", component: CART, options: {headerShown: false }}, 
 
 ]
 export const seller_pages = [
-    {name: "HOMES", component: HOMES, options: {headerShown: false }}, 
+    {name: "SellerHome", component: HOMES, options: {headerShown: false }}, 
     {name: "SelluploadItems", component: SelluploadItems, options: {headerShown: false }}, 
     {name: "SELL", component: SELL, options: {headerShown: false }}, 
     {name: "MYITEMS", component: MYITEMS, options: {headerShown: false }}, 
-    {name: "PROFILES", component: PROFILES, options: {headerShown: false }}, 
+    {name: "SellerProfile", component: PROFILES, options: {headerShown: false }}, 
     {name: "SELL1", component: SELL1, options: {headerShown: false }}, 
 
 ]
-export const all_page_links = [
-    ...auth_pages, ...buyer_pages, ...seller_pages,
+export const other_pages = [
     {name: "Loading", component: Loading, options: {headerShown: false }}, 
     {name: "LoadingS", component: LoadingS, options: {headerShown: false }}, 
+    {name: "Search", component: Search, options: {headerShown: false }},
+]
+export const all_page_links = [
+    ...auth_pages, ...buyer_pages, ...seller_pages, ...other_pages,
     {name: "Item2", component: Item2, options: {headerShown: false }}, 
     {name: "Item11", component: Item11, options: {headerShown: false }}, 
     {name: "About", component: About, options: {headerShown: false }}, 
     {name: "Menu1", component: Menu1, options: {headerShown: false }}, 
-    {name: "Search", component: Search, options: {headerShown: false }},
     {name: "Item", component: Item, options: {headerShown: false }}, 
     {name: "Item1", component: Item1, options: {headerShown: false }}, 
     {name: "Menu", component: Menu, options: {headerShown: false }}
 ]
 
 export const page_links = (userType) => {
-    let links = [...auth_pages, ...all_page_links]; 
+    let links = [...auth_pages, ...other_pages]; 
     if (userType === 'seller') {
         links = [...links, ...seller_pages]; 
     } else {

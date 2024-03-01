@@ -1,21 +1,17 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
-import TITLEPAGE from "../components/TITLEPAGE";
-import CategoryFilterContainer2 from "../components/CategoryFilterContainer";
-import ContainerItem3 from "../components/ContainerItem3";
-import ContainerItem2 from "../components/ContainerItem2";
-import ContainerItem1 from "../components/ContainerItem1";
-import ContainerItem from "../components/ContainerItem";
-import CategoryFilterContainer from "../components/CategoryFilterContainer4";
-import { FontSize, FontFamily, Color, Padding, Border } from "../GlobalStyles";
+import TITLEPAGE from "../../components/TITLEPAGE";
+import CategoryFilterContainer1 from "../../components/CategoryFilterContainer1";
+import ContainerItem3 from "../../components/ContainerItem3";
+import ContainerItem2 from "../../components/ContainerItem2";
+import ContainerItem1 from "../../components/ContainerItem1";
+import ContainerItem from "../../components/ContainerItem";
+import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
-const CATEGORIES2 = () => {
+const CATEGORIES = () => {
   return (
-    <View style={[styles.categories3, styles.itemsFlexBox]}>
-      <TITLEPAGE
-        pROFILE={`CATEGORIES
-`}
+    <View style={[styles.categories1, styles.itemsFlexBox]}>
+      <TITLEPAGE pROFILE={`CATEGORIES`}
         headerProfilePosition="unset"
         headerProfileTop="unset"
         headerProfileLeft="unset"
@@ -23,7 +19,7 @@ const CATEGORIES2 = () => {
         fluentnavigation16FilledOverflow="hidden"
       />
       <View style={[styles.categoriesParent, styles.itemsFlexBox]}>
-        <CategoryFilterContainer2 />
+        <CategoryFilterContainer1 />
         <View style={[styles.items, styles.itemsFlexBox]}>
           <View style={styles.homeAppliancesWrapper}>
             <Text style={styles.homeAppliances}>HOME APPLIANCES</Text>
@@ -33,32 +29,18 @@ const CATEGORIES2 = () => {
             <ContainerItem2 />
             <ContainerItem1 />
             <ContainerItem
-              dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../assets/biheartfill.png")}
+              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
+              productDimensionsCode={require("../../assets/biheartfill.png")}
+            />
+            <ContainerItem
+              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
+              productDimensionsCode={require("../../assets/biheartfill.png")}
               propBackgroundColor="#fff"
               propMarginTop={10}
             />
             <ContainerItem
-              dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../assets/biheartfill.png")}
-              propBackgroundColor="#fff"
-              propMarginTop={10}
-            />
-            <ContainerItem
-              dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../assets/biheartfill.png")}
-              propBackgroundColor="#fff"
-              propMarginTop={10}
-            />
-            <ContainerItem
-              dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../assets/biheartfill.png")}
-              propBackgroundColor="#fff"
-              propMarginTop={10}
-            />
-            <ContainerItem
-              dimensionCode={require("../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../assets/biheartfill.png")}
+              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
+              productDimensionsCode={require("../../assets/biheartfill.png")}
               propBackgroundColor="#fff"
               propMarginTop={10}
             />
@@ -102,7 +84,7 @@ const styles = StyleSheet.create({
     width: 360,
     height: 676,
   },
-  categories3: {
+  categories1: {
     borderRadius: Border.br_6xl,
     backgroundColor: Color.grey,
     flex: 1,
@@ -114,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CATEGORIES2;
+export default CATEGORIES;

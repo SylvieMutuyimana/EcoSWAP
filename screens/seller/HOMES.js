@@ -1,14 +1,14 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../components/Menu1";
+import Menu1 from "../../components/Menu1";
 import { useNavigation } from "@react-navigation/native";
-import ProductSearchContainer from "../components/ProductSearchContainer";
-import EwasteManagementContainer from "../components/EwasteManagementContainer";
-import CategoryContainerPhonesTablets from "../components/CategoryContainerPhonesTablets";
-import ItemContainer from "../components/ItemContainer";
-import NavHome from "../components/NavHome";
-import { Padding, Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import ProductSearchContainer from "../../components/ProductSearchContainer";
+import EwasteManagementContainer from "../../components/EwasteManagementContainer";
+import CategoryContainerPhonesTablets from "../../components/CategoryContainerPhonesTablets";
+import ItemContainer from "../../components/ItemContainer";
+import NavHome from "../../components/NavHome";
+import { Padding, Color, FontFamily, FontSize, Border } from "../../GlobalStyles";
 
 const HOMES = () => {
   const [menuiconVisible, setMenuiconVisible] = useState(false);
@@ -33,11 +33,11 @@ const HOMES = () => {
                 <View style={styles.slideshowChild} />
                 <View style={[styles.frameParent, styles.pagecontentPosition]}>
                   <EwasteManagementContainer
-                    eWasteDimensions={require("../assets/frame1625.png")}
+                    eWasteDimensions={require("../../assets/frame1625.png")}
                     eWasteDescription="E-WASTE MANAGEMENT RE-IMAGINED"
                   />
                   <EwasteManagementContainer
-                    eWasteDimensions={require("../assets/frame1626.png")}
+                    eWasteDimensions={require("../../assets/frame1626.png")}
                     eWasteDescription="Turn Trash into Treasure: Buy, Sell, Recycle Electronic Waste Today!"
                     propMarginLeft={14}
                     propBackgroundColor="rgba(54, 105, 201, 0.8)"
@@ -61,11 +61,11 @@ const HOMES = () => {
                 </View>
                 <View style={styles.categories2}>
                   <CategoryContainerPhonesTablets
-                    dimensionId={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-13.png")}
-                    dimensionCode={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-14.png")}
-                    dimensionIdentifier={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-14.png")}
-                    dimensionCodeText={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-14.png")}
-                    dimensionCodeValue={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-14.png")}
+                    dimensionId={require("../../assets/images/cat1.png")}
+                    dimensionCode={require("../../assets/images/cat1.png")}
+                    dimensionIdentifier={require("../../assets/images/cat1.png")}
+                    dimensionCodeText={require("../../assets/images/cat1.png")}
+                    dimensionCodeValue={require("../../assets/images/cat1.png")}
                     propOverflow="unset"
                     propMarginTop="unset"
                     propPosition="absolute"

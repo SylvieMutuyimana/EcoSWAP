@@ -2,10 +2,10 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import ContainerSlideshow from "../components/ContainerSlideshow";
-import ItemContainer from "../components/ItemContainer";
-import NavHomeS from "../components/NavHomeS";
-import { Padding, Color, FontSize, FontFamily, Border } from "../GlobalStyles";
+import ContainerSlideshow from "../../components/ContainerSlideshow";
+import ItemContainer from "../../components/ItemContainer";
+import NavHomeS from "../../components/NavHomeS";
+import { Padding, Color, FontSize, FontFamily, Border } from "../../GlobalStyles";
 
 const HOME1 = () => {
   const navigation = useNavigation();
@@ -17,10 +17,10 @@ const HOME1 = () => {
         <View style={[styles.pagecontent, styles.viewFlexBox]}>
           <View style={styles.homepageitems}>
             <ContainerSlideshow
-              dimensionsCode={require("../assets/mask-group4.png")}
-              productDimensionsCode={require("../assets/group-353.png")}
-              productDimensionsCode2={require("../assets/mask-group5.png")}
-              productDimensions={require("../assets/group-353.png")}
+              dimensionsCode={require("../../assets/mask-group4.png")}
+              productDimensionsCode={require("../../assets/group-353.png")}
+              productDimensionsCode2={require("../../assets/mask-group5.png")}
+              productDimensions={require("../../assets/group-353.png")}
             />
             <View style={[styles.newItems, styles.newSpaceBlock]}>
               <Text style={[styles.requests, styles.requestsLayout]}>
@@ -47,7 +47,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -55,7 +55,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -63,7 +63,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -71,7 +71,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -79,7 +79,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -87,7 +87,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -95,7 +95,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>
@@ -103,7 +103,7 @@ const HOME1 = () => {
                     <Image
                       style={styles.istockphoto583851138612x612Icon}
                       contentFit="cover"
-                      source={require("../assets/istockphoto583851138612x612-2.png")}
+                      source={require("../../assets/istockphoto583851138612x612-2.png")}
                     />
                     <Text style={styles.rwf}>20,000 rwf</Text>
                   </View>

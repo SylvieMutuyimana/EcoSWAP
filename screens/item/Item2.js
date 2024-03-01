@@ -1,12 +1,11 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import ItemContainer2 from "../components/ItemContainer2";
-import SimilarItemsContainer from "../components/SimilarItemsContainer";
-import { Border, Color } from "../GlobalStyles";
+import ItemContainer2 from "../../components/ItemContainer2";
+import SimilarItemsContainer from "../../components/SimilarItemsContainer";
+import { Border, Color } from "../../GlobalStyles";
 
-const Item = () => {
+const Item2 = () => {
   const navigation = useNavigation();
 
   return (
@@ -15,7 +14,7 @@ const Item = () => {
         <View style={[styles.pagecontent, styles.thepageLayout]}>
           <ItemContainer2
             onPressablePress={() => navigation.goBack()}
-            onVectorPress={() => navigation.navigate("Item1")}
+            onVectorPress={() => navigation.navigate("Item11")}
           />
           <SimilarItemsContainer />
         </View>
@@ -50,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Item;
+export default Item2;

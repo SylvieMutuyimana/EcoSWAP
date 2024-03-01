@@ -29,7 +29,7 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
           style={[styles.homeAppliancesParent, styles.phonestabletsPosition]}
         >
           <HomeAppliances
-            homeAppliancesYoullLoveAn={require("../assets/5homeappliancesyoullloveandrelyoneveryday1-15.png")}
+            homeAppliancesYoullLoveAn={require("../assets/images/cat1.png")}
             homeApplicances="Home Applicances"
             homeAppliancesPosition="unset"
             homeAppliancesBackgroundColor="unset"

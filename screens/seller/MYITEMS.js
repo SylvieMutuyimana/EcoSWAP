@@ -2,12 +2,12 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import CategoryFilterContainer3 from "../components/CategoryFilterContainer3";
-import ProductSearchContainer1 from "../components/ProductSearchContainer1";
-import WishlistContainer1 from "../components/WishlistContainer1";
-import WishlistContainer from "../components/WishlistContainer";
-import NavSoldS from "../components/NavSoldS";
-import { FontSize, FontFamily, Color, Padding, Border } from "../GlobalStyles";
+import CategoryFilterContainer3 from "../../components/CategoryFilterContainer3";
+import ProductSearchContainer1 from "../../components/ProductSearchContainer1";
+import WishlistContainer1 from "../../components/WishlistContainer1";
+import WishlistContainer from "../../components/WishlistContainer";
+import NavSoldS from "../../components/NavSoldS";
+import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const MYITEMS = () => {
   const navigation = useNavigation();
@@ -24,7 +24,7 @@ const MYITEMS = () => {
             <Image
               style={styles.headingChild}
               contentFit="cover"
-              source={require("../assets/frame-175.png")}
+              source={require("../../assets/frame-175.png")}
             />
           </View>
           <CategoryFilterContainer3 />

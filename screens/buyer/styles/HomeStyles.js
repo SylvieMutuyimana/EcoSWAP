@@ -1,14 +1,14 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../components/Menu1";
-import Search from "./Search";
-import GalleryContainer from "../components/GalleryContainer";
-import CategoryContainer from "../components/CategoryContainer";
-import NewItemsContainer from "../components/NewItemsContainer";
-import TITLEPAGE from "../components/TITLEPAGE";
-import HomeContainer from "../components/HomeContainer";
-import { FontSize, FontFamily, Color, Border, Padding } from "../GlobalStyles";
+import Menu1 from "../../../components/Menu1";
+import Search from "../../Search";
+import GalleryContainer from "../../../components/GalleryContainer";
+import CategoryContainer from "../../../components/CategoryContainer";
+import NewItemsContainer from "../../../components/NewItemsContainer";
+import TITLEPAGE from "../../../components/TITLEPAGE";
+import HomeContainer from "../../../components/HomeContainer";
+import { FontSize, FontFamily, Color, Border, Padding } from "../../../GlobalStyles";
 
 const HOME = () => {
   const [
