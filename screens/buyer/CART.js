@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     height: 800,
     alignItems: "center",
     overflow: "hidden",
-  },
+  }
 });
 
 export default CART;
