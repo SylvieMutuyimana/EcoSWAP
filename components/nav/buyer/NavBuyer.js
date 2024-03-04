@@ -13,39 +13,47 @@ import cartChosen from "../../../assets/images/nav/buyer/vector27.png";
 import profileChosen from "../../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
 
-const NavBuyer = ({page_name}) => {
-  const navigation = useNavigation()
-  const userType = 'buyer'
-  const footer_pages = footerPages?.[userType]
-  const next_page = (theName)=> {
-    return footer_pages.find(page=>page.footerName===theName).name
-  }
+const NavBuyer = ({ page_name }) => {
+  const navigation = useNavigation();
+  const userType = 'buyer';
+  const footer_pages = footerPages?.[userType];
+  const next_page = (theName) => {
+    return footer_pages.find(page => page.footerName === theName).name;
+  };
   const thePage = (theName) => {
     return footer_pages.find(page => page.name === theName).footerName;
-  }
-  const [currentPage, setPage] = useState(thePage(page_name))
+  };
+  const [currentPage, setPage] = useState(thePage(page_name));
+
+  useEffect(() => {
+    setPage(thePage(page_name));
+  }, [page_name]); 
 
   const theIcons = {
-    "HOME": {unchosen: homeunChosen, chosen: homeChosen },
-    "CATEGORIES": {unchosen: catunChosen, chosen: catChosen },
-    "CART": {unchosen: cartunChosen, chosen: cartChosen },
-    "PROFILE": {unchosen: profileunChosen, chosen: profileChosen },
-  }
-  const changePage = (theName)=>{
-    setPage(theName)
-    navigation.navigate(userType?next_page(theName):'SessionTimeOut')
-  }
+    "HOME": { unchosen: homeunChosen, chosen: homeChosen },
+    "CATEGORIES": { unchosen: catunChosen, chosen: catChosen },
+    "CART": { unchosen: cartunChosen, chosen: cartChosen },
+    "PROFILE": { unchosen: profileunChosen, chosen: profileChosen },
+  };
+
+  const changePage = (theName) => {
+    setPage(theName);
+    navigation.navigate(userType ? next_page(theName) : 'SessionTimeOut');
+  };
+  console.log('page_name: ', page_name)
+  console.log('currentPage: ', currentPage)
   return (
     <View style={[navStyles.nav]}>
       {
         footer_pages.map((page, index) => (
-          <Pressable key={index} onPress={() => changePage(page.footerName)} 
+          <Pressable key={index} onPress={() => changePage(page.footerName)}
             style={[
-              navStyles.item, navStyles.iconFlexBox, 
-              page.footerName==='HOME'? navStyles.firstChild:null,
-              page.footerName === currentPage ? navStyles.chosenItem:null
+              navStyles.item, navStyles.iconFlexBox,
+              page.footerName === 'HOME' ? navStyles.firstChild : null,
+              page.footerName === currentPage ? navStyles.chosenItem : null
             ]}>
-              { page.footerName === currentPage ? (         
+            {
+              page.footerName === currentPage ? (
                 <React.Fragment>
                   <View style={[ChosenStyles.icon, navStyles.iconFlexBox]}>
                     <Image style={ChosenStyles.vectorIcon}
@@ -73,7 +81,7 @@ const NavBuyer = ({page_name}) => {
 
 const navStyles = StyleSheet.create({
   nav: {
-    width:"100%",
+    width: "100%",
     overflow: "hidden",
     flexDirection: "row",
     alignItems: "center",
@@ -81,19 +89,19 @@ const navStyles = StyleSheet.create({
     paddingHorizontal: Padding.p_11xl,
     paddingVertical: Padding.p_mini,
   },
-  item:{
+  item: {
     flexDirection: "row",
-    marginLeft:33,
+    marginLeft: 33,
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
     borderRadius: Border.br_xl,
   },
-  chosenItem:{
+  chosenItem: {
     backgroundColor: Color.primaryPureWhite,
   },
-  firstChild:{
-    marginLeft:0,
+  firstChild: {
+    marginLeft: 0,
   },
   iconFlexBox: {
     justifyContent: "center",
@@ -103,9 +111,8 @@ const navStyles = StyleSheet.create({
   },
 });
 
-
 const ChosenStyles = StyleSheet.create({
-  chosenPage:{
+  chosenPage: {
     position: "unset",
     backgroundColor: Color.primaryPureWhite,
   },
@@ -136,7 +143,7 @@ const unChosenStyles = StyleSheet.create({
   },
   icon: {
     padding: Padding.p_7xs,
-    backgroundColor:'transparent'
+    backgroundColor: 'transparent',
   },
 });
 

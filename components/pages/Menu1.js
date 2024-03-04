@@ -13,11 +13,11 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
         <View style={styles.mdicancelBoldParent}>
           <Pressable>
           <Image style={styles.mdicancelBoldIcon} contentFit="cover"
-            source={require("../assets/mdicancelbold.png")}
+            source={require("../../assets/mdicancelbold.png")}
           />
           </Pressable>
           <Image style={styles.rectangleIcon} contentFit="cover"
-            source={require("../assets/rectangle.png")}
+            source={require("../../assets/rectangle.png")}
           />
         </View>
         <View style={styles.frameParent}>
@@ -26,7 +26,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </View>
           <View style={[styles.wishlistParent, styles.parentFlexBox]}>
@@ -34,7 +34,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </View>
           <Pressable
@@ -45,7 +45,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </Pressable>
           <Pressable
@@ -56,7 +56,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </Pressable>
           <View style={[styles.wishlistParent, styles.parentFlexBox]}>
@@ -64,7 +64,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </View>
           <Pressable
@@ -75,7 +75,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </Pressable>
           <View style={[styles.wishlistParent, styles.parentFlexBox]}>
@@ -83,7 +83,7 @@ const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector26.png")}
+              source={require("../../assets/vector26.png")}
             />
           </View>
         </View>

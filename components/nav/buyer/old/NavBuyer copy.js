@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Border, Color, Padding, FontSize, FontFamily } from "../../../../../GlobalStyles";
-import { footerPages } from "../../../../../page_links";
+import { Border, Color, Padding, FontSize, FontFamily } from "../../../../GlobalStyles";
+import { footerPages } from "../../../../page_links";
 import homeunChosen from "../../../../assets/images/nav/buyer/vector20.png";
 import catunChosen from "../../../../assets/images/nav/buyer/group2.png";
 import cartunChosen from "../../../../assets/images/nav/buyer/vector8.png";
@@ -12,7 +12,7 @@ import catChosen from "../../../../assets/images/nav/buyer/group4.png";
 import cartChosen from "../../../../assets/images/nav/buyer/vector27.png";
 import profileChosen from "../../../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
-import { FooterPages } from "../../../../../next/ECOSWAP_NEW/frontend/components/navigation/page_links";
+import { FooterPages } from "../../../../next/ECOSWAP_NEW/frontend/components/navigation/page_links";
 
 const NavBuyer = ({page_name}) => {
   const userType = 'buyer';

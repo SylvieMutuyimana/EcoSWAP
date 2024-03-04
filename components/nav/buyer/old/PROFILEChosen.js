@@ -1,7 +1,7 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Border, Color, Padding, FontSize, FontFamily } from "../../../../../GlobalStyles";
+import { Border, Color, Padding, FontSize, FontFamily } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
