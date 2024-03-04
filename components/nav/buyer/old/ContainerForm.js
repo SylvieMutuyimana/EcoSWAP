@@ -1,29 +1,30 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable } from "react-native";
-import { Border, Padding } from "../../../GlobalStyles";
+import { Border, Padding } from "../../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const HOME2 = memo(({ hOMEPosition, onHOMEPress }) => {
-  const hOMEStyle = useMemo(() => {
+const ContainerForm = memo(({ cARTPosition, cARTMarginLeft, onCARTPress }) => {
+  const cARTStyle = useMemo(() => {
     return {
-      ...getStyleValue("position", hOMEPosition),
+      ...getStyleValue("position", cARTPosition),
+      ...getStyleValue("marginLeft", cARTMarginLeft),
     };
-  }, [hOMEPosition]);
+  }, [cARTPosition, cARTMarginLeft]);
 
   return (
     <Pressable
-      style={[styles.home, styles.homeFlexBox, hOMEStyle]}
-      onPress={onHOMEPress}
+      style={[styles.cart, styles.cartFlexBox, cARTStyle]}
+      onPress={onCARTPress}
     >
-      <View style={[styles.icon, styles.homeFlexBox]}>
+      <View style={[styles.icon, styles.cartFlexBox]}>
         <Image
           style={styles.vectorIcon}
           contentFit="cover"
-          source={require("../../../assets/images/nav/buyer/vector20.png")}
+          source={require("../../../../assets/images/nav/buyer/vector8.png")}
         />
       </View>
     </Pressable>
@@ -31,7 +32,7 @@ const HOME2 = memo(({ hOMEPosition, onHOMEPress }) => {
 });
 
 const styles = StyleSheet.create({
-  homeFlexBox: {
+  cartFlexBox: {
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
@@ -44,9 +45,9 @@ const styles = StyleSheet.create({
   icon: {
     padding: Padding.p_7xs,
   },
-  home: {
+  cart: {
     flexDirection: "row",
   },
 });
 
-export default HOME2;
+export default ContainerForm;

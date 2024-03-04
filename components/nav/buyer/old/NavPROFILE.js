@@ -5,7 +5,7 @@ import HOME2 from "./HOME2";
 import CATEGORY from "./CATEGORY";
 import ContainerForm from "./ContainerForm";
 import PROFILEChosen from "./PROFILEChosen";
-import { Border, Color, Padding } from "../../../GlobalStyles";
+import { Border, Color, Padding } from "../../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;

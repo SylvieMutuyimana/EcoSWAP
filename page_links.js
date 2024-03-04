@@ -4,6 +4,7 @@ import Welcome from "./screens/auth/Welcome";
 import Login from "./screens/auth/Login";
 import CreateAccount from "./screens/auth/CreateAccount";
 import Pin from "./screens/auth/Pin";
+import SessionTimeOut from "./screens/auth/SessionTimeOut";
 
 //loading pages
 import Loading from "./screens/buyer/Loading";
@@ -35,7 +36,7 @@ import Item11 from "./screens/item/Item11";
 import About from "./components/auth/About";
 import Search from "./screens/Search";
 import Menu from "./components/Menu";
-import Menu1 from "./components/Menu1";
+import Menu1 from "./components/pages/Menu1";
 
 export const auth_pages = [
     {name: "StartingPage", component: StartingPage, options: {headerShown: false }}, 
@@ -43,13 +44,14 @@ export const auth_pages = [
     {name: "Login", component: Login, options: {headerShown: false }}, 
     {name: "CreateAccount", component: CreateAccount, options: {headerShown: false }}, 
     {name: "Pin", component: Pin, options: {headerShown: false }}, 
+    {name: "SessionTimeOut", component: SessionTimeOut, options: {headerShown: false }}, 
 ]
 
 export const footerPages = {
     buyer:[
         {footerName:'HOME', name: "BuyerHome", component: BuyerHome, options: {headerShown: false }}, 
-        {footerName:'CATEGORIES', name: "CATEGORIES", component: CATEGORIES, options: {headerShown: false }}, 
-        {footerName:'CART', name: "CART", component: CART, options: {headerShown: false }}, 
+        {footerName:'CATEGORIES', name: "Categories", component: CATEGORIES, options: {headerShown: false }}, 
+        {footerName:'CART', name: "Cart", component: CART, options: {headerShown: false }}, 
         {footerName:'PROFILE', name: "BuyerProfile", component: PROFILE, options: {headerShown: false }}, 
     ],
     seller:[

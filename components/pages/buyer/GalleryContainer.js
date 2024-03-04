@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { Image } from "expo-image";
-import { Border, Color, FontSize, FontFamily } from "../GlobalStyles";
+import { Border, Color, FontSize, FontFamily } from "../../../GlobalStyles";
 
 const GalleryContainer = memo(() => {
   return (
@@ -12,13 +12,13 @@ const GalleryContainer = memo(() => {
           <Image
             style={[styles.maskGroupParent, styles.maskGroupPosition]}
             contentFit="cover"
-            source={require("../assets/mask-group.png")}
+            source={require("../../../assets/mask-group.png")}
           />
           <View style={[styles.groupItem, styles.groupItemPosition]} />
           <Image
             style={[styles.groupInner, styles.groupPosition]}
             contentFit="cover"
-            source={require("../assets/group-35.png")}
+            source={require("../../../assets/group-35.png")}
           />
           <View style={[styles.ourServiceWrapper, styles.ourLayout1]}>
             <Text style={[styles.ourService, styles.moreClr]}>
@@ -30,13 +30,13 @@ const GalleryContainer = memo(() => {
           <Image
             style={[styles.maskGroupIcon1, styles.maskGroupPosition]}
             contentFit="cover"
-            source={require("../assets/mask-group1.png")}
+            source={require("../../../assets/mask-group1.png")}
           />
           <View style={[styles.rectangleView, styles.groupItemPosition]} />
           <Image
             style={[styles.groupIcon, styles.groupPosition]}
             contentFit="cover"
-            source={require("../assets/group-351.png")}
+            source={require("../../../assets/group-351.png")}
           />
           <View style={[styles.ourServiceParent, styles.ourLayout]}>
             <Text style={[styles.ourService1, styles.ourLayout]}>

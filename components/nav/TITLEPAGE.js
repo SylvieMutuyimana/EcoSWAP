@@ -1,76 +1,17 @@
 import React, { useMemo, memo } from "react";
-import {
-  Text,
-  StyleSheet,
-  Pressable,
-  View,
-  ImageSourcePropType,
-} from "react-native";
+import {Text,StyleSheet,Pressable,View,} from "react-native";
 import { Image } from "expo-image";
 import { FontSize, FontFamily, Color, Border, Padding } from "../../GlobalStyles";
 
-const getStyleValue = (key, value) => {
-  if (value === undefined) return;
-  return { [key]: value === "unset" ? undefined : value };
-};
-const TITLEPAGE = memo(
-  ({
-    pROFILE,
-    icon,
-    headerProfilePosition,
-    headerProfileBorderBottomRightRadius,
-    headerProfileBorderBottomLeftRadius,
-    headerProfileTop,
-    headerProfileLeft,
-    pROFILEColor,
-    fluentnavigation16FilledOverflow,
-    onFluentnavigation16FilledPress,
-  }) => {
-    const headerProfileStyle = useMemo(() => {
-      return {
-        ...getStyleValue("position", headerProfilePosition),
-        ...getStyleValue(
-          "borderBottomRightRadius",
-          headerProfileBorderBottomRightRadius
-        ),
-        ...getStyleValue(
-          "borderBottomLeftRadius",
-          headerProfileBorderBottomLeftRadius
-        ),
-        ...getStyleValue("top", headerProfileTop),
-        ...getStyleValue("left", headerProfileLeft),
-      };
-    }, [
-      headerProfilePosition,
-      headerProfileBorderBottomRightRadius,
-      headerProfileBorderBottomLeftRadius,
-      headerProfileTop,
-      headerProfileLeft,
-    ]);
-
-    const pROFILE1Style = useMemo(() => {
-      return {
-        ...getStyleValue("color", pROFILEColor),
-      };
-    }, [pROFILEColor]);
-
-    const fluentnavigation16FilledStyle = useMemo(() => {
-      return {
-        ...getStyleValue("overflow", fluentnavigation16FilledOverflow),
-      };
-    }, [fluentnavigation16FilledOverflow]);
+const TITLEPAGE = memo(({onFluentnavigation16FilledPress}) => {
 
     return (
-      <View style={[styles.headerProfile, headerProfileStyle]}>
-        <Text style={[styles.profile, pROFILE1Style]}>{pROFILE}</Text>
-        <Pressable
-          style={[
-            styles.fluentnavigation16Filled,
-            fluentnavigation16FilledStyle,
-          ]}
+      <View style={styles.headerProfile}>
+        <Text style={styles.profile}>PROFILE</Text>
+        <Pressable style={styles.fluentnavigation16Filled}
           onPress={onFluentnavigation16FilledPress}
         >
-          <Image style={styles.icon} contentFit="cover" source={icon} />
+          <Image style={styles.icon} contentFit="cover" source={require("../../assets/fluentnavigation16filled1.png")} />
         </Pressable>
       </View>
     );
@@ -84,8 +25,9 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.interBlack,
     color: Color.colorsDefault,
     textAlign: "left",
-    width: 176,
+    width: "100%",
     height: 20,
+    color: "#d9d9d9"
   },
   icon: {
     width: "100%",
@@ -110,6 +52,8 @@ const styles = StyleSheet.create({
     paddingRight: Padding.p_3xs,
     paddingBottom: Padding.p_sm_5,
     overflow: "hidden",
+    borderBottomRightRadius:15,
+    borderBottomLeftRadius:15
   },
 });
 

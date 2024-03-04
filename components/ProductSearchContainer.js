@@ -19,9 +19,9 @@ const ProductSearchContainer = memo(({ propMarginTop, onMenuiconPress }) => {
       <View style={[styles.searchProductNameParent, styles.searchFlexBox]}>
         <Text style={styles.searchProductName}>Search Product Name</Text>
         <Image
-          style={styles.bitcoinIconssearchOutline}
+          style={styles.searchButton}
           contentFit="cover"
-          source={require("../assets/bitcoiniconssearchoutline.png")}
+          source={require("../assets/images/app/searchButton.png")}
         />
       </View>
       <Pressable style={styles.menuicon} onPress={onMenuiconPress}>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     width: 222,
     height: 17,
   },
-  bitcoinIconssearchOutline: {
+  searchButton: {
     width: 21,
     height: 25,
     marginLeft: 10,

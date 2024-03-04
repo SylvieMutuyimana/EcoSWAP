@@ -1,15 +1,14 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import BuyerPageTemplate from "./Template";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../../components/Menu1";
-import { useNavigation } from "@react-navigation/native";
+import Menu1 from "../../components/pages/Menu1";
 import TITLEPAGE from "../../components/nav/TITLEPAGE";
-import NavPROFILE from "../../components/nav/buyer/NavPROFILE";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
-const PROFILE = () => {
-  const [
-    fluentnavigation16FilledIconVisible,
+const BuyerProfile = () => {
+  const [fluentnavigation16FilledIconVisible,
     setFluentnavigation16FilledIconVisible,
   ] = useState(false);
   const navigation = useNavigation();
@@ -23,93 +22,56 @@ const PROFILE = () => {
   }, []);
 
   return (
-    <>
-      <View style={styles.profile}>
-        <View style={styles.thepage}>
-          <View style={styles.pagecontent}>
-            <TITLEPAGE
-              pROFILE="PROFILE"
-              icon={require("../../assets/fluentnavigation16filled1.png")}
-              headerProfilePosition="unset"
-              headerProfileBorderBottomRightRadius={15}
-              headerProfileBorderBottomLeftRadius={15}
-              headerProfileTop="unset"
-              headerProfileLeft="unset"
-              pROFILEColor="#d9d9d9"
-              fluentnavigation16FilledOverflow="unset"
-              onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}
-            />
-            <View style={[styles.image, styles.imageSpaceBlock]}>
-              <Image
-                style={styles.imageChild}
-                contentFit="cover"
-                source={require("../../assets/frame-1644.png")}
-              />
-            </View>
-            <View style={[styles.details, styles.imageSpaceBlock]}>
-              <Text
-                style={[
-                  styles.nameMunezaLionelContainer,
-                  styles.munezaContainerTypo,
-                ]}
-              >
-                <Text style={styles.name}>{`Name:
-`}</Text>
-                <Text style={styles.munezaLionel}>Muneza Lionel</Text>
-              </Text>
-              <Text
-                style={[
-                  styles.accountTypeRegularContainer,
-                  styles.munezaContainerTypo,
-                ]}
-              >
-                <Text style={styles.name}>{`Account type:
-`}</Text>
-                <Text style={styles.munezaLionel}>{`Regular
-`}</Text>
-              </Text>
-              <Text
-                style={[styles.usernameLMuneza, styles.munezaContainerTypo]}
-              >
-                <Text style={styles.name}>{`Username:
-`}</Text>
-                <Text style={styles.munezaLionel}>l_muneza</Text>
-              </Text>
-            </View>
-          </View>
-        </View>
-        <NavPROFILE
-          navProfilePosition="unset"
-          onHOMEPress={() => navigation.navigate("HOMES")}
-          onCATEGORYPress={() => navigation.navigate("CATEGORIES1")}
-          onCARTPress={() => navigation.navigate("CART")}
-          onPROFILEChosenPress={() => navigation.navigate("PROFILE")}
+    <BuyerPageTemplate page_name ='BuyerProfile'>
+      <TITLEPAGE style={styles.titlePage} onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
+      <View style={[styles.image, styles.imageSpaceBlock]}>
+        <Image style={styles.imageChild} contentFit="cover"
+          source={require("../../assets/frame-1644.png")}
         />
       </View>
-
-      <Modal
-        animationType="fade"
-        transparent
+      <View style={[styles.details, styles.imageSpaceBlock]}>
+        <Text style={[ styles.dataContainer,
+            styles.dataContainer1,
+          ]}>
+          <Text style={styles.name}>Name: </Text>
+          <Text style={styles.text}>Muneza Lionel</Text>
+        </Text>
+        <Text style={[ styles.accountTypeRegularContainer,
+            styles.dataContainer1,
+          ]}
+        >
+          <Text style={styles.name}>Account type:</Text>
+          <Text style={styles.text}>Regular</Text>
+        </Text>
+        <Text style={[styles.username, styles.dataContainer1]}>
+          <Text style={styles.name}>Username:</Text>
+          <Text style={styles.text}>l_muneza</Text>
+        </Text>
+      </View>
+      <Modal animationType="fade" transparent
         visible={fluentnavigation16FilledIconVisible}
       >
-        <View style={styles.fluentnavigation16FilledIconOverlay}>
-          <Pressable
-            style={styles.fluentnavigation16FilledIconBg}
+        <View style={styles.fluentnavFilledIconOverlay}>
+          <Pressable style={styles.fluentnaviFilledIcon}
             onPress={closeFluentnavigation16FilledIcon}
           />
           <Menu1 onClose={closeFluentnavigation16FilledIcon} />
         </View>
       </Modal>
-    </>
+    </BuyerPageTemplate>
   );
 };
 
 const styles = StyleSheet.create({
+  titlePage:{
+    width:"100%",
+    backgroundColor: 'red'
+  },
   imageSpaceBlock: {
     marginTop: 10,
     overflow: "hidden",
   },
-  munezaContainerTypo: {
+  dataContainer1: {
     width: 122,
     textAlign: "left",
     color: Color.colorsDefault,
@@ -117,13 +79,13 @@ const styles = StyleSheet.create({
     left: 5,
     position: "absolute",
   },
-  fluentnavigation16FilledIconOverlay: {
+  fluentnavFilledIconOverlay: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgba(113, 113, 113, 0.3)",
   },
-  fluentnavigation16FilledIconBg: {
+  fluentnaviFilledIcon: {
     position: "absolute",
     width: "100%",
     height: "100%",
@@ -145,10 +107,10 @@ const styles = StyleSheet.create({
     fontWeight: "900",
     fontFamily: FontFamily.interBlack,
   },
-  munezaLionel: {
+  text: {
     fontFamily: FontFamily.interRegular,
   },
-  nameMunezaLionelContainer: {
+  dataContainer: {
     top: 9,
     height: 42,
   },
@@ -156,7 +118,7 @@ const styles = StyleSheet.create({
     top: 107,
     height: 39,
   },
-  usernameLMuneza: {
+  username: {
     top: 58,
     height: 41,
   },
@@ -164,29 +126,6 @@ const styles = StyleSheet.create({
     width: 298,
     height: 146,
   },
-  pagecontent: {
-    top: 0,
-    left: 0,
-    height: 676,
-    position: "absolute",
-    width: 360,
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  thepage: {
-    height: 696,
-    width: 360,
-    overflow: "hidden",
-  },
-  profile: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 800,
-    alignItems: "center",
-    overflow: "hidden",
-  },
 });
 
-export default PROFILE;
+export default BuyerProfile;

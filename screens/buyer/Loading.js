@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import { Image } from "expo-image";
 import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer";
 import ApplianceExample from "../../components/ApplianceExample";
-import NavHome from "../../components/nav/buyer/NavHome";
+import NavHome from "../../components/nav/buyer/old/NavHome";
 import { useNavigation } from "@react-navigation/native";
 import { LoadingStyles } from "./styles/LoadingStyles";
 import BuyerPageTemplate from "./Template";
@@ -92,8 +92,8 @@ const Loading = () => {
       <View style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}>
           <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
             <Text style={LoadingStyles.searchProductName}>Search Product Name</Text>
-            <Image style={LoadingStyles.bitcoinIconssearchOutline} contentFit="cover"
-              source={require("../../assets/bitcoiniconssearchoutline.png")}
+            <Image style={LoadingStyles.searchButton} contentFit="cover"
+              source={require("../../assets/images/app/searchButton.png")}
             />
           </View>
           <Image style={LoadingStyles.menuicon} contentFit="cover"

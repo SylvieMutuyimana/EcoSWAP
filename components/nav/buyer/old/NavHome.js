@@ -5,7 +5,7 @@ import HOMEChosen from "./HOMEChosen";
 import CATEGORY from "./CATEGORY";
 import ContainerForm from "./ContainerForm";
 import ProfileContainer1 from "./ProfileContainer1";
-import { Border, Color, Padding } from "../../../GlobalStyles";
+import { Border, Color, Padding } from "../../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;

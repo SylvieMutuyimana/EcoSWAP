@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, Text, View, ImageSourcePropType } from "react-native";
-import { Color, FontSize, FontFamily, Padding, Border } from "../GlobalStyles";
+import { Color, FontSize, FontFamily, Padding, Border } from "../../../GlobalStyles";
 
 const PriceListContainer = memo(
   ({ phoneDescription, phoneIssueDescription, phonePrice }) => {
@@ -21,7 +21,7 @@ const PriceListContainer = memo(
             <Image
               style={styles.vectorIcon}
               contentFit="cover"
-              source={require("../assets/vector.png")}
+              source={require("../../../assets/vector.png")}
             />
           </View>
         </View>

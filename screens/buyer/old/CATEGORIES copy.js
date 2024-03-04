@@ -1,11 +1,7 @@
-import React, { useState, useCallback } from "react";
-import { Text, View, Pressable, Modal, TextInput, StyleSheet } from "react-native";
-import { Image } from "expo-image";
-import { useNavigation } from "@react-navigation/native";
-import BuyerPageTemplate from "./Template";
-import { buyerHomeStyles } from "./styles/buyerHomeStyles";
-import Search from "../Search";
-import { LoadingStyles } from "./styles/LoadingStyles";
+/*
+import * as React from "react";
+import { Text, StyleSheet, View } from "react-native";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import CategoryFilterContainer1 from "../../components/pages/buyer/CategoryFilterContainer1";
 import ContainerItem3 from "../../components/ContainerItem3";
 import ContainerItem2 from "../../components/ContainerItem2";
@@ -14,38 +10,15 @@ import ContainerItem from "../../components/ContainerItem";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const CATEGORIES = () => {
-  const navigation = useNavigation();
-  const [searchContainer, setsearchContainer] = useState(false);
-
-  const openSearchContainer = useCallback(() => {
-    setsearchContainer(true);
-  }, []);
-
-  const closesearchContainer = useCallback(() => {
-    setsearchContainer(false);
-  }, []);
-  const [searcInput, setInput] = useState(null)
-  const searchPart = ()=>{
-    return(
-      <Pressable onPress={openSearchContainer} 
-        style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}
-      >
-        <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
-          <TextInput style={LoadingStyles.searchProductName}
-            placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
-          />
-          <Image style={LoadingStyles.searchButton} contentFit="cover"
-            source={require("../../assets/images/app/searchButton.png")}
-          />
-        </View>
-        <Image style={LoadingStyles.menuicon} contentFit="cover"
-          source={require("../../assets/menuicon.png")}
-        />
-      </Pressable>
-    )
-  }
   return (
-    <BuyerPageTemplate page_name ='Categories'>
+    <View style={[styles.categories1, styles.itemsFlexBox]}>
+      <TITLEPAGE pROFILE={`CATEGORIES`}
+        headerProfilePosition="unset"
+        headerProfileTop="unset"
+        headerProfileLeft="unset"
+        pROFILEColor="#000"
+        fluentnavigation16FilledOverflow="hidden"
+      />
       <View style={[styles.categoriesParent, styles.itemsFlexBox]}>
         <CategoryFilterContainer1 />
         <View style={[styles.items, styles.itemsFlexBox]}>
@@ -75,18 +48,11 @@ const CATEGORIES = () => {
           </View>
         </View>
       </View>
-      <Modal animationType="fade" transparent visible={searchContainer}>
-        <View style={buyerHomeStyles.searchContainerOverlay}>
-          <Pressable
-            style={buyerHomeStyles.searchContainerBg}
-            onPress={closesearchContainer}
-          />
-          <Search onClose={closesearchContainer} />
-        </View>
-      </Modal>
-    </BuyerPageTemplate>
+      <CategoryFilterContainer4 />
+    </View>
   );
 };
+
 const styles = StyleSheet.create({
   itemsFlexBox: {
     alignItems: "center",
@@ -130,4 +96,6 @@ const styles = StyleSheet.create({
     paddingVertical: Padding.p_28xl,
   },
 });
+
 export default CATEGORIES;
+*/

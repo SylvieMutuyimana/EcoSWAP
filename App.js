@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { page_links } from "./page_links";
 import { theFonts } from "./components/accessories/fonts";
 import { getUserFromLocalStorage } from "./components/data/localStorage";
+import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -47,6 +48,7 @@ const App = () => {
           />
         ))}
       </Stack.Navigator>
+      <StatusBar style="auto"/>
     </NavigationContainer>
   );
 };

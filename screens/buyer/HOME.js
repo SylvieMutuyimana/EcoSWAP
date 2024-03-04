@@ -1,13 +1,14 @@
 import React, { useState, useCallback } from "react";
-import { Text, View, Pressable, Modal } from "react-native";
+import { Text, View, Pressable, Modal, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
 import { buyerHomeStyles } from "./styles/buyerHomeStyles";
 import Search from "../Search";
-import GalleryContainer from "../../components/GalleryContainer";
+import GalleryContainer from "../../components/pages/buyer/GalleryContainer";
 import CategoryContainer from "../../components/pages/buyer/CategoryContainer";
-import NewItemsContainer from "../../components/NewItemsContainer";
+import NewItemsContainer from "../../components/pages/buyer/NewItemsContainer";
+import { LoadingStyles } from "./styles/LoadingStyles";
 
 const BuyerHome = () => {
   const navigation = useNavigation();
@@ -20,22 +21,24 @@ const BuyerHome = () => {
   const closesearchContainer = useCallback(() => {
     setsearchContainer(false);
   }, []);
-
+  const [searcInput, setInput] = useState(null)
   const searchPart = ()=>{
     return(
-      <Pressable
-      style={buyerHomeStyles.guysimmmonsgmailcomParent}
-      onPress={openSearchContainer}
-    >
-      <Text style={buyerHomeStyles.guysimmmonsgmailcom}>
-        Search Product Name
-      </Text>
-      <Image
-        style={buyerHomeStyles.regularsearchIcon}
-        contentFit="cover"
-        source={require("../../assets/regularsearch.png")}
-      />
-    </Pressable>
+      <Pressable onPress={openSearchContainer} 
+        style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}
+      >
+        <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
+          <TextInput style={LoadingStyles.searchProductName}
+            placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
+          />
+          <Image style={LoadingStyles.searchButton} contentFit="cover"
+            source={require("../../assets/images/app/searchButton.png")}
+          />
+        </View>
+        <Image style={LoadingStyles.menuicon} contentFit="cover"
+          source={require("../../assets/menuicon.png")}
+        />
+      </Pressable>
     )
   }
   return (

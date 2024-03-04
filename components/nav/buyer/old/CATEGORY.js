@@ -1,7 +1,7 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable } from "react-native";
-import { Border, Padding } from "../../../GlobalStyles";
+import { Border, Padding } from "../../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
@@ -25,7 +25,7 @@ const CATEGORY = memo(
           <Image
             style={styles.groupIcon}
             contentFit="cover"
-            source={require("../../../assets/images/nav/buyer/group2.png")}
+            source={require("../../../../assets/images/nav/buyer/group2.png")}
           />
         </View>
       </Pressable>

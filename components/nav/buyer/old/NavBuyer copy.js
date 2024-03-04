@@ -1,45 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Border, Color, Padding, FontSize, FontFamily } from "../../../GlobalStyles";
-import { footerPages } from "../../../page_links";
-import homeunChosen from "../../../assets/images/nav/buyer/vector20.png";
-import catunChosen from "../../../assets/images/nav/buyer/group2.png";
-import cartunChosen from "../../../assets/images/nav/buyer/vector8.png";
-import profileunChosen from "../../../assets/images/nav/buyer/vector9.png";
-import homeChosen from "../../../assets/images/nav/buyer/vector7.png";
-import catChosen from "../../../assets/images/nav/buyer/group4.png";
-import cartChosen from "../../../assets/images/nav/buyer/vector27.png";
-import profileChosen from "../../../assets/images/nav/buyer/vector24.png";
+import { Border, Color, Padding, FontSize, FontFamily } from "../../../../../GlobalStyles";
+import { footerPages } from "../../../../../page_links";
+import homeunChosen from "../../../../assets/images/nav/buyer/vector20.png";
+import catunChosen from "../../../../assets/images/nav/buyer/group2.png";
+import cartunChosen from "../../../../assets/images/nav/buyer/vector8.png";
+import profileunChosen from "../../../../assets/images/nav/buyer/vector9.png";
+import homeChosen from "../../../../assets/images/nav/buyer/vector7.png";
+import catChosen from "../../../../assets/images/nav/buyer/group4.png";
+import cartChosen from "../../../../assets/images/nav/buyer/vector27.png";
+import profileChosen from "../../../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
+import { FooterPages } from "../../../../../next/ECOSWAP_NEW/frontend/components/navigation/page_links";
 
 const NavBuyer = ({page_name}) => {
-  const navigation = useNavigation()
-  const userType = 'buyer'
-  const footer_pages = footerPages?.[userType]
-  const next_page = (theName)=> {
-    return footer_pages.find(page=>page.footerName===theName).name
-  }
+  const userType = 'buyer';
+  const navigation = useNavigation();
   const thePage = (theName) => {
-    return footer_pages.find(page => page.name === theName).footerName;
+    return footerPages[userType].find(page => page.name === theName).footerName;
   }
-  const [currentPage, setPage] = useState(thePage(page_name))
-
   const theIcons = {
     "HOME": {unchosen: homeunChosen, chosen: homeChosen },
     "CATEGORIES": {unchosen: catunChosen, chosen: catChosen },
     "CART": {unchosen: cartunChosen, chosen: cartChosen },
     "PROFILE": {unchosen: profileunChosen, chosen: profileChosen },
   }
-  const changePage = (theName)=>{
-    setPage(theName)
-    navigation.navigate(userType?next_page(theName):'SessionTimeOut')
+  const footer_pages = footerPages[userType]
+  const [currentPage, setPage] = useState(thePage(page_name))
+  const changePage = (footerName, theName)=>{
+    setPage(footerName)
+    //navigation.navigate(userType?theName:'SessionTimeOut')
   }
   return (
     <View style={[navStyles.nav]}>
       {
-        footer_pages.map((page, index) => (
-          <Pressable key={index} onPress={() => changePage(page.footerName)} 
+        footer_pages && footer_pages.map((page, index) => (
+          <Pressable key={index} onPress={() => changePage(page.footerName, page.name)} 
             style={[
               navStyles.item, navStyles.iconFlexBox, 
               page.footerName==='HOME'? navStyles.firstChild:null,

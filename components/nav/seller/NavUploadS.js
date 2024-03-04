@@ -1,7 +1,7 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable, Text } from "react-native";
-import HOME2 from "../buyer/HOME2";
+import HOME2 from "../buyer/old/HOME2";
 import UPLOADSChosen from "./UPLOADSChosen";
 import SOLDS from "./SOLDS";
 import PROFILES1 from "./PROFILES1";

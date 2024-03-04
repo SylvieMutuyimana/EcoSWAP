@@ -2,23 +2,21 @@ import React, { memo } from "react";
 import { View, StyleSheet, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import { Padding, Border, FontSize, FontFamily, Color } from "../GlobalStyles";
+import { Padding, Border, FontSize, FontFamily, Color } from "../../GlobalStyles";
 
-const Menu1 = memo(({ onClose }) => {
+const Menu1 = memo(({ closeFluentnavigation16FilledIcon }) => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.menu}>
       <View style={styles.details}>
         <View style={styles.mdicancelBoldParent}>
-          <Image
-            style={styles.mdicancelBoldIcon}
-            contentFit="cover"
+          <Pressable>
+          <Image style={styles.mdicancelBoldIcon} contentFit="cover"
             source={require("../assets/mdicancelbold.png")}
           />
-          <Image
-            style={styles.rectangleIcon}
-            contentFit="cover"
+          </Pressable>
+          <Image style={styles.rectangleIcon} contentFit="cover"
             source={require("../assets/rectangle.png")}
           />
         </View>

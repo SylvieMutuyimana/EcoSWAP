@@ -5,7 +5,7 @@ import HOME2 from "./HOME2";
 import CATEGORY from "./CATEGORY";
 import CARTChosen from "./CARTChosen";
 import ProfileContainer1 from "./ProfileContainer1";
-import { Border, Color, Padding } from "../../../GlobalStyles";
+import { Border, Color, Padding } from "../../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;

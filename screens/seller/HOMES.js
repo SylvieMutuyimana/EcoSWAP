@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../../components/Menu1";
+import Menu1 from "../../components/pages/Menu1";
 import { useNavigation } from "@react-navigation/native";
 import ProductSearchContainer from "../../components/ProductSearchContainer";
 import EwasteManagementContainer from "../../components/EwasteManagementContainer";
 import CategoryContainerPhonesTablets from "../../components/pages/buyer/CategoryContainerPhonesTablets";
 import ItemContainer from "../../components/ItemContainer";
-import NavHome from "../../components/nav/buyer/NavHome";
+import NavHome from "../../components/nav/buyer/old/NavHome";
 import { Padding, Color, FontFamily, FontSize, Border } from "../../GlobalStyles";
 
 const HOMES = () => {
