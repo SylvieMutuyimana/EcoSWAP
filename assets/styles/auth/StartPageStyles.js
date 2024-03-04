@@ -3,7 +3,6 @@ import { FontSize, FontFamily, Color, Border } from "../../../GlobalStyles";
 
 export const StarterPageStyles = StyleSheet.create({
   thePage: {
-    borderRadius: Border.br_6xl,
     flex: 1,
     width: 360,
     height: 800,

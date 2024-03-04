@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { View, Text, Pressable, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { WelcomeStyles } from "../../components/auth/welcomeStyles";
+import { WelcomeStyles } from "../../assets/styles/auth/welcomeStyles";
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 
@@ -27,7 +27,7 @@ const Welcome = ({setUserType, userType}) => {
             contentFit="cover"
             source={require("../../assets/images/auth/electronicrecycling-1.png")}
           />
-          <Text style={[WelcomeStyles.eWasteManagement, WelcomeStyles.wasteFlexBox]}>
+          <Text style={WelcomeStyles.eWasteManagement}>
             E WASTE MANAGEMENT RE-IMAGINED
           </Text>
         </View>
@@ -38,25 +38,19 @@ const Welcome = ({setUserType, userType}) => {
             source={require("../../assets/frame-187.png")}
           />
           <Pressable style={WelcomeStyles.readMore} onPress={openReadMoreText}>
-            <Text style={[WelcomeStyles.readMore1, WelcomeStyles.wasteFlexBox]}>
+            <Text style={WelcomeStyles.readMore1}>
               Read More
             </Text>
           </Pressable>
         </View>
         <View style={[WelcomeStyles.userNav, WelcomeStyles.aboutSpaceBlock]}>
-          <Pressable
-            style={WelcomeStyles.buyFlexBox}
-            onPress={() => handleSubmit('seller')}
-          >
-            <Text style={[WelcomeStyles.sellEWaste, WelcomeStyles.wasteFlexBox]}>
+          <Pressable onPress={() => handleSubmit('seller')} style={WelcomeStyles.button}>
+            <Text style={WelcomeStyles.buttonText}>
               SELL E-WASTE
             </Text>
           </Pressable>
-          <Pressable
-            style={[WelcomeStyles.buy, WelcomeStyles.buyFlexBox]}
-            onPress={() => handleSubmit('buyer')}
-          >
-            <Text style={[WelcomeStyles.sellEWaste, WelcomeStyles.wasteFlexBox]}>
+          <Pressable onPress={() => handleSubmit('buyer')} style={WelcomeStyles.button}>
+            <Text style={WelcomeStyles.buttonText}>
               BUY E-WASTE
             </Text>
           </Pressable>

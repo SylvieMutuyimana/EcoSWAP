@@ -5,9 +5,9 @@ import Menu1 from "../../components/Menu1";
 import { useNavigation } from "@react-navigation/native";
 import ProductSearchContainer from "../../components/ProductSearchContainer";
 import EwasteManagementContainer from "../../components/EwasteManagementContainer";
-import CategoryContainerPhonesTablets from "../../components/CategoryContainerPhonesTablets";
+import CategoryContainerPhonesTablets from "../../components/pages/buyer/CategoryContainerPhonesTablets";
 import ItemContainer from "../../components/ItemContainer";
-import NavHome from "../../components/NavHome";
+import NavHome from "../../components/nav/buyer/NavHome";
 import { Padding, Color, FontFamily, FontSize, Border } from "../../GlobalStyles";
 
 const HOMES = () => {

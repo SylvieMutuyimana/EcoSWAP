@@ -13,40 +13,49 @@ const CreateAccount = ({authMessage, userType}) => {
   });
   const [signupError, setError] = useState(null);
   const formFields = [
-    { name: 'firstName', placeholder: 'Enter First Name' },
-    { name: 'lastName', placeholder: 'Enter Last Name' },
-    { name: 'email', placeholder: 'Enter Email', keyboardType: 'email-address' },
-    { name: 'phoneNum', placeholder: 'Enter Phone Number', keyboardType: 'phone-pad' },
-    { name: 'password', placeholder: 'Enter Password', secureTextEntry: true },
-    { name: 'password1', placeholder: 'Confirm Password', secureTextEntry: true }
+    { name: 'firstName', label: 'First Name', placeholder: 'Enter First Name' },
+    { name: 'lastName', label: 'Last Name', placeholder: 'Enter Last Name' },
+    { name: 'email', label: 'Email', placeholder: 'Enter Email', keyboardType: 'email-address' },
+    { name: 'phoneNum', label: 'Phone Number', placeholder: 'Enter Phone Number', keyboardType: 'phone-pad' },
+    { name: 'password', label: 'Password', placeholder: 'Enter Password', secureTextEntry: true },
+    { name: 'password1', label: 'Confirm Password', placeholder: 'Enter Confirm Password', secureTextEntry: true }
   ];
 
   const handleChange = (name, value) => {
     setDetails({ ...signupDetails, [name]: value });
   };
-  
+  const unauthorisedUser= ()=>{
+    navigation.navigate("Loading");
+  }
+
   const handleSubmit = () => {
     let missing_field = null; // Initialize with null
-    Object.entries(signupDetails).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(signupDetails)) {
       if (!value) {
         missing_field = key;
+        break;
       }
-    });
+    }
     const isValidEmail = (email) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     };
-    
-    if (missing_field) {
-      setError(`Missing ${missing_field}`);
-    } else if (
-      signupDetails.phoneNum.length !== 10 ||
-      isNaN(signupDetails.phoneNum) || // Corrected isInteger to isNaN
-      !['078', '079', '073', '072'].some(prefix => signupDetails.phoneNum.startsWith(prefix))
-    ) {
+    const acceptedPhone = ['078', '079', '073', '072']
+    const wrongPhone = (Num)=>{
+      if(Num.length !== 10 || isNaN(Num) || 
+        !acceptedPhone.some(prefix => Num.startsWith(prefix))){
+          return true
+      }
+    }
+    if (missing_field && missing_field!=='password1') {
+      const labe_ = formFields.find(field=>field.name === missing_field).label
+      setError(`Missing ${labe_}`);
+    } else if (wrongPhone(loginDetails.phoneNum)) {
       setError('Invalid phone number');
     } else if(isValidEmail(signupDetails.email)){
       setError('Invalid email');
+    }else if((signupDetails.password !== signupDetails.password1) || missing_field==='password1'){
+      setError('Passwords do not match')
     }else{
       navigation.navigate("Pin");
     }
@@ -61,30 +70,29 @@ const CreateAccount = ({authMessage, userType}) => {
               <Text style={authStyles.text}>{`<--`}</Text>
             </Pressable>
           </Pressable>
-          <Pressable style={authStyles.cancel} onPress={() => navigation.navigate("LoadingS")}>
+          <Pressable style={authStyles.cancel} onPress={() => unauthorisedUser()}>
             <Text style={authStyles.cancel1}>Skip</Text>
           </Pressable>
         </View>
         <View style={[authStyles.details, authStyles.detailsFlexBox, authStyles.register]}>
           <View style={authStyles.detailsFlexBox}>
-            <Text style={[authStyles.ecoSwap, authStyles.signInLayout]}>
-              ECO-SWAP
-            </Text>
-            <Text style={[authStyles.signIn, authStyles.signInLayout]}>SIGN IN</Text>
+            <Text style={[authStyles.signIn, authStyles.signInLayout]}>Create Account</Text>
           </View>
           <View style={[authStyles.form, authStyles.formFlexBox]}>
             <View style={authStyles.formfields}>
               {signupError&&(<Text style={authStyles.error}>{signupError}</Text>)}
               {authMessage&&(<Text style={authStyles.message}>{authMessage}</Text>)}
               {formFields.map((field, index) => (
-                <TextInput
-                  key={index}
-                  style={authStyles.input}
-                  placeholder={field.placeholder}
-                  onChangeText={(text) => handleChange(field.name, text)}
-                  keyboardType={field.keyboardType}
-                  secureTextEntry={field.secureTextEntry}
-                />
+                <React.Fragment key={index}>
+                  <View style={authStyles.fieldHead}><Text>{field.label}</Text></View>
+                  <TextInput
+                    style={authStyles.input}
+                    placeholder={field.placeholder}
+                    onChangeText={(text) => handleChange(field.name, text)}
+                    keyboardType={field.keyboardType}
+                    secureTextEntry={field.secureTextEntry}
+                  />
+                </React.Fragment>
               ))}
             </View>
             <View style={[authStyles.down, authStyles.downFlexBox]}>

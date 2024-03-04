@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import ImageContainer from "../../components/ImageContainer";
 import PriceContainer from "../../components/PriceContainer";
-import NavUploadS from "../../components/NavUploadS";
+import NavUploadS from "../../components/nav/seller/NavUploadS";
 import { Color, Border, FontFamily, FontSize, Padding } from "../../GlobalStyles";
 
 const SELL1 = () => {

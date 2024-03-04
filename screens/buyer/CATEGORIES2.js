@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
-import TITLEPAGE from "../../components/TITLEPAGE";
-import CategoryFilterContainer2 from "../../components/CategoryFilterContainer";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
+import CategoryFilterContainer2 from "../../components/pages/buyer/CategoryFilterContainer";
 import ContainerItem3 from "../../components/ContainerItem3";
 import ContainerItem2 from "../../components/ContainerItem2";
 import ContainerItem1 from "../../components/ContainerItem1";
 import ContainerItem from "../../components/ContainerItem";
-import CategoryFilterContainer from "../../components/CategoryFilterContainer4";
+import CategoryFilterContainer from "../../components/pages/buyer/CategoryFilterContainer4";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const CATEGORIES2 = () => {

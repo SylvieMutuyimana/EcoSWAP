@@ -1,18 +1,21 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, View } from "react-native";
 import StatusBar1 from "../components/nav/StatusBar1";
-import { Color, Padding } from "../GlobalStyles";
+import { Border, Color, Width } from "../GlobalStyles";
 
-const FullPageTemplate = ({ status_bar, green_back, children, footer}) => {
-  const navigation = useNavigation();
-
+const FullPageTemplate = ({ status_bar, green_back, children, TheFooter}) => {
+    
   return (
-    <View style={[styles.fullPage, green_back ? styles.auth : styles.content]}>
+    <View style={[styles.fullPage, green_back ? styles.auth : styles.notAuth]}>
       {status_bar && <StatusBar1 />}
-      <View style={[styles.thePage, footer? styles.withfooter: styles.withoutfooter ]}>
+      <View style={[styles.thePage, TheFooter? styles.withfooter: styles.withoutfooter ]}>
         {children}
       </View>
+      {TheFooter?(
+        <View style={styles.footer}>
+          {TheFooter()}
+        </View>
+      ):null}
     </View>
   );
 };
@@ -28,18 +31,39 @@ const styles = StyleSheet.create({
   auth:{
     backgroundColor: Color.green,
   },
-  content:{
+  notAuth:{
     backgroundColor: Color.grey,
   },
   thePage: {
     width: 360,
-    overflow:"scroll"
+    overflowY:"scroll",
+    overflowX: 'hidden'
   },
   withoutfooter:{
-    height: (800-40),
+    height: '100%', 
+    backgroundColor:'purple',
   },
   withfooter:{
-    height: (800-40-64)
+    height: 'calc(100% - 40px - 64px)',
+    backgroundColor:'orange',
+    width:'100%',
+    maxWidth:Width.maxPageWidth,
+    minWidth:Width.minPageWidth,
+  },
+  footer:{
+    backgroundColor:Color.footerBackground,
+    height: 64,
+    width:'100%',
+    minWidth:Width.minPageWidth,
+    maxWidth:Width.maxPageWidth,
+    borderTopLeftRadius: Border.br_6xl,
+    borderTopRightRadius: Border.br_6xl,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "center",
+    borderStyle: 'solid',
+    borderColor: '#8d8a8a',
+    borderTopWidth: 1,
   }
 });
 

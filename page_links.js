@@ -1,17 +1,16 @@
 //auth Page
-import StartingPage1 from "./screens/auth/StartingPage1";
-import StartingPage2 from "./screens/auth/StartingPage2";
+import StartingPage from "./screens/auth/StartingPage";
 import Welcome from "./screens/auth/Welcome";
 import Login from "./screens/auth/Login";
 import CreateAccount from "./screens/auth/CreateAccount";
 import Pin from "./screens/auth/Pin";
 
 //loading pages
-import Loading from "./screens/loading/Loading";
-import LoadingS from "./screens/loading/LoadingS";
+import Loading from "./screens/buyer/Loading";
+import LoadingS from "./screens/seller/LoadingS";
 
 //buyer pages
-import HOME from "./screens/buyer/HOME";
+import BuyerHome from "./screens/buyer/HOME";
 import CATEGORIES from "./screens/buyer/CATEGORIES";
 import CATEGORIES1 from "./screens/buyer/CATEGORIES1";
 import CART from "./screens/buyer/CART";
@@ -33,35 +32,41 @@ import Item2 from "./screens/item/Item2";
 import Item11 from "./screens/item/Item11";
 
 //more pages
-import About from "./components/About";
+import About from "./components/auth/About";
 import Search from "./screens/Search";
 import Menu from "./components/Menu";
 import Menu1 from "./components/Menu1";
 
 export const auth_pages = [
-    {name: "StartingPage1", component: StartingPage1, options: {headerShown: false }}, 
-    {name: "StartingPage2", component: StartingPage2, options: {headerShown: false }}, 
+    {name: "StartingPage", component: StartingPage, options: {headerShown: false }}, 
     {name: "Welcome", component: Welcome, options: {headerShown: false }}, 
     {name: "Login", component: Login, options: {headerShown: false }}, 
     {name: "CreateAccount", component: CreateAccount, options: {headerShown: false }}, 
     {name: "Pin", component: Pin, options: {headerShown: false }}, 
 ]
 
+export const footerPages = {
+    buyer:[
+        {footerName:'HOME', name: "BuyerHome", component: BuyerHome, options: {headerShown: false }}, 
+        {footerName:'CATEGORIES', name: "CATEGORIES", component: CATEGORIES, options: {headerShown: false }}, 
+        {footerName:'CART', name: "CART", component: CART, options: {headerShown: false }}, 
+        {footerName:'PROFILE', name: "BuyerProfile", component: PROFILE, options: {headerShown: false }}, 
+    ],
+    seller:[
+        {footerName:'HOME', name: "SellerHome", component: HOMES, options: {headerShown: false }}, 
+        {footerName:'SELL', name: "SELL", component: SELL, options: {headerShown: false }}, 
+        {footerName:'MY ITEMS', name: "MYITEMS", component: MYITEMS, options: {headerShown: false }}, 
+        {footerName:'PROFILE', name: "SellerProfile", component: PROFILE, options: {headerShown: false }}, 
+    ]
+}
 export const buyer_pages = [
-    {name: "BuyerHome", component: HOME, options: {headerShown: false }}, 
-    {name: "CATEGORIES", component: CATEGORIES, options: {headerShown: false }}, 
+    ...footerPages.buyer,
     {name: "CATEGORIES2", component: CATEGORIES2, options: {headerShown: false }}, 
     {name: "CATEGORIES1", component: CATEGORIES1, options: {headerShown: false }}, 
-    {name: "BuyerProfile", component: PROFILE, options: {headerShown: false }}, 
-    {name: "CART", component: CART, options: {headerShown: false }}, 
-
 ]
 export const seller_pages = [
-    {name: "SellerHome", component: HOMES, options: {headerShown: false }}, 
+    ...footerPages.seller,
     {name: "SelluploadItems", component: SelluploadItems, options: {headerShown: false }}, 
-    {name: "SELL", component: SELL, options: {headerShown: false }}, 
-    {name: "MYITEMS", component: MYITEMS, options: {headerShown: false }}, 
-    {name: "SellerProfile", component: PROFILES, options: {headerShown: false }}, 
     {name: "SELL1", component: SELL1, options: {headerShown: false }}, 
 
 ]

@@ -12,33 +12,44 @@ const Login = ({authMessage, userType}) => {
   });
   const [loginError, setError] = useState(null);
   const formFields = [
-    { name: 'phoneNum', placeholder: 'Enter Phone Number', keyboardType: 'phone-pad' },
-    { name: 'password', placeholder: 'Enter Password', secureTextEntry: true }
+    { name: 'phoneNum', label: 'Phone Number', placeholder: 'Enter Phone Number', keyboardType: 'phone-pad' },
+    { name: 'password', label: 'Password', placeholder: 'Enter Password', secureTextEntry: true },
   ];
 
   const handleChange = (name, value) => {
     setDetails({ ...loginDetails, [name]: value });
   };
   console.log('userType: ',userType)
+
+  const unauthorisedUser= ()=>{
+    navigation.navigate("Loading");
+  }
+  const authorisedUser= ()=>{
+    navigation.navigate("Loading");
+  }
   const handleSubmit = () => {
     let missing_field = null;
-    Object.entries(loginDetails).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(loginDetails)) {
       if (!value) {
         missing_field = key;
+        break;
       }
-    });
+    }
     const acceptedPhone = ['078', '079', '073', '072']
+    const wrongPhone = (Num)=>{
+      if(Num.length !== 10 || isNaN(Num) || 
+        !acceptedPhone.some(prefix => Num.startsWith(prefix))){
+          return true
+      }
+    }
     if (missing_field) {
-      setError(`Missing ${missing_field}`);
-    } else if (
-      loginDetails.phoneNum.length !== 10 ||
-      isNaN(loginDetails.phoneNum) || 
-      !acceptedPhone.some(prefix => loginDetails.phoneNum.startsWith(prefix))
-    ) {
+      const labe_ = formFields.find(field=>field.name === missing_field).label
+      setError(`Missing ${labe_}`);
+    } else if (wrongPhone(loginDetails.phoneNum)) {
       setError(`Invalid phone number`);
     } else {
       setError(null)
-      navigation.navigate("Loading");
+      authorisedUser()
     }
   };
 
@@ -51,7 +62,7 @@ const Login = ({authMessage, userType}) => {
               <Text style={authStyles.text}>{`<--`}</Text>
             </Pressable>
           </Pressable>
-          <Pressable style={authStyles.cancel} onPress={() => navigation.navigate("LoadingS")}>
+          <Pressable style={authStyles.cancel} onPress={() => unauthorisedUser()}>
             <Text style={authStyles.cancel1}>Skip</Text>
           </Pressable>
         </View>
@@ -67,14 +78,16 @@ const Login = ({authMessage, userType}) => {
               {loginError&&(<Text style={authStyles.error}>{loginError}</Text>)}
               {authMessage&&(<Text style={authStyles.message}>{authMessage}</Text>)}
               {formFields.map((field, index) => (
-                <TextInput
-                  key={index}
-                  style={authStyles.input}
-                  placeholder={field.placeholder}
-                  onChangeText={(text) => handleChange(field.name, text)}
-                  keyboardType={field.keyboardType}
-                  secureTextEntry={field.secureTextEntry}
-                />
+                <React.Fragment key={index}>
+                  <View style={authStyles.fieldHead}><Text>{field.label}</Text></View>
+                  <TextInput
+                    style={authStyles.input}
+                    placeholder={field.placeholder}
+                    onChangeText={(text) => handleChange(field.name, text)}
+                    keyboardType={field.keyboardType}
+                    secureTextEntry={field.secureTextEntry}
+                  />
+                </React.Fragment>
               ))}
             </View>
             <View style={[authStyles.down, authStyles.downFlexBox]}>

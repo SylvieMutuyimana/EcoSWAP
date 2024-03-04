@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import ContainerSlideshow from "../../components/ContainerSlideshow";
 import ItemContainer from "../../components/ItemContainer";
-import NavHomeS from "../../components/NavHomeS";
+import NavHomeS from "../../components/nav/seller/NavHomeS";
 import { Padding, Color, FontSize, FontFamily, Border } from "../../GlobalStyles";
 
 const HOME1 = () => {

@@ -1,184 +1,64 @@
 import React, { useState, useCallback } from "react";
-import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
+import { Text, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../../components/Menu1";
+import { useNavigation } from "@react-navigation/native";
+import BuyerPageTemplate from "./Template";
+import { buyerHomeStyles } from "./styles/buyerHomeStyles";
 import Search from "../Search";
 import GalleryContainer from "../../components/GalleryContainer";
-import CategoryContainer from "../../components/CategoryContainer";
+import CategoryContainer from "../../components/pages/buyer/CategoryContainer";
 import NewItemsContainer from "../../components/NewItemsContainer";
-import TITLEPAGE from "../../components/TITLEPAGE";
-import HomeContainer from "../../components/HomeContainer";
-import { FontSize, FontFamily, Color, Border, Padding } from "../../GlobalStyles";
 
-const HOME = () => {
-  const [
-    fluentnavigation16FilledIconVisible,
-    setFluentnavigation16FilledIconVisible,
-  ] = useState(false);
-  const [frameContainerVisible, setFrameContainerVisible] = useState(false);
+const BuyerHome = () => {
+  const navigation = useNavigation();
+  const [searchContainer, setsearchContainer] = useState(false);
 
-  const openFluentnavigation16FilledIcon = useCallback(() => {
-    setFluentnavigation16FilledIconVisible(true);
+  const openSearchContainer = useCallback(() => {
+    setsearchContainer(true);
   }, []);
 
-  const closeFluentnavigation16FilledIcon = useCallback(() => {
-    setFluentnavigation16FilledIconVisible(false);
+  const closesearchContainer = useCallback(() => {
+    setsearchContainer(false);
   }, []);
 
-  const openFrameContainer = useCallback(() => {
-    setFrameContainerVisible(true);
-  }, []);
-
-  const closeFrameContainer = useCallback(() => {
-    setFrameContainerVisible(false);
-  }, []);
-
+  const searchPart = ()=>{
+    return(
+      <Pressable
+      style={buyerHomeStyles.guysimmmonsgmailcomParent}
+      onPress={openSearchContainer}
+    >
+      <Text style={buyerHomeStyles.guysimmmonsgmailcom}>
+        Search Product Name
+      </Text>
+      <Image
+        style={buyerHomeStyles.regularsearchIcon}
+        contentFit="cover"
+        source={require("../../assets/regularsearch.png")}
+      />
+    </Pressable>
+    )
+  }
   return (
-    <>
-      <View style={styles.home}>
-        <View style={[styles.frameParent, styles.frameLayout]}>
-          <View style={[styles.frameWrapper, styles.frameLayout]}>
-            <Pressable
-              style={styles.guysimmmonsgmailcomParent}
-              onPress={openFrameContainer}
-            >
-              <Text style={styles.guysimmmonsgmailcom}>
-                Search Product Name
-              </Text>
-              <Image
-                style={styles.regularsearchIcon}
-                contentFit="cover"
-                source={require("../../assets/regularsearch.png")}
-              />
-            </Pressable>
-          </View>
-          <GalleryContainer />
-          <CategoryContainer />
-          <NewItemsContainer />
+    <BuyerPageTemplate page_name ='BuyerHome'>
+      <View style={[buyerHomeStyles.frameParent, buyerHomeStyles.frameLayout]}>
+        <View style={[buyerHomeStyles.frameWrapper, buyerHomeStyles.frameLayout]}>
+          {searchPart()}
         </View>
-        <TITLEPAGE
-          pROFILE="HOME"
-          icon={require("../../assets/fluentnavigation16filled.png")}
-          headerProfilePosition="absolute"
-          headerProfileTop={0}
-          headerProfileLeft={0}
-          pROFILEColor="#000"
-          fluentnavigation16FilledOverflow="unset"
-          onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}
-        />
-        <HomeContainer />
+        <GalleryContainer />
+        <CategoryContainer />
+        <NewItemsContainer />
       </View>
-
-      <Modal
-        animationType="fade"
-        transparent
-        visible={fluentnavigation16FilledIconVisible}
-      >
-        <View style={styles.fluentnavigation16FilledIconOverlay}>
+      <Modal animationType="fade" transparent visible={searchContainer}>
+        <View style={buyerHomeStyles.searchContainerOverlay}>
           <Pressable
-            style={styles.fluentnavigation16FilledIconBg}
-            onPress={closeFluentnavigation16FilledIcon}
+            style={buyerHomeStyles.searchContainerBg}
+            onPress={closesearchContainer}
           />
-          <Menu1 onClose={closeFluentnavigation16FilledIcon} />
+          <Search onClose={closesearchContainer} />
         </View>
       </Modal>
-
-      <Modal animationType="fade" transparent visible={frameContainerVisible}>
-        <View style={styles.frameContainerOverlay}>
-          <Pressable
-            style={styles.frameContainerBg}
-            onPress={closeFrameContainer}
-          />
-          <Search onClose={closeFrameContainer} />
-        </View>
-      </Modal>
-    </>
+    </BuyerPageTemplate>
   );
 };
 
-const styles = StyleSheet.create({
-  frameLayout: {
-    width: 360,
-    overflow: "hidden",
-  },
-  fluentnavigation16FilledIconOverlay: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(113, 113, 113, 0.3)",
-  },
-  fluentnavigation16FilledIconBg: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    left: 0,
-    top: 0,
-  },
-  frameContainerOverlay: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(113, 113, 113, 0.3)",
-  },
-  frameContainerBg: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    left: 0,
-    top: 0,
-  },
-  guysimmmonsgmailcom: {
-    fontSize: FontSize.size_3xs,
-    lineHeight: 18,
-    fontWeight: "500",
-    fontFamily: FontFamily.dMSansMedium,
-    color: Color.colorGray_300,
-    textAlign: "left",
-    display: "flex",
-    width: 139,
-    alignItems: "center",
-  },
-  regularsearchIcon: {
-    width: 14,
-    height: 14,
-    overflow: "hidden",
-  },
-  guysimmmonsgmailcomParent: {
-    position: "absolute",
-    height: "69.44%",
-    marginLeft: -163,
-    top: "16.67%",
-    bottom: "13.89%",
-    left: "50%",
-    borderRadius: Border.br_8xs,
-    backgroundColor: "rgba(255, 255, 255, 0.5)",
-    width: 325,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    zIndex: 0,
-    alignItems: "center",
-  },
-  frameWrapper: {
-    height: 36,
-  },
-  frameParent: {
-    height: 798,
-    zIndex: 0,
-  },
-  home: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 916,
-    justifyContent: "center",
-    paddingHorizontal: 0,
-    paddingVertical: Padding.p_28xl,
-    alignItems: "center",
-    overflow: "hidden",
-  },
-});
-
-export default HOME;
+export default BuyerHome;

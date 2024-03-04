@@ -19,6 +19,9 @@ const Pin = ({setAuthMessage, userType}) => {
     }
   };
 
+  const cancelDetails= ()=>{
+    navigation.navigate("Login");
+  }
   return (
     <FullPageTemplate status_bar={true} green_back={true} footer = {false}>
       <View style={[pageStyles.pageContent, pageStyles.auth]}>
@@ -28,7 +31,7 @@ const Pin = ({setAuthMessage, userType}) => {
               <Text style={authStyles.text}>{`<--`}</Text>
             </Pressable>
           </Pressable>
-          <Pressable style={authStyles.cancel} onPress={() => navigation.navigate("LoadingS")}>
+          <Pressable style={authStyles.cancel} onPress={() => cancelDetails()}>
             <Text style={authStyles.cancel1}>Cancel</Text>
           </Pressable>
         </View>

@@ -39,8 +39,11 @@ export const authStyles = StyleSheet.create({
     paddingTop: 0,
     marginTop: 0,
   },
+  fieldHead:{
+    marginTop:15, fontSize: 15
+  },
   input: {
-    width: '100%', height: 40,
+    width: 250, height: 40,
     paddingHorizontal: 10,
     shadowOpacity: 1,  elevation: 4,
     shadowRadius: 4,
@@ -54,9 +57,8 @@ export const authStyles = StyleSheet.create({
     fontSize: FontSize.size_base,
     fontStyle: "italic",
     fontFamily: FontFamily.interLight,
-    color: Color.colorsDefault,
+    color: 'white',
     textAlign: "left",
-    marginTop:15
   },
   text: {
     height: "100%",
@@ -96,6 +98,7 @@ export const authStyles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: Padding.p_12xs,
     paddingVertical: Padding.p_xs,
+    marginTop:10
   },
 
 

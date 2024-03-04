@@ -1,11 +1,11 @@
 import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
-import TITLEPAGE from "../../components/TITLEPAGE";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import ImageContainer from "../../components/ImageContainer";
 import PriceContainer from "../../components/PriceContainer";
 import { useNavigation } from "@react-navigation/native";
-import NavUPLOAD from "../../components/NavUPLOAD";
+import NavUPLOAD from "../../components/nav/seller/NavUPLOAD";
 import { Color, Border, FontFamily, FontSize, Padding } from "../../GlobalStyles";
 
 const SelluploadItems = () => {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
-import TITLEPAGE from "../../components/TITLEPAGE";
-import CategoryFilterContainer1 from "../../components/CategoryFilterContainer1";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
+import CategoryFilterContainer1 from "../../components/pages/buyer/CategoryFilterContainer1";
 import ContainerItem3 from "../../components/ContainerItem3";
 import ContainerItem2 from "../../components/ContainerItem2";
 import ContainerItem1 from "../../components/ContainerItem1";

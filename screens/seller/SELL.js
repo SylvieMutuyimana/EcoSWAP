@@ -2,11 +2,11 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import TITLEPAGE from "../../components/TITLEPAGE";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import ItemContainer1 from "../../components/ItemContainer1";
-import SoldItemsContainer from "../../components/SoldItemsContainer";
-import SaleItemsContainer from "../../components/SaleItemsContainer";
-import NavUPLOAD from "../../components/NavUPLOAD";
+import SoldItemsContainer from "../../components/pages/seller/SoldItemsContainer";
+import SaleItemsContainer from "../../components/pages/seller/SaleItemsContainer";
+import NavUPLOAD from "../../components/nav/seller/NavUPLOAD";
 import { Padding, Border, Color } from "../../GlobalStyles";
 
 const SELL = () => {

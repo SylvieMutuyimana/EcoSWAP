@@ -3,8 +3,8 @@ import { Text, StyleSheet, Pressable, View, Modal } from "react-native";
 import { Image } from "expo-image";
 import Menu from "../../components/Menu";
 import { useNavigation } from "@react-navigation/native";
-import TITLEPAGE from "../../components/TITLEPAGE";
-import NavProfileS from "../../components/NavProfileS";
+import TITLEPAGE from "../../components/nav/TITLEPAGE";
+import NavProfileS from "../../components/nav/seller/NavProfileS";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
 const PROFILES = () => {

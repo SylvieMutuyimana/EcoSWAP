@@ -2,11 +2,11 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import CategoryFilterContainer3 from "../../components/CategoryFilterContainer3";
+import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
 import ProductSearchContainer1 from "../../components/ProductSearchContainer1";
-import WishlistContainer1 from "../../components/WishlistContainer1";
-import WishlistContainer from "../../components/WishlistContainer";
-import NavSoldS from "../../components/NavSoldS";
+import WishlistContainer1 from "../../components/pages/buyer/WishlistContainer1";
+import WishlistContainer from "../../components/pages/buyer/WishlistContainer";
+import NavSoldS from "../../components/nav/seller/NavSoldS";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const MYITEMS = () => {

@@ -2,10 +2,10 @@ import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import Menu1 from "../../components/Menu1";
 import { useNavigation } from "@react-navigation/native";
-import CategoryFilterContainer3 from "../../components/CategoryFilterContainer3";
+import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
 import ProductSearchContainer from "../../components/ProductSearchContainer";
 import ContainerItem from "../../components/ContainerItem";
-import NavCategories from "../../components/NavCategories";
+import NavCategories from "../../components/nav/buyer/NavCategories";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const CATEGORIES1 = () => {

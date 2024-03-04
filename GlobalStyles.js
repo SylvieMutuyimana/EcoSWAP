@@ -114,3 +114,7 @@ export const Border = {
   br_81xl: 100,
   br_31xl: 50,
 };
+export const Width = {
+  maxPageWidth:420,
+  minPageWidth:360
+}
