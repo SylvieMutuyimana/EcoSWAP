@@ -16,6 +16,9 @@ export const setLocalStorageProp_ = (type, value) => {
 };
 
 export const getUserFromLocalStorage = () => getPropsFromLocalStorage(localStorageUser);
+export const getUserTypeFromLocalStorage = () => getPropsFromLocalStorage('userType');
+export const getLocalRecentPage = () => getPropsFromLocalStorage(recentPage);
+
 export const setLocalStorageUser = (value) => setLocalStorageProp_(localStorageUser, value);
-export const getLocalRecentPage= () => getPropsFromLocalStorage(recentPage);
+export const setLocalStorageUserType = (value) => setLocalStorageProp_('userType', value);
 export const setLocalRecentPage = (value) => setLocalStorageProp_(recentPage, value);

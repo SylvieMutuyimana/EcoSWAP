@@ -12,18 +12,15 @@ const Welcome = ({setUserType, userType}) => {
     // Implement your logic for opening read more text
   };
   const handleSubmit = (type) => {
-    //setUserType(type)
-    navigation.navigate("Login");
+    navigation.navigate("Login", { userType: type });
   };
-  console.log('setUserType: ', setUserType)
-
+  
   console.log('usertype: ', userType)
   return (
     <FullPageTemplate status_bar={true} green_back={true} footer = {false}>
       <View style={[pageStyles.pageContent, pageStyles.welcome]}>
         <View style={WelcomeStyles.title}>
-          <Image
-            style={WelcomeStyles.electronicRecycling1Icon}
+          <Image style={WelcomeStyles.electronicRecycling1Icon}
             contentFit="cover"
             source={require("../../assets/images/auth/electronicrecycling-1.png")}
           />

@@ -7,8 +7,8 @@ import Pin from "./screens/auth/Pin";
 import SessionTimeOut from "./screens/auth/SessionTimeOut";
 
 //loading pages
-import Loading from "./screens/buyer/Loading";
-import LoadingS from "./screens/seller/LoadingS";
+import BuyerLoading from "./screens/buyer/BuyerLoading";
+import SellerLoading from "./screens/seller/SellerLoading";
 
 //buyer pages
 import BuyerHome from "./screens/buyer/HOME";
@@ -36,7 +36,30 @@ import Item11 from "./screens/item/Item11";
 import About from "./components/auth/About";
 import Search from "./screens/Search";
 import Menu from "./components/Menu";
-import Menu1 from "./components/pages/Menu1";
+import BuyerMenu from "./components/pages/BuyerMenu";
+import { getUserTypeFromLocalStorage } from "./components/data/localStorage";
+
+const similar_menu = [
+    {name:'TERMS/POLICIES', link: null},
+    {name:'LOGOUT', link: null},
+    {name:'HELP', link: null},
+]
+
+export const menuPages = {
+    buyer:[
+        {name:'HOME', link: 'BuyerHome'},
+        {name:'WISHLIST', link: 'Cart'},
+        {name:'ACCOUNT', link: 'BuyerProfile'},
+        {name:'NEW ITEMS', link: 'Categories'},
+        ...similar_menu
+    ],
+    seller:[
+        {name:'HOME', link: 'SellerHome'},
+        {name:'ACCOUNT', link: 'BuyerProfile'},
+        {name:'MY ITEMS', link: 'MyItems'},
+        ...similar_menu
+    ]
+}
 
 export const auth_pages = [
     {name: "StartingPage", component: StartingPage, options: {headerShown: false }}, 
@@ -45,6 +68,8 @@ export const auth_pages = [
     {name: "CreateAccount", component: CreateAccount, options: {headerShown: false }}, 
     {name: "Pin", component: Pin, options: {headerShown: false }}, 
     {name: "SessionTimeOut", component: SessionTimeOut, options: {headerShown: false }}, 
+    {name: "BuyerLoading", component: BuyerLoading, options: {headerShown: false }}, 
+    {name: "SellerLoading", component: SellerLoading, options: {headerShown: false }}, 
 ]
 
 export const footerPages = {
@@ -56,8 +81,8 @@ export const footerPages = {
     ],
     seller:[
         {footerName:'HOME', name: "SellerHome", component: HOMES, options: {headerShown: false }}, 
-        {footerName:'SELL', name: "SELL", component: SELL, options: {headerShown: false }}, 
-        {footerName:'MY ITEMS', name: "MYITEMS", component: MYITEMS, options: {headerShown: false }}, 
+        {footerName:'SELL', name: "Sell", component: SELL, options: {headerShown: false }}, 
+        {footerName:'MY ITEMS', name: "MyItems", component: MYITEMS, options: {headerShown: false }}, 
         {footerName:'PROFILE', name: "SellerProfile", component: PROFILE, options: {headerShown: false }}, 
     ]
 }
@@ -73,8 +98,6 @@ export const seller_pages = [
 
 ]
 export const other_pages = [
-    {name: "Loading", component: Loading, options: {headerShown: false }}, 
-    {name: "LoadingS", component: LoadingS, options: {headerShown: false }}, 
     {name: "Search", component: Search, options: {headerShown: false }},
 ]
 export const all_page_links = [
@@ -82,18 +105,19 @@ export const all_page_links = [
     {name: "Item2", component: Item2, options: {headerShown: false }}, 
     {name: "Item11", component: Item11, options: {headerShown: false }}, 
     {name: "About", component: About, options: {headerShown: false }}, 
-    {name: "Menu1", component: Menu1, options: {headerShown: false }}, 
+    {name: "BuyerMenu", component: BuyerMenu, options: {headerShown: false }}, 
     {name: "Item", component: Item, options: {headerShown: false }}, 
     {name: "Item1", component: Item1, options: {headerShown: false }}, 
     {name: "Menu", component: Menu, options: {headerShown: false }}
 ]
+const find_page = (theName, theArray)=>theArray.find(page=>page.name === theName)
 
-export const page_links = (userType) => {
-    let links = [...auth_pages, ...other_pages]; 
-    if (userType === 'seller') {
-        links = [...links, ...seller_pages]; 
-    } else {
-        links = [...links, ...buyer_pages]; 
+export const page_links = () => {
+    let links = [...other_pages, ...auth_pages]; 
+    if (getUserTypeFromLocalStorage() === 'seller') {
+        links = [ ...seller_pages, ...links]; 
+    } else if (getUserTypeFromLocalStorage() === 'buyer'){
+        links = [ ...buyer_pages, ...links]; 
     }
     return links;
 };

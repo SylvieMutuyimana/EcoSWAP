@@ -4,8 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 import { authStyles } from "../../assets/styles/auth/authStyles";
+import { authoriseUser, unauthoriseUser } from "./navigate";
 
-const Login = ({authMessage, userType}) => {
+const Login = ({authMessage, route }) => {
   const navigation = useNavigation();
   const [loginDetails, setDetails] = useState({
     phoneNum: null, password: null
@@ -19,13 +20,16 @@ const Login = ({authMessage, userType}) => {
   const handleChange = (name, value) => {
     setDetails({ ...loginDetails, [name]: value });
   };
+  const { userType } = route.params;
   console.log('userType: ',userType)
 
   const unauthorisedUser= ()=>{
-    navigation.navigate("Loading");
+    const funct_ = unauthoriseUser(userType)
+    navigation.navigate(funct_, { userType: userType});
   }
-  const authorisedUser= ()=>{
-    navigation.navigate("Loading");
+  const authorisedUser = () => {
+    const funct_ = authoriseUser(userType, loginDetails)
+    navigation.navigate(funct_, { userType: userType});
   }
   const handleSubmit = () => {
     let missing_field = null;
@@ -101,7 +105,7 @@ const Login = ({authMessage, userType}) => {
               </Pressable>
               <Pressable 
                 style={[authStyles.createAccount, authStyles.login1Typo]}
-                onPress={()=>navigation.navigate('CreateAccount')} 
+                onPress={()=>navigation.navigate('CreateAccount', { userType: userType })} 
               >
                 <Text style={[authStyles.createAccount, authStyles.login1Typo]}>
                   Create Account

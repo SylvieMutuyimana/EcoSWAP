@@ -13,9 +13,8 @@ import cartChosen from "../../../assets/images/nav/buyer/vector27.png";
 import profileChosen from "../../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
 
-const NavBuyer = ({ page_name }) => {
+const NavBuyer = ({ page_name, userType }) => {
   const navigation = useNavigation();
-  const userType = 'buyer';
   const footer_pages = footerPages?.[userType];
   const next_page = (theName) => {
     return footer_pages.find(page => page.footerName === theName).name;
@@ -33,7 +32,7 @@ const NavBuyer = ({ page_name }) => {
     "HOME": { unchosen: homeunChosen, chosen: homeChosen },
     "CATEGORIES": { unchosen: catunChosen, chosen: catChosen },
     "CART": { unchosen: cartunChosen, chosen: cartChosen },
-    "PROFILE": { unchosen: profileunChosen, chosen: profileChosen },
+    "PROFILE": { unchosen: profileunChosen, chosen: profileChosen},
   };
 
   const changePage = (theName) => {

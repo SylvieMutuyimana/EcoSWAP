@@ -4,8 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 import { authStyles } from "../../assets/styles/auth/authStyles";
+import { unauthoriseUser } from "./navigate";
 
-const CreateAccount = ({authMessage, userType}) => {
+const CreateAccount = ({authMessage, route}) => {
+  const { userType } = route.params;
+
   const navigation = useNavigation();
   const [signupDetails, setDetails] = useState({
     firstName: null, lastName: null, email: null, phoneNum: null,
@@ -24,8 +27,10 @@ const CreateAccount = ({authMessage, userType}) => {
   const handleChange = (name, value) => {
     setDetails({ ...signupDetails, [name]: value });
   };
+
   const unauthorisedUser= ()=>{
-    navigation.navigate("Loading");
+    const funct_ = unauthoriseUser(userType)
+    navigation.navigate(funct_, { userType: userType});
   }
 
   const handleSubmit = () => {
@@ -57,7 +62,7 @@ const CreateAccount = ({authMessage, userType}) => {
     }else if((signupDetails.password !== signupDetails.password1) || missing_field==='password1'){
       setError('Passwords do not match')
     }else{
-      navigation.navigate("Pin");
+      navigation.navigate("Pin", { userType: userType });
     }
   };
 
@@ -106,7 +111,7 @@ const CreateAccount = ({authMessage, userType}) => {
               </Pressable>
               <Pressable 
                 style={[authStyles.createAccount, authStyles.login1Typo]}
-                onPress={()=>navigation.navigate('Login')} 
+                onPress={()=>navigation.navigate('Login', { userType: userType })} 
               >
                 <Text style={[authStyles.createAccount, authStyles.login1Typo]}>
                   Already have an account?

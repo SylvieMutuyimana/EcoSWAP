@@ -40,20 +40,14 @@ const styles = StyleSheet.create({
     marginLeft: 110,
   },
   headerProfile: {
-    borderBottomRightRadius: Border.br_mini,
-    borderBottomLeftRadius: Border.br_mini,
-    backgroundColor: Color.green,
-    elevation: 4,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingLeft: Padding.p_xl,
-    paddingTop: Padding.p_sm_5,
-    paddingRight: Padding.p_3xs,
-    paddingBottom: Padding.p_sm_5,
     overflow: "hidden",
     borderBottomRightRadius:15,
-    borderBottomLeftRadius:15
+    borderBottomLeftRadius:15,
+    width:'90%',
+    height:'100%'
   },
 });
 

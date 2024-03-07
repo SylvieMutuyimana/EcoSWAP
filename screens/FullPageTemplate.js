@@ -2,20 +2,28 @@ import * as React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import StatusBar1 from "../components/nav/StatusBar1";
 import { Border, Color, Width } from "../GlobalStyles";
+import { getUserTypeFromLocalStorage } from "../components/data/localStorage";
 
-const FullPageTemplate = ({ status_bar, green_back, children, TheFooter}) => {
-    
+const FullPageTemplate = ({ status_bar, green_back, children, TheFooter, the_page}) => {
+  const userType = getUserTypeFromLocalStorage();
+  console.log('the_page: ', the_page)
   return (
     <View style={[styles.fullPage, green_back ? styles.auth : styles.notAuth]}>
       {status_bar && <StatusBar1 />}
-      <View style={[styles.thePage, TheFooter? styles.withfooter: styles.withoutfooter ]}>
-        {children}
+      <View style={[styles.thePage, (TheFooter && the_page !== 'menu') ? styles.withfooter : styles.withoutfooter]}>
+        {
+          React.Children.map(children, (child) => {
+            return React.cloneElement(child, { userType: userType });
+          })
+        }
       </View>
-      {TheFooter?(
-        <View style={styles.footer}>
-          {TheFooter()}
-        </View>
-      ):null}
+      {
+        the_page!=='menu' && TheFooter && (
+          <View style={styles.footer}>
+            {TheFooter()}
+          </View>
+        )
+      }
     </View>
   );
 };
@@ -28,34 +36,32 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
-  auth:{
+  auth: {
     backgroundColor: Color.green,
   },
-  notAuth:{
+  notAuth: {
     backgroundColor: Color.grey,
   },
   thePage: {
     width: 360,
-    overflowY:"scroll",
-    overflowX: 'hidden'
+    overflowY: "scroll",
+    overflowX: 'hidden',
+    width: '100%',
+    maxWidth: Width.maxPageWidth,
+    minWidth: Width.minPageWidth,
   },
-  withoutfooter:{
-    height: '100%', 
-    backgroundColor:'purple',
+  withoutfooter: {
+    height: '100%',
   },
-  withfooter:{
+  withfooter: {
     height: 'calc(100% - 40px - 64px)',
-    backgroundColor:'orange',
-    width:'100%',
-    maxWidth:Width.maxPageWidth,
-    minWidth:Width.minPageWidth,
   },
-  footer:{
-    backgroundColor:Color.footerBackground,
+  footer: {
+    backgroundColor: Color.footerBackground,
     height: 64,
-    width:'100%',
-    minWidth:Width.minPageWidth,
-    maxWidth:Width.maxPageWidth,
+    width: '100%',
+    minWidth: Width.minPageWidth,
+    maxWidth: Width.maxPageWidth,
     borderTopLeftRadius: Border.br_6xl,
     borderTopRightRadius: Border.br_6xl,
     overflow: "hidden",

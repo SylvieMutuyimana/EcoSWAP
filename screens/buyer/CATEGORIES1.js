@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
-import Menu1 from "../../components/pages/Menu1";
+import Menu1 from "../../components/pages/BuyerMenu";
 import { useNavigation } from "@react-navigation/native";
 import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
 import ProductSearchContainer from "../../components/ProductSearchContainer";

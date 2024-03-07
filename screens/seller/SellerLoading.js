@@ -7,7 +7,7 @@ import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer"
 import NavHomeS from "../../components/nav/seller/NavHomeS";
 import { Padding, Color, Border, FontSize, FontFamily } from "../../GlobalStyles";
 
-const LoadingS = () => {
+const SellerLoading = () => {
   const navigation = useNavigation();
 
   return (
@@ -370,4 +370,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoadingS;
+export default SellerLoading;

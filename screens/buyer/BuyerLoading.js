@@ -7,12 +7,15 @@ import NavHome from "../../components/nav/buyer/old/NavHome";
 import { useNavigation } from "@react-navigation/native";
 import { LoadingStyles } from "./styles/LoadingStyles";
 import BuyerPageTemplate from "./Template";
-const Loading = () => {
+import { getUserTypeFromLocalStorage } from "../../components/data/localStorage";
+const BuyerLoading = () => {
   const navigation = useNavigation();
-
+  const userType = "buyer"
   useEffect(() => {
+    console.log('waiting for timetimer')
     const timer = setTimeout(() => {
       navigation.navigate("BuyerHome");
+      console.log('timer done')
     }, 2000); 
     return () => clearTimeout(timer);
   }, []);
@@ -115,4 +118,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default BuyerLoading;

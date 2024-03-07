@@ -4,7 +4,7 @@ import { Color, Padding } from "../../GlobalStyles";
 export const pageStyles = StyleSheet.create({
     pageContent: {
         alignItems: "center",
-        backgroundColor: 'blue'
+        //backgroundColor: 'blue'
     },
     auth:{
         width:"100%", height:"100%" ,

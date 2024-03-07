@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import Menu1 from "../../components/pages/Menu1";
+import Menu1 from "../../components/pages/BuyerMenu";
 import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
@@ -12,6 +12,7 @@ const BuyerProfile = () => {
     setFluentnavigation16FilledIconVisible,
   ] = useState(false);
   const navigation = useNavigation();
+  const userType  = 'buyer'; 
 
   const openFluentnavigation16FilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(true);
@@ -23,7 +24,10 @@ const BuyerProfile = () => {
 
   return (
     <BuyerPageTemplate page_name ='BuyerProfile'>
-      <TITLEPAGE style={styles.titlePage} onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
+      <View style={styles.titlePage} >
+      <TITLEPAGE onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
+
+      </View>
       <View style={[styles.image, styles.imageSpaceBlock]}>
         <Image style={styles.imageChild} contentFit="cover"
           source={require("../../assets/frame-1644.png")}
@@ -64,8 +68,16 @@ const BuyerProfile = () => {
 
 const styles = StyleSheet.create({
   titlePage:{
-    width:"100%",
-    backgroundColor: 'red'
+    width:"90%",
+    elevation: 4,
+    backgroundColor: Color.green,
+    borderBottomRightRadius: Border.br_mini,
+    borderBottomLeftRadius: Border.br_mini,
+    paddingLeft: 5,
+    paddingRight: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
   },
   imageSpaceBlock: {
     marginTop: 10,

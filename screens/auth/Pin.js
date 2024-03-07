@@ -5,7 +5,9 @@ import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 import { authStyles } from "../../assets/styles/auth/authStyles";
 
-const Pin = ({setAuthMessage, userType}) => {
+const Pin = ({setAuthMessage, route}) => {
+  const { userType } = route.params;
+
   const navigation = useNavigation();
   const [thePin, setPin] = useState(null);
   const [pinError, setError] = useState(null);
@@ -15,13 +17,14 @@ const Pin = ({setAuthMessage, userType}) => {
       setError(`Missing Pin`);
     } else {
       setAuthMessage('Account successfully created')
-      navigation.navigate("Login");
+      navigation.navigate("Login", { userType: userType});
     }
   };
 
   const cancelDetails= ()=>{
-    navigation.navigate("Login");
+    navigation.navigate("Login", {userType: userType });
   }
+  
   return (
     <FullPageTemplate status_bar={true} green_back={true} footer = {false}>
       <View style={[pageStyles.pageContent, pageStyles.auth]}>

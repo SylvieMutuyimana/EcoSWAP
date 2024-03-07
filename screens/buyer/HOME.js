@@ -11,6 +11,7 @@ import NewItemsContainer from "../../components/pages/buyer/NewItemsContainer";
 import { LoadingStyles } from "./styles/LoadingStyles";
 
 const BuyerHome = () => {
+  const userType  = 'buyer'; 
   const navigation = useNavigation();
   const [searchContainer, setsearchContainer] = useState(false);
 
