@@ -1,38 +1,38 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { Border, Color, Padding, FontSize, FontFamily } from "../../../GlobalStyles";
+import { Border, Color, Padding, FontSize, FontFamily } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const MyitemsSChosen = memo(
+const UPLOADSChosen = memo(
   ({
-    myitemsSChosenPosition,
-    myitemsSChosenMarginLeft,
-    onMyitemsSChosenPress,
+    uPLOADSChosenPosition,
+    uPLOADSChosenMarginLeft,
+    onUPLOADSChosenPress,
   }) => {
-    const myitemsSChosenStyle = useMemo(() => {
+    const uPLOADSChosenStyle = useMemo(() => {
       return {
-        ...getStyleValue("position", myitemsSChosenPosition),
-        ...getStyleValue("marginLeft", myitemsSChosenMarginLeft),
+        ...getStyleValue("position", uPLOADSChosenPosition),
+        ...getStyleValue("marginLeft", uPLOADSChosenMarginLeft),
       };
-    }, [myitemsSChosenPosition, myitemsSChosenMarginLeft]);
+    }, [uPLOADSChosenPosition, uPLOADSChosenMarginLeft]);
 
     return (
       <Pressable
-        style={[styles.myitemsSChosen, styles.iconFlexBox, myitemsSChosenStyle]}
-        onPress={onMyitemsSChosenPress}
+        style={[styles.uploadSChosen, styles.iconFlexBox, uPLOADSChosenStyle]}
+        onPress={onUPLOADSChosenPress}
       >
         <View style={[styles.icon, styles.iconFlexBox]}>
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/vector25.png")}
+            source={require("../../../../assets/images/nav/seller/vector21.png")}
           />
         </View>
-        <Text style={styles.myItems}>MY ITEMS</Text>
+        <Text style={styles.upload}>SELL</Text>
       </Pressable>
     );
   }
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.colorsDefault,
     padding: Padding.p_3xs,
   },
-  myItems: {
+  upload: {
     fontSize: FontSize.size_4xs,
     fontWeight: "700",
     fontFamily: FontFamily.interBold,
@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
     height: 11,
     marginLeft: 2,
   },
-  myitemsSChosen: {
+  uploadSChosen: {
     backgroundColor: Color.primaryPureWhite,
     flexDirection: "row",
   },
 });
 
-export default MyitemsSChosen;
+export default UPLOADSChosen;

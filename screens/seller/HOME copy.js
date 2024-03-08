@@ -10,7 +10,7 @@ import ItemContainer from "../../components/ItemContainer";
 import NavHome from "../../components/nav/buyer/old/NavHome";
 import { Padding, Color, FontFamily, FontSize, Border } from "../../GlobalStyles";
 
-const HOMES = () => {
+const SellerHome = () => {
   const [menuiconVisible, setMenuiconVisible] = useState(false);
   const navigation = useNavigation();
 
@@ -236,4 +236,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HOMES;
+export default SellerHome;

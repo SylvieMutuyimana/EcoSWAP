@@ -1,25 +1,8 @@
 import { StyleSheet } from "react-native";
-import { Padding, Color, Border, FontSize, FontFamily } from "../../../GlobalStyles";
+import { Padding, Color, Border, FontSize, FontFamily } from "../../../../GlobalStyles";
 
-export const LoadingStyles = StyleSheet.create({
-  search: {
-    paddingLeft: Padding.p_3xs,
-    paddingTop: Padding.p_3xs,
-    paddingRight: Padding.p_12xs,
-    alignItems: "center",
-    justifyContent:"center",
-    textAlign:"center"
-  },
+export const buyerHomeStyles = StyleSheet.create({
   searchFlexBox: {
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-  searchProductNameParent: {
-    borderRadius: Border.br_8xs,
-    width: 290,
-    paddingHorizontal: Padding.p_mini,
-    backgroundColor: Color.primaryPureWhite,
-    paddingVertical: 0,
     flexDirection: "row",
     overflow: "hidden",
   },
@@ -27,28 +10,6 @@ export const LoadingStyles = StyleSheet.create({
     paddingVertical: 0,
     justifyContent: "center",
     alignItems: "center",
-  },
-  searchProductName: {
-    fontSize: FontSize.size_2xs,
-    lineHeight: 18,
-    fontStyle: "italic",
-    fontFamily: FontFamily.dMSansItalic,
-    color: Color.colorGray_300,
-    textAlign: "left",
-    width: 222,
-    height: 17,
-  },
-  searchButton: {
-    width: 21,
-    height: 25,
-    marginLeft: 10,
-    overflow: "hidden",
-  },
-  menuicon: {
-    width: 44,
-    height: 33,
-    marginLeft: 10,
-    overflow: "hidden",
   },
   newItemsSpaceBlock: {
     marginTop: 11,
@@ -83,8 +44,43 @@ export const LoadingStyles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
-
-
+  searchProductName: {
+    fontSize: FontSize.size_2xs,
+    lineHeight: 18,
+    fontStyle: "italic",
+    fontFamily: FontFamily.dMSansItalic,
+    color: Color.colorGray_300,
+    textAlign: "left",
+    width: 222,
+    height: 17,
+  },
+  bitcoinIconssearchOutline: {
+    width: 21,
+    height: 25,
+    marginLeft: 10,
+    overflow: "hidden",
+  },
+  searchProductNameParent: {
+    borderRadius: Border.br_8xs,
+    width: 290,
+    paddingHorizontal: Padding.p_mini,
+    backgroundColor: Color.primaryPureWhite,
+    paddingVertical: 0,
+    flexDirection: "row",
+    overflow: "hidden",
+  },
+  menuicon: {
+    width: 44,
+    height: 33,
+    marginLeft: 10,
+    overflow: "hidden",
+  },
+  search: {
+    paddingLeft: Padding.p_3xs,
+    paddingTop: Padding.p_3xs,
+    paddingRight: Padding.p_12xs,
+    alignItems: "center",
+  },
   frameChild: {
     left: 299,
     width: 39,

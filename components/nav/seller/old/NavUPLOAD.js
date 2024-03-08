@@ -1,7 +1,7 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text } from "react-native";
-import { Border, Padding, Color, FontSize, FontFamily } from "../../../GlobalStyles";
+import { Border, Padding, Color, FontSize, FontFamily } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
@@ -21,7 +21,7 @@ const NavUPLOAD = memo(({ navUPLOADPosition, onHOMEPress }) => {
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/vector6.png")}
+            source={require("../../../../assets/images/nav/seller/vector6.png")}
           />
         </View>
       </View>
@@ -30,7 +30,7 @@ const NavUPLOAD = memo(({ navUPLOADPosition, onHOMEPress }) => {
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/group.png")}
+            source={require("../../../../assets/images/nav/seller/group.png")}
           />
         </View>
       </View>
@@ -39,7 +39,7 @@ const NavUPLOAD = memo(({ navUPLOADPosition, onHOMEPress }) => {
           <Image
             style={styles.antDesigncloudUploadOutlinIcon}
             contentFit="cover"
-            source={require("../../../assets/antdesignclouduploadoutlined1.png")}
+            source={require("../../../../assets/images/nav/seller/antdesignclouduploadoutlined1.png")}
           />
         </View>
         <Text style={styles.sell}> SELL</Text>
@@ -49,7 +49,7 @@ const NavUPLOAD = memo(({ navUPLOADPosition, onHOMEPress }) => {
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/vector2.png")}
+            source={require("../../../../assets/images/nav/seller/vector2.png")}
           />
         </View>
       </View>
@@ -58,7 +58,7 @@ const NavUPLOAD = memo(({ navUPLOADPosition, onHOMEPress }) => {
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/vector3.png")}
+            source={require("../../../../assets/images/nav/seller/vector3.png")}
           />
         </View>
       </View>

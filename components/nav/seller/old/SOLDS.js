@@ -1,29 +1,30 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable } from "react-native";
-import { Border, Padding } from "../../../GlobalStyles";
+import { Border, Padding } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const HOMES1 = memo(({ hOMESPosition, onHOMESPress }) => {
-  const hOMESStyle = useMemo(() => {
+const SOLDS = memo(({ sOLDSPosition, sOLDSMarginLeft, onSOLDSPress }) => {
+  const sOLDSStyle = useMemo(() => {
     return {
-      ...getStyleValue("position", hOMESPosition),
+      ...getStyleValue("position", sOLDSPosition),
+      ...getStyleValue("marginLeft", sOLDSMarginLeft),
     };
-  }, [hOMESPosition]);
+  }, [sOLDSPosition, sOLDSMarginLeft]);
 
   return (
     <Pressable
-      style={[styles.homeS, styles.iconFlexBox, hOMESStyle]}
-      onPress={onHOMESPress}
+      style={[styles.soldS, styles.iconFlexBox, sOLDSStyle]}
+      onPress={onSOLDSPress}
     >
       <View style={[styles.icon, styles.iconFlexBox]}>
         <Image
           style={styles.vectorIcon}
           contentFit="cover"
-          source={require("../../../assets/images/nav/buyer/vector20.png")}
+          source={require("../../../../assets/images/nav/seller/vector22.png")}
         />
       </View>
     </Pressable>
@@ -44,9 +45,9 @@ const styles = StyleSheet.create({
   icon: {
     padding: Padding.p_7xs,
   },
-  homeS: {
+  soldS: {
     flexDirection: "row",
   },
 });
 
-export default HOMES1;
+export default SOLDS;

@@ -1,11 +1,11 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable, Text } from "react-native";
-import HOME2 from "../buyer/old/HOME2";
+import HOME2 from "../../buyer/old/HOME2";
 import UPLOADS from "./UPLOADS";
 import SOLDS from "./SOLDS";
 import PROFILESChosen from "./PROFILESChosen";
-import { Border, Color, Padding } from "../../../GlobalStyles";
+import { Border, Color, Padding } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;

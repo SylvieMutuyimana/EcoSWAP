@@ -16,12 +16,12 @@ import CATEGORIES from "./screens/buyer/CATEGORIES";
 import CATEGORIES1 from "./screens/buyer/CATEGORIES1";
 import CART from "./screens/buyer/CART";
 import CATEGORIES2 from "./screens/buyer/CATEGORIES2";
-import PROFILE from "./screens/buyer/PROFILE";
+import BuyerProfile from "./screens/buyer/PROFILE";
 
 //seller pages
-import HOMES from "./screens/seller/HOMES";
+import SellerHome from "./screens/seller/HOME";
 import MYITEMS from "./screens/seller/MYITEMS";
-import PROFILES from "./screens/seller/PROFILES";
+import SellerProfile from "./screens/seller/PROFILE";
 import SelluploadItems from "./screens/seller/SelluploadItems";
 import SELL from "./screens/seller/SELL";
 import SELL1 from "./screens/seller/SELL1";
@@ -77,13 +77,13 @@ export const footerPages = {
         {footerName:'HOME', name: "BuyerHome", component: BuyerHome, options: {headerShown: false }}, 
         {footerName:'CATEGORIES', name: "Categories", component: CATEGORIES, options: {headerShown: false }}, 
         {footerName:'CART', name: "Cart", component: CART, options: {headerShown: false }}, 
-        {footerName:'PROFILE', name: "BuyerProfile", component: PROFILE, options: {headerShown: false }}, 
+        {footerName:'PROFILE', name: "BuyerProfile", component: BuyerProfile, options: {headerShown: false }}, 
     ],
     seller:[
-        {footerName:'HOME', name: "SellerHome", component: HOMES, options: {headerShown: false }}, 
+        {footerName:'HOME', name: "SellerHome", component: SellerHome, options: {headerShown: false }}, 
         {footerName:'SELL', name: "Sell", component: SELL, options: {headerShown: false }}, 
         {footerName:'MY ITEMS', name: "MyItems", component: MYITEMS, options: {headerShown: false }}, 
-        {footerName:'PROFILE', name: "SellerProfile", component: PROFILE, options: {headerShown: false }}, 
+        {footerName:'PROFILE', name: "SellerProfile", component: SellerProfile, options: {headerShown: false }}, 
     ]
 }
 export const buyer_pages = [

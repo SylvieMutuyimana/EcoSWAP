@@ -5,7 +5,7 @@ import HOMES1 from "./HOMES1";
 import UPLOADS from "./UPLOADS";
 import MyitemsSChosen from "./MyitemsSChosen";
 import PROFILES1 from "./PROFILES1";
-import { Border, Color, Padding } from "../../../GlobalStyles";
+import { Border, Color, Padding } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;

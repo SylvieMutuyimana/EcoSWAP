@@ -1,18 +1,18 @@
 import React, { useCallback, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import BuyerPageTemplate from "./Template";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import BuyerMenu from "../../components/pages/BuyerMenu";
+import SellerMenu from "../../components/pages/SellerMenu";
 import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
+import SellerPageTemplate from "./Template";
 
-const BuyerProfile = () => {
+const SellerProfile = () => {
   const [fluentnavigation16FilledIconVisible,
     setFluentnavigation16FilledIconVisible,
   ] = useState(false);
   const navigation = useNavigation();
-  const userType  = 'buyer'; 
+  const userType  = 'seller'; 
 
   const openFluentnavigation16FilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(true);
@@ -23,7 +23,7 @@ const BuyerProfile = () => {
   }, []);
 
   return (
-    <BuyerPageTemplate page_name ='BuyerProfile'>
+    <SellerPageTemplate page_name ='SellerProfile'>
       <View style={styles.titlePage} >
       <TITLEPAGE onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
 
@@ -59,10 +59,10 @@ const BuyerProfile = () => {
           <Pressable style={styles.fluentnaviFilledIcon}
             onPress={closeFluentnavigation16FilledIcon}
           />
-          <BuyerMenu onClose={closeFluentnavigation16FilledIcon} />
+          <SellerMenu onClose={closeFluentnavigation16FilledIcon} />
         </View>
       </Modal>
-    </BuyerPageTemplate>
+    </SellerPageTemplate>
   );
 };
 
@@ -140,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BuyerProfile;
+export default SellerProfile;

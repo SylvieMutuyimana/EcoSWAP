@@ -23,7 +23,7 @@ const HOMESChosen = memo(({ hOMESChosenPosition, onHOMESChosenPress }) => {
         <Image
           style={styles.vectorIcon}
           contentFit="cover"
-          source={require("../../../assets/images/nav/buyer/vector7.png")}
+          source={require("../../../../assets/images/nav/buyer/vector7.png")}
         />
       </View>
       <Text style={styles.home}> HOME</Text>

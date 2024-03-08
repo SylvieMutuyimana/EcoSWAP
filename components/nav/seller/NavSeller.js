@@ -4,16 +4,16 @@ import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Border, Color, Padding, FontSize, FontFamily } from "../../../GlobalStyles";
 import { footerPages } from "../../../page_links";
 import homeunChosen from "../../../assets/images/nav/buyer/vector20.png";
-import catunChosen from "../../../assets/images/nav/buyer/group2.png";
-import cartunChosen from "../../../assets/images/nav/buyer/vector8.png";
+import uploadunChosen from "../../../assets/images/nav/seller/vector23.png";
+import myItemsunChosen from "../../../assets/images/nav/seller/vector22.png";
 import profileunChosen from "../../../assets/images/nav/buyer/vector9.png";
 import homeChosen from "../../../assets/images/nav/buyer/vector7.png";
-import catChosen from "../../../assets/images/nav/buyer/group4.png";
-import cartChosen from "../../../assets/images/nav/buyer/vector27.png";
+import uploadChosen from "../../../assets/images/nav/seller/vector21.png";
+import myItemsChosen from "../../../assets/images/nav/seller/vector25.png";
 import profileChosen from "../../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
 
-const NavBuyer = ({ page_name, userType }) => {
+const NavSeller = ({ page_name, userType }) => {
   const navigation = useNavigation();
   const footer_pages = footerPages?.[userType];
   const next_page = (theName) => {
@@ -30,8 +30,8 @@ const NavBuyer = ({ page_name, userType }) => {
 
   const theIcons = {
     "HOME": { unchosen: homeunChosen, chosen: homeChosen },
-    "CATEGORIES": { unchosen: catunChosen, chosen: catChosen },
-    "CART": { unchosen: cartunChosen, chosen: cartChosen },
+    "SELL": { unchosen: uploadunChosen, chosen: uploadChosen },
+    "MY ITEMS": { unchosen: myItemsunChosen, chosen: myItemsChosen },
     "PROFILE": { unchosen: profileunChosen, chosen: profileChosen},
   };
 
@@ -146,4 +146,4 @@ const unChosenStyles = StyleSheet.create({
   },
 });
 
-export default NavBuyer;
+export default NavSeller;

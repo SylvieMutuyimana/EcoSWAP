@@ -1,31 +1,31 @@
 import React, { useMemo, memo } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable } from "react-native";
-import { Border, Padding } from "../../../GlobalStyles";
+import { Border, Padding } from "../../../../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const UPLOADS = memo(
-  ({ uPLOADSPosition, uPLOADSMarginLeft, onUPLOADSPress }) => {
-    const uPLOADSStyle = useMemo(() => {
+const PROFILES1 = memo(
+  ({ pROFILESPosition, pROFILESMarginLeft, onPROFILESPress }) => {
+    const pROFILESStyle = useMemo(() => {
       return {
-        ...getStyleValue("position", uPLOADSPosition),
-        ...getStyleValue("marginLeft", uPLOADSMarginLeft),
+        ...getStyleValue("position", pROFILESPosition),
+        ...getStyleValue("marginLeft", pROFILESMarginLeft),
       };
-    }, [uPLOADSPosition, uPLOADSMarginLeft]);
+    }, [pROFILESPosition, pROFILESMarginLeft]);
 
     return (
       <Pressable
-        style={[styles.uploadS, styles.iconFlexBox, uPLOADSStyle]}
-        onPress={onUPLOADSPress}
+        style={[styles.profileS, styles.iconFlexBox, pROFILESStyle]}
+        onPress={onPROFILESPress}
       >
         <View style={[styles.icon, styles.iconFlexBox]}>
           <Image
             style={styles.vectorIcon}
             contentFit="cover"
-            source={require("../../../assets/vector23.png")}
+            source={require("../../../../assets/images/nav/buyer/vector9.png")}
           />
         </View>
       </Pressable>
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
   icon: {
     padding: Padding.p_7xs,
   },
-  uploadS: {
+  profileS: {
     flexDirection: "row",
   },
 });
 
-export default UPLOADS;
+export default PROFILES1;

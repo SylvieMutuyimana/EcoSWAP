@@ -3,12 +3,12 @@ import { Text, View, Pressable, Modal, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
-import { buyerHomeStyles } from "./styles/buyerHomeStyles";
+import { buyerHomeStyles } from "../../assets/styles/pages/buyer/buyerHomeStyles";
 import Search from "../Search";
 import GalleryContainer from "../../components/pages/buyer/GalleryContainer";
 import CategoryContainer from "../../components/pages/buyer/CategoryContainer";
 import NewItemsContainer from "../../components/pages/buyer/NewItemsContainer";
-import { LoadingStyles } from "./styles/LoadingStyles";
+import { BuyerLoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
 
 const BuyerHome = () => {
   const userType  = 'buyer'; 
@@ -26,17 +26,17 @@ const BuyerHome = () => {
   const searchPart = ()=>{
     return(
       <Pressable onPress={openSearchContainer} 
-        style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}
+        style={[BuyerLoadingStyles.search, BuyerLoadingStyles.searchFlexBox]}
       >
-        <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
-          <TextInput style={LoadingStyles.searchProductName}
+        <View style={[BuyerLoadingStyles.searchProductNameParent, BuyerLoadingStyles.headingFlexBox]} >
+          <TextInput style={BuyerLoadingStyles.searchProductName}
             placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
           />
-          <Image style={LoadingStyles.searchButton} contentFit="cover"
+          <Image style={BuyerLoadingStyles.searchButton} contentFit="cover"
             source={require("../../assets/images/app/searchButton.png")}
           />
         </View>
-        <Image style={LoadingStyles.menuicon} contentFit="cover"
+        <Image style={BuyerLoadingStyles.menuicon} contentFit="cover"
           source={require("../../assets/menuicon.png")}
         />
       </Pressable>

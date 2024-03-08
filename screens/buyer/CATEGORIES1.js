@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
-import Menu1 from "../../components/pages/BuyerMenu";
 import { useNavigation } from "@react-navigation/native";
 import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
 import ProductSearchContainer from "../../components/ProductSearchContainer";
 import ContainerItem from "../../components/ContainerItem";
 import NavCategories from "../../components/nav/buyer/old/NavCategories";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
+import BuyerMenu from "../../components/pages/BuyerMenu";
 
 const CATEGORIES1 = () => {
   const [menuiconVisible, setMenuiconVisible] = useState(false);
@@ -78,7 +78,7 @@ const CATEGORIES1 = () => {
       <Modal animationType="fade" transparent visible={menuiconVisible}>
         <View style={styles.menuiconOverlay}>
           <Pressable style={styles.menuiconBg} onPress={closeMenuicon} />
-          <Menu1 onClose={closeMenuicon} />
+          <BuyerMenu onClose={closeMenuicon} />
         </View>
       </Modal>
     </>

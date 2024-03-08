@@ -5,7 +5,7 @@ import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer"
 import ApplianceExample from "../../components/ApplianceExample";
 import NavHome from "../../components/nav/buyer/old/NavHome";
 import { useNavigation } from "@react-navigation/native";
-import { LoadingStyles } from "./styles/LoadingStyles";
+import { LoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
 import BuyerPageTemplate from "./Template";
 import { getUserTypeFromLocalStorage } from "../../components/data/localStorage";
 const BuyerLoading = () => {

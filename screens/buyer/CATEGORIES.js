@@ -3,9 +3,9 @@ import { Text, View, Pressable, Modal, TextInput, StyleSheet } from "react-nativ
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
-import { buyerHomeStyles } from "./styles/buyerHomeStyles";
+import { buyerHomeStyles } from "../../assets/styles/pages/buyer/buyerHomeStyles";
 import Search from "../Search";
-import { LoadingStyles } from "./styles/LoadingStyles";
+import { LoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
 import CategoryFilterContainer1 from "../../components/pages/buyer/CategoryFilterContainer1";
 import ContainerItem3 from "../../components/ContainerItem3";
 import ContainerItem2 from "../../components/ContainerItem2";

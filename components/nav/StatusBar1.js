@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { FontSize, FontFamily, Color, Padding } from "../../GlobalStyles";
 
-const StatusBar1 = () => {
+const StatusBar = () => {
     return (
       <View style={[styles.statusBar, styles.timeFlexBox]}>
         <View style={styles.timeFlexBox}>
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StatusBar1;
+export default StatusBar;

@@ -4,17 +4,13 @@ import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import ContainerSlideshow from "../../components/ContainerSlideshow";
 import ItemContainer from "../../components/ItemContainer";
-import NavHomeS from "../../components/nav/seller/NavHomeS";
 import { Padding, Color, FontSize, FontFamily, Border } from "../../GlobalStyles";
 
 const HOME1 = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.homeS, styles.viewFlexBox]}>
 
-      <View style={styles.thepage}>
-        <View style={[styles.pagecontent, styles.viewFlexBox]}>
           <View style={styles.homepageitems}>
             <ContainerSlideshow
               dimensionsCode={require("../../assets/mask-group4.png")}
@@ -111,19 +107,6 @@ const HOME1 = () => {
               </View>
             </View>
           </View>
-        </View>
-      </View>
-      <NavHomeS
-        navHomeSPosition="unset"
-        navHomeSBorderStyle="solid"
-        navHomeSBorderColor="#8d8a8a"
-        navHomeSBorderTopWidth={1}
-        onHOMEChosenPress={() => navigation.navigate("HOME1")}
-        onUPLOADSPress={() => navigation.navigate("SELL1")}
-        onSOLDSPress={() => navigation.navigate("MYITEMS")}
-        onPROFILESPress={() => navigation.navigate("PROFILES")}
-      />
-    </View>
   );
 };
 
@@ -197,24 +180,7 @@ const styles = StyleSheet.create({
     paddingTop: Padding.p_xl,
     overflow: "hidden",
   },
-  pagecontent: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    height: 676,
-    width: 360,
-  },
-  thepage: {
-    height: 696,
-    width: 360,
-  },
-  homeS: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 800,
-  },
+
 });
 
 export default HOME1;

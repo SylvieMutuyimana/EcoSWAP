@@ -11,7 +11,7 @@ const CategoryFilterContainer = memo(() => {
           <Image
             style={styles.iconLayout}
             contentFit="cover"
-            source={require("../../../assets/vector6.png")}
+            source={require("../../../assets/images/nav/seller/vector6.png")}
           />
         </View>
       </View>
@@ -39,7 +39,7 @@ const CategoryFilterContainer = memo(() => {
           <Image
             style={styles.iconLayout}
             contentFit="cover"
-            source={require("../../../assets/vector2.png")}
+            source={require("../../../assets/images/nav/seller/vector2.png")}
           />
         </View>
       </View>
@@ -48,7 +48,7 @@ const CategoryFilterContainer = memo(() => {
           <Image
             style={styles.iconLayout}
             contentFit="cover"
-            source={require("../../../assets/vector3.png")}
+            source={require("../../../assets/images/nav/seller/vector3.png")}
           />
         </View>
       </View>

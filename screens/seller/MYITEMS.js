@@ -6,44 +6,31 @@ import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilte
 import ProductSearchContainer1 from "../../components/ProductSearchContainer1";
 import WishlistContainer1 from "../../components/pages/buyer/WishlistContainer1";
 import WishlistContainer from "../../components/pages/buyer/WishlistContainer";
-import NavSoldS from "../../components/nav/seller/NavSoldS";
+import NavSoldS from "../../components/nav/seller/old/NavSoldS";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
+import SellerPageTemplate from "./Template";
 
 const MYITEMS = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.myItems}>
-      <View style={[styles.thepage, styles.thepageLayout]}>
-        <View style={[styles.pagecontent, styles.thepageLayout]}>
-          <View style={styles.heading}>
-            <Pressable onPress={() => navigation.goBack()}>
-              <Text style={styles.text}>{`<--`}</Text>
-            </Pressable>
-            <Text style={styles.description}>MY ITEMS</Text>
-            <Image
-              style={styles.headingChild}
-              contentFit="cover"
-              source={require("../../assets/frame-175.png")}
-            />
-          </View>
-          <CategoryFilterContainer3 />
-          <ProductSearchContainer1 />
-          <WishlistContainer1 listHeadingText={`Sold Items -->`} />
-          <WishlistContainer actionLabel={`Pending Payment -->`} />
-        </View>
+    <SellerPageTemplate page_name ='My Items'>
+      <View style={styles.heading}>
+        <Pressable onPress={() => navigation.goBack()}>
+          <Text style={styles.text}>{`<--`}</Text>
+        </Pressable>
+        <Text style={styles.description}>MY ITEMS</Text>
+        <Image
+          style={styles.headingChild}
+          contentFit="cover"
+          source={require("../../assets/frame-175.png")}
+        />
       </View>
-      <NavSoldS
-        navSoldSPosition="unset"
-        navSoldSBorderStyle="solid"
-        navSoldSBorderColor="#8d8a8a"
-        navSoldSBorderTopWidth={1}
-        onHOMESPress={() => navigation.navigate("HOMES")}
-        onUPLOADSPress={() => navigation.navigate("SELL1")}
-        onMyitemsSChosenPress={() => navigation.navigate("MYITEMS")}
-        onPROFILESPress={() => navigation.navigate("PROFILES")}
-      />
-    </View>
+      <CategoryFilterContainer3 />
+      <ProductSearchContainer1 />
+      <WishlistContainer1 listHeadingText={`Sold Items -->`} />
+      <WishlistContainer actionLabel={`Pending Payment -->`} />
+    </SellerPageTemplate>
   );
 };
 
@@ -89,25 +76,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
-  pagecontent: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    height: 676,
-    alignItems: "center",
-  },
-  thepage: {
-    height: 696,
-  },
-  myItems: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 800,
-    alignItems: "center",
-    overflow: "hidden",
-  },
+
 });
 
 export default MYITEMS;
