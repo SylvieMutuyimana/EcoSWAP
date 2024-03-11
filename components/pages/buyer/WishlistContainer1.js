@@ -10,49 +10,49 @@ const WishlistContainer1 = memo(({ listHeadingText }) => {
       <View style={[styles.myWishlist, styles.viewFlexBox]}>
         <View style={styles.viewFlexBox}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
         <View style={[styles.view1, styles.viewFlexBox]}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
         <View style={[styles.view1, styles.viewFlexBox]}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
         <View style={[styles.view1, styles.viewFlexBox]}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
         <View style={[styles.view1, styles.viewFlexBox]}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
         <View style={[styles.view1, styles.viewFlexBox]}>
           <Image
-            style={styles.istockphoto583851138612x612Icon}
+            style={styles.istockImage}
             contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-2.png")}
+            source={require("../../../assets/images/samples/crack_phone-2.png")}
           />
           <Text style={styles.rwf}>20,000 rwf</Text>
         </View>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     height: 21,
     color: Color.colorsDefault,
   },
-  istockphoto583851138612x612Icon: {
+  istockImage: {
     width: 70,
     height: 44,
   },

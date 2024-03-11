@@ -10,17 +10,13 @@ const CartContainer = memo(() => {
         <Text style={styles.myCart}>{`My Cart-->`}</Text>
       </View>
       <View style={[styles.item4, styles.item4Layout]}>
-        <Image
-          style={styles.spoilBlender16303888286a58dIcon}
-          contentFit="cover"
-          source={require("../../../assets/spoil-blender-1630388828-6a58d22e-12.png")}
+        <Image style={styles.img} contentFit="cover"
+          source={require("../../../assets/images/samples/spoil-blender2.png")}
         />
         <Text style={styles.description}>
           <Text style={styles.ionaBlenderWithA10000}>
-            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...
-`}</Text>
-            <Text style={styles.rwf}>{`10,000 rwf
-`}</Text>
+            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...`}</Text>
+            <Text style={styles.rwf}>{`10,000 rwf`}</Text>
             <Text style={styles.ionaBlenderWith}> </Text>
           </Text>
           <Text style={[styles.buy, styles.buyTypo]}>Buy Bid Remove(x)</Text>
@@ -28,16 +24,14 @@ const CartContainer = memo(() => {
       </View>
       <View style={[styles.item4, styles.item4Layout]}>
         <Image
-          style={styles.spoilBlender16303888286a58dIcon}
+          style={styles.img}
           contentFit="cover"
-          source={require("../../../assets/spoil-blender-1630388828-6a58d22e-12.png")}
+          source={require("../../../assets/images/samples/spoil-blender2.png")}
         />
         <Text style={styles.description}>
           <Text style={styles.ionaBlenderWithA10000}>
-            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...
-`}</Text>
-            <Text style={styles.rwf}>{`10,000 rwf
-`}</Text>
+            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...`}</Text>
+            <Text style={styles.rwf}>{`10,000 rwf`}</Text>
             <Text style={styles.ionaBlenderWith}> </Text>
           </Text>
           <Text style={[styles.buy, styles.buyTypo]}>Buy Bid Remove(x)</Text>
@@ -45,16 +39,14 @@ const CartContainer = memo(() => {
       </View>
       <View style={[styles.item4, styles.item4Layout]}>
         <Image
-          style={styles.spoilBlender16303888286a58dIcon}
+          style={styles.img}
           contentFit="cover"
-          source={require("../../../assets/spoil-blender-1630388828-6a58d22e-12.png")}
+          source={require("../../../assets/images/samples/spoil-blender2.png")}
         />
         <Text style={styles.description}>
           <Text style={styles.ionaBlenderWithA10000}>
-            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...
-`}</Text>
-            <Text style={styles.rwf}>{`10,000 rwf
-`}</Text>
+            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...`}</Text>
+            <Text style={styles.rwf}>{`10,000 rwf`}</Text>
             <Text style={styles.ionaBlenderWith}> </Text>
           </Text>
           <Text style={[styles.buy, styles.buyTypo]}>Buy Bid Remove(x)</Text>
@@ -62,34 +54,28 @@ const CartContainer = memo(() => {
       </View>
       <View style={[styles.item4, styles.item4Layout]}>
         <Image
-          style={styles.spoilBlender16303888286a58dIcon}
+          style={styles.img}
           contentFit="cover"
-          source={require("../../../assets/spoil-blender-1630388828-6a58d22e-12.png")}
+          source={require("../../../assets/images/samples/spoil-blender2.png")}
         />
         <Text style={styles.description}>
           <Text style={styles.ionaBlenderWithA10000}>
-            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...
-`}</Text>
-            <Text style={styles.rwf}>{`30,0000 rwf
-
-`}</Text>
+            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...`}</Text>
+            <Text style={styles.rwf}>{`30,0000 rwf`}</Text>
           </Text>
           <Text style={[styles.buy3, styles.buyTypo]}>Buy Bid Remove(x)</Text>
         </Text>
       </View>
       <View style={[styles.item4, styles.item4Layout]}>
         <Image
-          style={styles.spoilBlender16303888286a58dIcon}
+          style={styles.img}
           contentFit="cover"
-          source={require("../../../assets/spoil-blender-1630388828-6a58d22e-12.png")}
+          source={require("../../../assets/images/samples/spoil-blender2.png")}
         />
         <Text style={styles.description}>
           <Text style={styles.ionaBlenderWithA10000}>
-            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...
-`}</Text>
-            <Text style={styles.rwf}>{`30,0000 rwf
-
-`}</Text>
+            <Text style={styles.ionaBlenderWith}>{`Iona blender with a ...`}</Text>
+            <Text style={styles.rwf}>{`30,0000 rwf`}</Text>
           </Text>
           <Text style={[styles.buy3, styles.buyTypo]}>Buy Bid Remove(x)</Text>
         </Text>
@@ -120,7 +106,7 @@ const styles = StyleSheet.create({
   myCartWrapper: {
     flexDirection: "row",
   },
-  spoilBlender16303888286a58dIcon: {
+  img: {
     top: 7,
     left: 15,
     width: 80,

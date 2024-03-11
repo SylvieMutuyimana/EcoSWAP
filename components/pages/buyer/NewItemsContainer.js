@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import PriceListContainer from "./PriceListContainer";
 import { FontSize, Color, FontFamily, Padding, Border } from "../../../GlobalStyles";
 
 const NewItemsContainer = memo(() => {
@@ -17,7 +16,7 @@ const NewItemsContainer = memo(() => {
             onPress={() => navigation.navigate("Item2")}
           >
             <Image style={styles.image} contentFit="cover"
-              source={require("../../../assets/images/pages/buyer/new_item.png")}
+              source={require("../../../assets/images/samples/new_item.png")}
             />
             <View style={styles.descriptionParent}>
               <Text style={[styles.description, styles.rwfTypo]}>
@@ -26,7 +25,7 @@ const NewItemsContainer = memo(() => {
               <View style={[styles.rwfParent, styles.parentFlexBox]}>
                 <Text style={[styles.rwf, styles.rwfTypo]}>91,000 rwf</Text>
                 <Image style={styles.vectorIcon} contentFit="cover"
-                  source={require("../../../assets/vector.png")}
+                  source={require("../../../assets/images/icons/vector.png")}
                 />
               </View>
             </View>

@@ -9,22 +9,20 @@ const SimilarItemsContainer = memo(() => {
       <Text style={styles.heading}>SIMILAR ITEMS</Text>
       <View style={[styles.items, styles.itemsFlexBox]}>
         <View style={styles.itemLayout}>
-          <Image
-            style={[styles.biheartFillIcon, styles.biheartIconPosition]}
-            contentFit="cover"
-            source={require("../assets/biheartfill1.png")}
+          <Image style={[styles.biheartFillIcon, styles.biheartIconPosition]}
+            contentFit="cover" source={require("../assets/images/icons/biheartfill1.png")}
           />
-          <Image
-            style={[styles.nokia1Icon, styles.iconPosition]}
-            contentFit="cover"
-            source={require("../assets/nokia-12.png")}
+          <Image style={[styles.nokia1Icon, styles.iconPosition]}
+            contentFit="cover" source={require("../assets/images/samples/nokia-12.png")}
           />
           <Text style={styles.description}>
             <Text style={styles.nokiaPhoneCantStart20000}>
-              <Text style={styles.nokiaPhoneCant}>{`Nokia phone can’t start
-`}</Text>
-              <Text style={styles.rwf}>{`20,000 rwf
-`}</Text>
+              <Text style={styles.nokiaPhoneCant}>
+                Nokia phone can’t start
+              </Text>
+              <Text style={styles.rwf}>
+                20,000 rwf
+              </Text>
               <Text style={styles.nokiaPhoneCant}> </Text>
             </Text>
             <Text style={styles.checkItem}>Check item Bid wish</Text>
@@ -33,26 +31,19 @@ const SimilarItemsContainer = memo(() => {
         <View style={[styles.item3, styles.itemLayout]}>
           <Text style={styles.description}>
             <Text style={styles.nokiaPhoneCantStart20000}>
-              <Text style={styles.nokiaPhoneCant}>{`Smashed screen iphone 4 ...
-`}</Text>
-              <Text style={styles.rwf}>{`20,000 rwf
-`}</Text>
+              <Text style={styles.nokiaPhoneCant}>
+                Smashed screen iphone 4 ...
+              </Text>
+              <Text style={styles.rwf}> 20,000 rwf </Text>
               <Text style={styles.nokiaPhoneCant}> </Text>
             </Text>
             <Text style={styles.checkItem}>Check item Bid wish</Text>
           </Text>
-          <Image
-            style={[
-              styles.istockphoto583851138612x612Icon,
-              styles.iconPosition,
-            ]}
-            contentFit="cover"
-            source={require("../assets/istockphoto583851138612x612-11.png")}
+          <Image style={[styles.istockphotoIcon, styles.iconPosition]}
+            contentFit="cover" source={require("../assets/images/samples/similarItem.png")}
           />
-          <Image
-            style={[styles.biheartFillIcon1, styles.biheartIconPosition]}
-            contentFit="cover"
-            source={require("../assets/biheartfill1.png")}
+          <Image style={[styles.biheartFillIcon1, styles.biheartIconPosition]}
+            contentFit="cover" source={require("../assets/images/icons/biheartfill1.png")}
           />
         </View>
       </View>
@@ -127,7 +118,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     position: "absolute",
   },
-  istockphoto583851138612x612Icon: {
+  istockphotoIcon: {
     top: 7,
     height: 50,
   },

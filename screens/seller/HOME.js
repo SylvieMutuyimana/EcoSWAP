@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { sellerHomeStyles } from "../../assets/styles/pages/seller/sellerHomeStyles";
 import { Image } from "expo-image";
 import ContainerSlideshow from "../../components/ContainerSlideshow";
-import ItemContainer from "../../components/ItemContainer";
+import RequestsContainer from "../../components/pages/seller/home/RequestsContainer";
 import SellerPageTemplate from "./Template";
 
 const SellerHome = () => {
@@ -16,16 +16,16 @@ const SellerHome = () => {
         {[...Array(4)].map((_, index)=>(
           <React.Fragment key={index}>
             <View style={sellerHomeStyles.viewFlexBox}>
-              <Image style={sellerHomeStyles.istockphoto583851138612x612Icon}
+              <Image style={sellerHomeStyles.istockImage}
                 contentFit="cover"
-                source={require("../../assets/istockphoto583851138612x612-2.png")}
+                source={require("../../assets/images/samples/crack_phone-2.png")}
               />
               <Text style={sellerHomeStyles.rwf}>20,000 rwf</Text>
             </View>
             <View style={[sellerHomeStyles.view1, sellerHomeStyles.viewFlexBox]}>
-              <Image style={sellerHomeStyles.istockphoto583851138612x612Icon}
+              <Image style={sellerHomeStyles.istockImage}
                 contentFit="cover"
-                source={require("../../assets/istockphoto583851138612x612-2.png")}
+                source={require("../../assets/images/samples/crack_phone-2.png")}
               />
               <Text style={sellerHomeStyles.rwf}>20,000 rwf</Text>
             </View>
@@ -37,24 +37,17 @@ const SellerHome = () => {
   return (
     <SellerPageTemplate page_name ='SellerHome'>
       <View style={sellerHomeStyles.homepageitems}>
-        <ContainerSlideshow dimensionsCode={require("../../assets/mask-group4.png")}
-          productDimensionsCode={require("../../assets/group-353.png")}
-          productDimensionsCode2={require("../../assets/mask-group5.png")}
-          productDimensions={require("../../assets/group-353.png")}
+        <ContainerSlideshow dimensionsCode={require("../../assets/images/mask-group4.png")}
+          productDimensionsCode={require("../../assets/images/samples/transparent3.png")}
+          productDimensionsCode2={require("../../assets/images/mask-group5.png")}
+          productDimensions={require("../../assets/images/samples/transparent3.png")}
         />
         <View style={[sellerHomeStyles.newItems, sellerHomeStyles.newSpaceBlock]}>
           <Text style={[sellerHomeStyles.requests, sellerHomeStyles.requestsLayout]}>
             REQUESTS
           </Text>
-          <ItemContainer
-            onItem1Press={() => navigation.navigate("Item")}
-            onItem2Press={() => navigation.navigate("Item")}
-            onItem3Press={() => navigation.navigate("Item")}
-            onItem4Press={() => navigation.navigate("Item")}
-            onItem5Press={() => navigation.navigate("Item")}
-            onItem6Press={() => navigation.navigate("Item")}
-            onItem11Press={() => navigation.navigate("Item")}
-            onItem12Press={() => navigation.navigate("Item")}
+          <RequestsContainer
+            onrequestPress={() => navigation.navigate("Item")}
           />
         </View>
         <View style={[sellerHomeStyles.newItems1, sellerHomeStyles.newSpaceBlock]}>

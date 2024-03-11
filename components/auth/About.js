@@ -6,7 +6,6 @@ import { Color, FontFamily, FontSize, Border, Padding } from "../../GlobalStyles
 const About = memo(({ onClose }) => {
   return (
     <View style={[styles.about, styles.aboutLayout]}>
-
       <View style={[styles.thepage, styles.aboutLayout]}>
         <View style={styles.pagecontent}>
           <View style={styles.frameParent}>
@@ -14,13 +13,13 @@ const About = memo(({ onClose }) => {
               <Image
                 style={styles.vectorIcon}
                 contentFit="cover"
-                source={require("../../assets/vector28.png")}
+                source={require("../../assets/images/auth/about/vector28.png")}
               />
             </View>
             <Image
               style={styles.frameChild}
               contentFit="cover"
-              source={require("../../assets/frame-186.png")}
+              source={require("../../assets/images/auth/about/frame-186.png")}
             />
           </View>
           <Text
@@ -37,7 +36,7 @@ Isane aims to connect E-waste and second hand appliances to exchange these produ
             <Image
               style={styles.recycleLogoVectorPngVectorIcon}
               contentFit="cover"
-              source={require("../../assets/2862861231-recyclelogovectorpngvectorrecyclablelogopng-1.png")}
+              source={require("../../assets/images/auth/about/recyclelogo.png")}
             />
             <Text
               style={[styles.noElectronicIs, styles.goGreenTheTypo]}
@@ -48,7 +47,7 @@ Waste electronics are harmful and toxic for our planet.`}</Text>
           <Image
             style={[styles.spoiltElectronics1, styles.goGreenTheLayout]}
             contentFit="cover"
-            source={require("../../assets/spoilt-electronics-1.png")}
+            source={require("../../assets/images/auth/about/spoilt_electronics.png")}
           />
           <Text style={[styles.goGreenThe, styles.goGreenTheLayout]}>{`Go Green!
 

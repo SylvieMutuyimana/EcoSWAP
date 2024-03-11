@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import CategoryContainerPhonesTablets from "./CategoryContainerPhonesTablets";
+import SpecificCategoryItems from "./SpecificCategoryItems";
 import { FontSize, FontFamily, Color, Padding } from "../../../GlobalStyles";
 
 const CategoryContainer = memo(() => {
@@ -15,12 +15,12 @@ const CategoryContainer = memo(() => {
           <Text style={styles.seeAll}>See All</Text>
         </View>
       </View>
-      <CategoryContainerPhonesTablets
-        dimensionId={require("../../../assets/images/cat1.png")}
-        dimensionCode={require("../../../assets/images/cat1.png")}
-        dimensionIdentifier={require("../../../assets/images/cat1.png")}
-        dimensionCodeText={require("../../../assets/images/cat1.png")}
-        dimensionCodeValue={require("../../../assets/images/cat1.png")}
+      <SpecificCategoryItems
+        dimensionId={require("../../../assets/images/samples/cat1.png")}
+        dimensionCode={require("../../../assets/images/samples/cat1.png")}
+        dimensionIdentifier={require("../../../assets/images/samples/cat1.png")}
+        dimensionCodeText={require("../../../assets/images/samples/cat1.png")}
+        dimensionCodeValue={require("../../../assets/images/samples/cat1.png")}
         onHomeAppliancesPress={() => navigation.navigate("CATEGORIES1")}
       />
     </View>

@@ -1,60 +1,31 @@
 import React, { useMemo, memo } from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  ImageBackground,
-  ImageSourcePropType,
-} from "react-native";
+import { Text, StyleSheet, View, ImageBackground} from "react-native";
 import { Padding, FontSize, FontFamily, Color, Border } from "../GlobalStyles";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const EwasteManagementContainer = memo(
-  ({
-    eWasteDimensions,
-    eWasteDescription,
-    propMarginLeft,
-    propBackgroundColor,
-    propHeight,
+const EwasteManagementContainer = memo(({eWasteDimensions,
+    eWasteDescription, propMarginLeft, propBackgroundColor, propHeight,
   }) => {
     const frameIconStyle = useMemo(() => {
-      return {
-        ...getStyleValue("marginLeft", propMarginLeft),
-      };
+      return {...getStyleValue("marginLeft", propMarginLeft)};
     }, [propMarginLeft]);
 
     const frameView1Style = useMemo(() => {
-      return {
-        ...getStyleValue("backgroundColor", propBackgroundColor),
-      };
+      return {...getStyleValue("backgroundColor", propBackgroundColor)};
     }, [propBackgroundColor]);
 
     const ourServiceStyle = useMemo(() => {
-      return {
-        ...getStyleValue("height", propHeight),
-      };
+      return {...getStyleValue("height", propHeight)};
     }, [propHeight]);
 
     return (
-      <ImageBackground
-        style={[
-          styles.frameParent,
-          styles.frameParentSpaceBlock,
-          frameIconStyle,
-        ]}
-        resizeMode="cover"
-        source={eWasteDimensions}
+      <ImageBackground resizeMode="cover"  source={eWasteDimensions}
+        style={[ styles.frameParent, styles.frameParentSpaceBlock, frameIconStyle]}
       >
-        <View
-          style={[
-            styles.ourServiceWrapper,
-            styles.frameParentSpaceBlock,
-            frameView1Style,
-          ]}
-        >
+        <View style={[ styles.ourServiceWrapper, styles.frameParentSpaceBlock,frameView1Style]}>
           <Text style={[styles.ourService, ourServiceStyle]}>
             {eWasteDescription}
           </Text>

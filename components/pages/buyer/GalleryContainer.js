@@ -9,16 +9,15 @@ const GalleryContainer = memo(() => {
       <View style={styles.rectangleParent}>
         <View style={styles.groupChild} />
         <View style={[styles.maskGroupParent, styles.maskGroupPosition]}>
-          <Image
-            style={[styles.maskGroupParent, styles.maskGroupPosition]}
+          <Image style={[styles.maskGroupParent, styles.maskGroupPosition]}
             contentFit="cover"
-            source={require("../../../assets/mask-group.png")}
+            source={require("../../../assets/images/mask-group4.png")}
           />
           <View style={[styles.groupItem, styles.groupItemPosition]} />
           <Image
             style={[styles.groupInner, styles.groupPosition]}
             contentFit="cover"
-            source={require("../../../assets/group-35.png")}
+            source={require("../../../assets/images/samples/transparent.png")}
           />
           <View style={[styles.ourServiceWrapper, styles.ourLayout1]}>
             <Text style={[styles.ourService, styles.moreClr]}>
@@ -27,16 +26,12 @@ const GalleryContainer = memo(() => {
           </View>
         </View>
         <View style={[styles.maskGroupGroup, styles.maskGroupPosition]}>
-          <Image
-            style={[styles.maskGroupIcon1, styles.maskGroupPosition]}
-            contentFit="cover"
-            source={require("../../../assets/mask-group1.png")}
+          <Image style={[styles.maskGroupIcon1, styles.maskGroupPosition]} contentFit="cover"
+            source={require("../../../assets/images/mask-group4.png")}
           />
           <View style={[styles.rectangleView, styles.groupItemPosition]} />
-          <Image
-            style={[styles.groupIcon, styles.groupPosition]}
-            contentFit="cover"
-            source={require("../../../assets/group-351.png")}
+          <Image style={[styles.groupIcon, styles.groupPosition]} contentFit="cover"
+            source={require("../../../assets/images/samples/transparent1.png")}
           />
           <View style={[styles.ourServiceParent, styles.ourLayout]}>
             <Text style={[styles.ourService1, styles.ourLayout]}>

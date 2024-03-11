@@ -1,17 +1,16 @@
-import React, { useMemo, memo } from "react";
+import React, { memo } from "react";
 import {Text,StyleSheet,Pressable,View,} from "react-native";
 import { Image } from "expo-image";
-import { FontSize, FontFamily, Color, Border, Padding } from "../../GlobalStyles";
+import { FontSize, FontFamily, Color } from "../../GlobalStyles";
 
 const TITLEPAGE = memo(({onFluentnavigation16FilledPress}) => {
 
     return (
       <View style={styles.headerProfile}>
         <Text style={styles.profile}>PROFILE</Text>
-        <Pressable style={styles.fluentnavigation16Filled}
-          onPress={onFluentnavigation16FilledPress}
-        >
-          <Image style={styles.icon} contentFit="cover" source={require("../../assets/fluentnavigation16filled1.png")} />
+        <Pressable style={styles.fluentnavFilled} onPress={onFluentnavigation16FilledPress}>
+          <Image style={styles.icon} contentFit="cover" 
+            source={require("../../assets/images/icons/menu_white.png")} />
         </Pressable>
       </View>
     );
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
     height: "100%",
     overflow: "hidden",
   },
-  fluentnavigation16Filled: {
+  fluentnavFilled: {
     width: 44,
     height: 33,
     marginLeft: 110,

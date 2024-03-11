@@ -5,9 +5,10 @@ import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 import { authStyles } from "../../assets/styles/auth/authStyles";
 import { unauthoriseUser } from "./navigate";
+import { getUserFromLocalStorage } from "../../components/data/localStorage";
 
 const CreateAccount = ({authMessage, route}) => {
-  const { userType } = route.params;
+  const userType = getUserFromLocalStorage();
 
   const navigation = useNavigation();
   const [signupDetails, setDetails] = useState({

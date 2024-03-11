@@ -3,10 +3,9 @@ import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
-import ProductSearchContainer1 from "../../components/ProductSearchContainer1";
+import ProductSearchContainer1 from "../../components/pages/ProductSearchContainer1";
 import WishlistContainer1 from "../../components/pages/buyer/WishlistContainer1";
 import WishlistContainer from "../../components/pages/buyer/WishlistContainer";
-import NavSoldS from "../../components/nav/seller/old/NavSoldS";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 import SellerPageTemplate from "./Template";
 
@@ -23,7 +22,7 @@ const MYITEMS = () => {
         <Image
           style={styles.headingChild}
           contentFit="cover"
-          source={require("../../assets/frame-175.png")}
+          source={require("../../assets/images/icons/menuicon.png")}
         />
       </View>
       <CategoryFilterContainer3 />

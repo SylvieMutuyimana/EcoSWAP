@@ -39,7 +39,7 @@ export const sellerHomeStyles = StyleSheet.create({
     fontWeight: "500",
     fontFamily: FontFamily.interMedium,
   },
-  istockphoto583851138612x612Icon: {
+  istockImage: {
     width: 70,
     height: 44,
   },

@@ -3,11 +3,9 @@ import { Text, View } from "react-native";
 import { Image } from "expo-image";
 import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer";
 import ApplianceExample from "../../components/ApplianceExample";
-import NavHome from "../../components/nav/buyer/old/NavHome";
 import { useNavigation } from "@react-navigation/native";
-import { LoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
+import { BuyerLoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
 import BuyerPageTemplate from "./Template";
-import { getUserTypeFromLocalStorage } from "../../components/data/localStorage";
 const BuyerLoading = () => {
   const navigation = useNavigation();
   const userType = "buyer"
@@ -22,33 +20,33 @@ const BuyerLoading = () => {
   const newItems =()=>{
     return(
       <React.Fragment>
-        <View style={[LoadingStyles.heading, LoadingStyles.headingFlexBox]}>
-          <View style={LoadingStyles.rectangleParent}>
-            <View style={[LoadingStyles.frameChild, LoadingStyles.framePosition]} />
-            <View style={[LoadingStyles.frameItem, LoadingStyles.framePosition]} />
+        <View style={[BuyerLoadingStyles.heading, BuyerLoadingStyles.headingFlexBox]}>
+          <View style={BuyerLoadingStyles.rectangleParent}>
+            <View style={[BuyerLoadingStyles.frameChild, BuyerLoadingStyles.framePosition]} />
+            <View style={[BuyerLoadingStyles.frameItem, BuyerLoadingStyles.framePosition]} />
           </View>
         </View>
-        <View style={[LoadingStyles.theItems, LoadingStyles.headingFlexBox]}>
+        <View style={[BuyerLoadingStyles.theItems, BuyerLoadingStyles.headingFlexBox]}>
           {[...Array(4)].map((_, index) => (
             <React.Fragment key={index}>
-              <View style={LoadingStyles.viewFlexBox}>
-                <View style={LoadingStyles.mainQimg01b073ed640cf6946b11} />
-                <View style={[LoadingStyles.frameParent, LoadingStyles.frameParentLayout]}>
-                  <View style={[LoadingStyles.rectangleWrapper, LoadingStyles.frameParentLayout]}>
-                    <View style={LoadingStyles.frameChild1} />
+              <View style={BuyerLoadingStyles.viewFlexBox}>
+                <View style={BuyerLoadingStyles.mainQimg01b073ed640cf6946b11} />
+                <View style={[BuyerLoadingStyles.frameParent, BuyerLoadingStyles.frameParentLayout]}>
+                  <View style={[BuyerLoadingStyles.rectangleWrapper, BuyerLoadingStyles.frameParentLayout]}>
+                    <View style={BuyerLoadingStyles.frameChild1} />
                   </View>
-                  <View style={[LoadingStyles.frameChild2, LoadingStyles.frameChildLayout]} />
-                  <View style={[LoadingStyles.frameChild3, LoadingStyles.frameChildLayout]} />
+                  <View style={[BuyerLoadingStyles.frameChild2, BuyerLoadingStyles.frameChildLayout]} />
+                  <View style={[BuyerLoadingStyles.frameChild3, BuyerLoadingStyles.frameChildLayout]} />
                 </View>
               </View>
-              <View style={[LoadingStyles.view1, LoadingStyles.viewFlexBox]}>
-                <View style={LoadingStyles.mainQimg01b073ed640cf6946b11} />
-                <View style={[LoadingStyles.frameParent, LoadingStyles.frameParentLayout]}>
-                  <View style={[LoadingStyles.rectangleWrapper, LoadingStyles.frameParentLayout]}>
-                    <View style={LoadingStyles.frameChild1} />
+              <View style={[BuyerLoadingStyles.view1, BuyerLoadingStyles.viewFlexBox]}>
+                <View style={BuyerLoadingStyles.mainQimg01b073ed640cf6946b11} />
+                <View style={[BuyerLoadingStyles.frameParent, BuyerLoadingStyles.frameParentLayout]}>
+                  <View style={[BuyerLoadingStyles.rectangleWrapper, BuyerLoadingStyles.frameParentLayout]}>
+                    <View style={BuyerLoadingStyles.frameChild1} />
                   </View>
-                  <View style={[LoadingStyles.frameChild2, LoadingStyles.frameChildLayout]} />
-                  <View style={[LoadingStyles.frameChild3, LoadingStyles.frameChildLayout]} />
+                  <View style={[BuyerLoadingStyles.frameChild2, BuyerLoadingStyles.frameChildLayout]} />
+                  <View style={[BuyerLoadingStyles.frameChild3, BuyerLoadingStyles.frameChildLayout]} />
                 </View>
               </View>
               <br/><br/><br/><br/>
@@ -61,17 +59,17 @@ const BuyerLoading = () => {
   const theCategories = ()=>{
     return(
       <React.Fragment>
-        <View style={[LoadingStyles.heading, LoadingStyles.headingFlexBox]}>
-          <View style={LoadingStyles.rectangleParent}>
-            <View style={[LoadingStyles.frameChild, LoadingStyles.framePosition]} />
-            <View style={[LoadingStyles.frameItem, LoadingStyles.framePosition]} />
+        <View style={[BuyerLoadingStyles.heading, BuyerLoadingStyles.headingFlexBox]}>
+          <View style={BuyerLoadingStyles.rectangleParent}>
+            <View style={[BuyerLoadingStyles.frameChild, BuyerLoadingStyles.framePosition]} />
+            <View style={[BuyerLoadingStyles.frameItem, BuyerLoadingStyles.framePosition]} />
           </View>
         </View>
-        <View style={LoadingStyles.categories1}>
-          <View style={LoadingStyles.categories2}>
+        <View style={BuyerLoadingStyles.categories1}>
+          <View style={BuyerLoadingStyles.categories2}>
           {[...Array(5)].map((_, index) => (
               <ApplianceExample key={index}
-              homeAppliancesYoullLoveAn={require("../../assets/images/cat.png")}
+              homeAppliancesYoullLoveAn={require("../../assets/images/samples/cat.png")}
             />
             ))}
           </View>
@@ -79,38 +77,29 @@ const BuyerLoading = () => {
       </React.Fragment>
     )
   }
-  const theFooter = ()=>{
-    return(
-      <NavHome
-        navHomePosition="unset"
-        navHomeBorderStyle="solid"
-        navHomeBorderColor="#8d8a8a"
-        navHomeBorderTopWidth={1}
-      />
-    )
-  }
+
   return (
-    <BuyerPageTemplate specificFooter={theFooter} page_name ='Loading'>
+    <BuyerPageTemplate page_name ='Loading'>
       {/*search*/}
-      <View style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}>
-          <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
-            <Text style={LoadingStyles.searchProductName}>Search Product Name</Text>
-            <Image style={LoadingStyles.searchButton} contentFit="cover"
-              source={require("../../assets/images/app/searchButton.png")}
+      <View style={[BuyerLoadingStyles.search, BuyerLoadingStyles.searchFlexBox]}>
+          <View style={[BuyerLoadingStyles.searchProductNameParent, BuyerLoadingStyles.headingFlexBox]} >
+            <Text style={BuyerLoadingStyles.searchProductName}>Search Product Name</Text>
+            <Image style={BuyerLoadingStyles.searchButton} contentFit="cover"
+              source={require("../../assets/images/icons/searchButton.png")}
             />
           </View>
-          <Image style={LoadingStyles.menuicon} contentFit="cover"
-            source={require("../../assets/menuicon.png")}
+          <Image style={BuyerLoadingStyles.menuicon} contentFit="cover"
+            source={require("../../assets/images/icons/menuicon.png")}
           />
       </View>
-      <View style={LoadingStyles.homepageitems}>
+      <View style={BuyerLoadingStyles.homepageitems}>
           {/*slideshow*/}
           <EwasteSlideshowContainer />
-          <View style={[LoadingStyles.categories, LoadingStyles.newItemsSpaceBlock]}>
+          <View style={[BuyerLoadingStyles.categories, BuyerLoadingStyles.newItemsSpaceBlock]}>
             {theCategories()}
           </View>
           {/*items*/}
-          <View style={[LoadingStyles.newItems, LoadingStyles.newItemsSpaceBlock]}>
+          <View style={[BuyerLoadingStyles.newItems, BuyerLoadingStyles.newItemsSpaceBlock]}>
             {newItems()}
           </View>
       </View>

@@ -3,6 +3,7 @@ import { View, Text, ImageBackground, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StarterPageStyles } from "../../assets/styles/auth/StartPageStyles";
 import { pageStyles } from "../../assets/styles/pageStyles";
+import { setsecondTimeUser } from "../../components/data/localStorage";
 
 const StartingPage = () => {
   const navigation = useNavigation();
@@ -22,6 +23,7 @@ const StartingPage = () => {
 
   const nextPage = () => {
     if (currentPage >= (thePages.length - 1)) {
+      setsecondTimeUser(true)
       navigation.navigate('Welcome');
     }else{
       setCurrentPage(currentPage + 1);

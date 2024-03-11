@@ -7,10 +7,10 @@ import { buyerHomeStyles } from "../../assets/styles/pages/buyer/buyerHomeStyles
 import Search from "../Search";
 import { LoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
 import CategoryFilterContainer1 from "../../components/pages/buyer/CategoryFilterContainer1";
-import ContainerItem3 from "../../components/ContainerItem3";
-import ContainerItem2 from "../../components/ContainerItem2";
-import ContainerItem1 from "../../components/ContainerItem1";
-import ContainerItem from "../../components/ContainerItem";
+import ContainerItem3 from "../../components/pages/item/ContainerItem3";
+import ContainerItem2 from "../../components/pages/item/ContainerItem2";
+import ContainerItem1 from "../../components/pages/item/ContainerItem1";
+import ContainerItem from "../../components/pages/item/ContainerItem";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
 
 const CATEGORIES = () => {
@@ -35,11 +35,11 @@ const CATEGORIES = () => {
             placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
           />
           <Image style={LoadingStyles.searchButton} contentFit="cover"
-            source={require("../../assets/images/app/searchButton.png")}
+            source={require("../../assets/images/icons/searchButton.png")}
           />
         </View>
         <Image style={LoadingStyles.menuicon} contentFit="cover"
-          source={require("../../assets/menuicon.png")}
+          source={require("../../assets/images/icons/menuicon.png")}
         />
       </Pressable>
     )
@@ -57,18 +57,18 @@ const CATEGORIES = () => {
             <ContainerItem2 />
             <ContainerItem1 />
             <ContainerItem
-              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../../assets/biheartfill.png")}
+              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
+              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
             />
             <ContainerItem
-              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../../assets/biheartfill.png")}
+              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
+              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
               propBackgroundColor="#fff"
               propMarginTop={10}
             />
             <ContainerItem
-              dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-11.png")}
-              productDimensionsCode={require("../../assets/biheartfill.png")}
+              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
+              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
               propBackgroundColor="#fff"
               propMarginTop={10}
             />

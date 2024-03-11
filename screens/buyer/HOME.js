@@ -33,11 +33,11 @@ const BuyerHome = () => {
             placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
           />
           <Image style={BuyerLoadingStyles.searchButton} contentFit="cover"
-            source={require("../../assets/images/app/searchButton.png")}
+            source={require("../../assets/images/icons/searchButton.png")}
           />
         </View>
         <Image style={BuyerLoadingStyles.menuicon} contentFit="cover"
-          source={require("../../assets/menuicon.png")}
+          source={require("../../assets/images/icons/menuicon.png")}
         />
       </Pressable>
     )

@@ -17,10 +17,8 @@ const CategoryFilterContainer = memo(() => {
       </View>
       <View style={[styles.home1, styles.homeFlexBox]}>
         <View style={[styles.antDesignhomeFilled1, styles.antFlexBox]}>
-          <Image
-            style={styles.groupIcon}
-            contentFit="cover"
-            source={require("../../../assets/group1.png")}
+          <Image style={styles.groupIcon} contentFit="cover"
+            source={require("../../../assets/images/icons/group1.png")}
           />
         </View>
         <Text style={styles.categories}>CATEGORIES</Text>
@@ -30,7 +28,7 @@ const CategoryFilterContainer = memo(() => {
           <Image
             style={[styles.antDesigncloudUploadOutlinIcon, styles.iconLayout]}
             contentFit="cover"
-            source={require("../../../assets/antdesignclouduploadoutlined.png")}
+            source={require("../../../assets/images/icons/antdesignclouduploadoutlined.png")}
           />
         </View>
       </View>

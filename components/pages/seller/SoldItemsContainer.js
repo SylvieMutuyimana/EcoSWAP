@@ -12,47 +12,39 @@ const SoldItemsContainer = memo(() => {
           <Text style={[styles.description, styles.descriptionLayout]}>
             <Text style={styles.crackedScreenDellLaptop91}>
               <Text style={styles.crackedScreenDellLaptop911}>
-                <Text
-                  style={styles.crackedScreenDell}
-                >{`Cracked Screen Dell Laptop
-`}</Text>
-                <Text style={styles.rwf}>{`91,000 rwf
-`}</Text>
+                <Text style={styles.crackedScreenDell}>
+                  Cracked Screen Dell Laptop
+                </Text>
+                <Text style={styles.rwf}>91,000 rwf</Text>
               </Text>
               <Text style={styles.blankLine}> </Text>
             </Text>
             <Text style={styles.checkItem}>Check item</Text>
           </Text>
-          <Image
-            style={styles.mainQimg01b073ed640cf6946b11Icon}
-            contentFit="cover"
-            source={require("../../../assets/mainqimg01b073ed640cf6946b110844b663b2b6pjlq-13.png")}
+          <Image style={styles.mainQimg01b073ed640cf6946b11Icon}
+            contentFit="cover" source={require("../../../assets/images/samples/cracked_screen.png")}
           />
         </View>
         <View style={[styles.item2, styles.itemLayout]}>
           <Text style={[styles.description1, styles.descriptionLayout]}>
             <Text style={styles.crackedScreenDellLaptop91}>
               <Text style={styles.crackedScreenDellLaptop911}>
-                <Text
-                  style={styles.crackedScreenDell}
-                >{`Smashed screen iphone 4, front camera broken
-`}</Text>
-                <Text style={styles.rwf}>{`56,000 rwf
-`}</Text>
+                <Text style={styles.crackedScreenDell}>
+                  Smashed screen iphone 4, front camera broken
+                </Text>
+                <Text style={styles.rwf}>56,000 rwf</Text>
               </Text>
               <Text style={styles.blankLine}> </Text>
             </Text>
             <Text style={styles.checkItem}>Check item</Text>
           </Text>
-          <Image
-            style={styles.istockphoto583851138612x612Icon}
-            contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-16.png")}
+          <Image style={styles.cracked_phone1} contentFit="cover"
+            source={require("../../../assets/images/samples/cracked_phone1.png")}
           />
         </View>
-        <Text
-          style={[styles.viewAll, styles.viewAllFlexBox]}
-        >{`View all -->`}</Text>
+        <Text style={[styles.viewAll, styles.viewAllFlexBox]}>
+          View all {' -->'}
+        </Text>
       </View>
     </View>
   );
@@ -125,7 +117,7 @@ const styles = StyleSheet.create({
     top: "12.29%",
     left: "33.23%",
   },
-  istockphoto583851138612x612Icon: {
+  cracked_phone1: {
     top: 5,
     left: 15,
     width: 81,

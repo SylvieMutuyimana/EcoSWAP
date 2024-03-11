@@ -4,12 +4,7 @@ import { Image } from "expo-image";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 
 const ContainerSlideshow = memo(
-  ({
-    dimensionsCode,
-    productDimensionsCode,
-    productDimensionsCode2,
-    productDimensions,
-  }) => {
+  ({dimensionsCode,productDimensionsCode,productDimensionsCode2, productDimensions,}) => {
     return (
       <View style={styles.slideshow}>
         <View style={[styles.slideshowChild, styles.childLayout]} />
@@ -18,15 +13,11 @@ const ContainerSlideshow = memo(
             <View style={[styles.rectangleParent, styles.groupItemPosition]}>
               <View style={[styles.groupChild, styles.childLayout]} />
               <View style={[styles.rectangleParent, styles.groupItemPosition]}>
-                <Image
-                  style={[styles.rectangleParent, styles.groupItemPosition]}
-                  contentFit="cover"
-                  source={dimensionsCode}
+                <Image style={[styles.rectangleParent, styles.groupItemPosition]}
+                  contentFit="cover" source={dimensionsCode}
                 />
                 <View style={[styles.groupItem, styles.groupItemPosition]} />
-                <Image
-                  style={styles.groupInner}
-                  contentFit="cover"
+                <Image style={styles.groupInner} contentFit="cover"
                   source={productDimensionsCode}
                 />
                 <View style={[styles.ourServiceWrapper, styles.ourPosition]}>
@@ -41,15 +32,11 @@ const ContainerSlideshow = memo(
             <View style={[styles.rectangleParent, styles.groupItemPosition]}>
               <View style={[styles.groupChild, styles.childLayout]} />
               <View style={[styles.rectangleParent, styles.groupItemPosition]}>
-                <Image
-                  style={[styles.rectangleParent, styles.groupItemPosition]}
-                  contentFit="cover"
-                  source={productDimensionsCode2}
+                <Image style={[styles.rectangleParent, styles.groupItemPosition]}
+                  contentFit="cover" source={productDimensionsCode2}
                 />
                 <View style={[styles.groupItem, styles.groupItemPosition]} />
-                <Image
-                  style={styles.groupInner}
-                  contentFit="cover"
+                <Image style={styles.groupInner} contentFit="cover" 
                   source={productDimensions}
                 />
                 <View style={[styles.ourServiceContainer, styles.ourPosition]}>

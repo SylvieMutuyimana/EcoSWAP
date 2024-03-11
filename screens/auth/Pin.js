@@ -6,8 +6,6 @@ import { pageStyles } from "../../assets/styles/pageStyles";
 import { authStyles } from "../../assets/styles/auth/authStyles";
 
 const Pin = ({setAuthMessage, route}) => {
-  const { userType } = route.params;
-
   const navigation = useNavigation();
   const [thePin, setPin] = useState(null);
   const [pinError, setError] = useState(null);
@@ -17,12 +15,12 @@ const Pin = ({setAuthMessage, route}) => {
       setError(`Missing Pin`);
     } else {
       setAuthMessage('Account successfully created')
-      navigation.navigate("Login", { userType: userType});
+      navigation.navigate("Login");
     }
   };
 
   const cancelDetails= ()=>{
-    navigation.navigate("Login", {userType: userType });
+    navigation.navigate("Login");
   }
   
   return (

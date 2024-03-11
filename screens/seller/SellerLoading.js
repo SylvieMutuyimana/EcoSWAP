@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer";
-import NavHomeS from "../../components/nav/seller/old/NavHomeS";
-import { Padding, Color, Border, FontSize, FontFamily } from "../../GlobalStyles";
 import SellerPageTemplate from "./Template";
 import { SellerLoadingStyles } from "../../assets/styles/pages/seller/SellerLoadingStyles";
 
@@ -41,37 +39,29 @@ const requests = ()=>{
   return(
     <View style={[SellerLoadingStyles.theItems, SellerLoadingStyles.itemsFlexBox]}>
       {[...Array(8)].map((_, index)=>(
-        <View key={index} style={[SellerLoadingStyles.item7, SellerLoadingStyles.itemFlexBox]}>
-          <View style={SellerLoadingStyles.mainQimg01b073ed640cf6946b11} />
-          <View style={[SellerLoadingStyles.frameParent, SellerLoadingStyles.view1SpaceBlock]}>
-            <View style={SellerLoadingStyles.rectangleWrapper}>
-              <View style={[SellerLoadingStyles.frameInner, SellerLoadingStyles.childLayout]} />
+        <React.Fragment key={index}>
+          <View style={[(index % 2 === 0)?SellerLoadingStyles.item_right: null, SellerLoadingStyles.itemFlexBox]}>
+            <View style={SellerLoadingStyles.mainQimg01b073ed640cf6946b11} />
+            <View style={[SellerLoadingStyles.frameParent, SellerLoadingStyles.view1SpaceBlock]}>
+              <View style={SellerLoadingStyles.rectangleWrapper}>
+                <View style={[SellerLoadingStyles.frameInner, SellerLoadingStyles.childLayout]} />
+              </View>
+              <View
+                style={[SellerLoadingStyles.rectangleView, SellerLoadingStyles.frameChild1Layout]}
+              />
+              <View
+                style={[SellerLoadingStyles.frameChild1, SellerLoadingStyles.frameChild1Layout]}
+              />
             </View>
-            <View
-              style={[SellerLoadingStyles.rectangleView, SellerLoadingStyles.frameChild1Layout]}
-            />
-            <View
-              style={[SellerLoadingStyles.frameChild1, SellerLoadingStyles.frameChild1Layout]}
-            />
           </View>
-        </View>
+        </React.Fragment>
       ))}
     </View>
   )
 }
-const theFooter = ()=>{
-  return(
-    <NavHomeS
-      navHomePosition="unset"
-      navHomeBorderStyle="solid"
-      navHomeBorderColor="#8d8a8a"
-      navHomeBorderTopWidth={1}
-    />
-  )
-}
   return (
-    <SellerPageTemplate specificFooter={theFooter} page_name ='Loading'>
-      <View style={SellerLoadingSellerLoadingStyles.homepageitems}>
+    <SellerPageTemplate page_name ='Loading'>
+      <View style={SellerLoadingStyles.homepageitems}>
         <EwasteSlideshowContainer />
         <View style={[SellerLoadingStyles.newItems, SellerLoadingStyles.newSpaceBlock]}>
           <View style={SellerLoadingStyles.heading}>

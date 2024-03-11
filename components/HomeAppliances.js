@@ -58,21 +58,16 @@ const HomeAppliances = memo(
     ]);
 
     return (
-      <View
-        style={[styles.homeAppliances, styles.homeBg, homeAppliancesStyle]}
+      <View style={[styles.homeAppliances, styles.homeBg, homeAppliancesStyle]}
         onPress={onHomeAppliancesPress}
       >
         <View
-          style={[
-            styles.homeAppliancesYoullLoveAndWrapper,
-            styles.homeBg,
-            frameViewStyle,
+          style={[ styles.homeAppliancesYoullLoveAndWrapper,
+            styles.homeBg, frameViewStyle,
           ]}
         >
-          <Image
-            style={styles.homeAppliancesYoullLoveAndIcon}
-            contentFit="cover"
-            source={homeAppliancesYoullLoveAn}
+          <Image style={styles.homeAppliancesYoullLoveAndIcon}
+            contentFit="cover" source={homeAppliancesYoullLoveAn}
           />
         </View>
         <Text style={[styles.homeApplicances, homeApplicancesStyle]}>

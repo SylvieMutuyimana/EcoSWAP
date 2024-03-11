@@ -7,17 +7,10 @@ const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return { [key]: value === "unset" ? undefined : value };
 };
-const Property1Title = memo(
-  ({
-    megaMall,
-    property1Title1Position,
-    property1Title1BackgroundColor,
-    property1Title1MarginLeft,
-    property1Title1Top,
-    property1Title1Left,
-    property1Title1Width,
-    property1Title1Height,
-    megaMallLeft,
+const Property1Title = memo(({ megaMall, property1Title1Position,
+    property1Title1BackgroundColor, property1Title1MarginLeft,
+    property1Title1Top, property1Title1Left, property1Title1Width,
+    property1Title1Height, megaMallLeft
   }) => {
     const property1Title1Style = useMemo(() => {
       return {
@@ -29,28 +22,19 @@ const Property1Title = memo(
         ...getStyleValue("width", property1Title1Width),
         ...getStyleValue("height", property1Title1Height),
       };
-    }, [
-      property1Title1Position,
-      property1Title1BackgroundColor,
-      property1Title1MarginLeft,
-      property1Title1Top,
-      property1Title1Left,
-      property1Title1Width,
-      property1Title1Height,
+    }, [property1Title1Position, property1Title1BackgroundColor,
+      property1Title1MarginLeft, property1Title1Top, property1Title1Left,
+      property1Title1Width, property1Title1Height,
     ]);
 
     const megaMallStyle = useMemo(() => {
-      return {
-        ...getStyleValue("left", megaMallLeft),
-      };
+      return {...getStyleValue("left", megaMallLeft)};
     }, [megaMallLeft]);
 
     return (
       <View style={[styles.property1title1, property1Title1Style]}>
-        <Image
-          style={styles.regularangleSmallLeftIcon}
-          contentFit="cover"
-          source={require("../assets/regularanglesmallleft.png")}
+        <Image style={styles.left_icon} contentFit="cover"
+          source={require("../assets/images/icons/left_icon.png")}
         />
         <Text style={[styles.megaMall, megaMallStyle]}>{megaMall}</Text>
       </View>
@@ -59,7 +43,7 @@ const Property1Title = memo(
 );
 
 const styles = StyleSheet.create({
-  regularangleSmallLeftIcon: {
+  left_icon: {
     top: 16,
     left: 20,
     width: 24,

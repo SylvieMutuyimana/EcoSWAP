@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { auth_pages, buyer_pages, page_links, seller_pages } from "./page_links";
+import { all_page_links, page_links, startingPages } from "./page_links";
 import { theFonts } from "./components/accessories/fonts";
-import { getUserFromLocalStorage, getUserTypeFromLocalStorage } from "./components/data/localStorage";
+import { checksecondTimeUser, getLoggerUserTypeFromLocalStorage, getUserFromLocalStorage } from "./components/data/localStorage";
 import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
@@ -13,15 +13,21 @@ const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = useState(true);
   const [fontsLoaded, error] = useFonts(theFonts);
   const [userData, setUserData] = useState(null);
-  const [userType, setUserType] = useState(getUserTypeFromLocalStorage())
+  const [userType, setUserType] = useState(getLoggerUserTypeFromLocalStorage())
   console.log('userType: ', userType)
   useEffect(() => {
+    const user_type = getLoggerUserTypeFromLocalStorage()
     if(!userType){
-      const user_type = getUserTypeFromLocalStorage()
-      setUserType(user_type)
+      setUserType(user_type?user_type:null)
+      console.log('!usertype')
+      console.log('the links: ', page_links(user_type))
+    }else if(user_type!==userType){
+      setUserType(user_type?user_type:null)
+      console.log('user_type !== usertype')
       console.log('the links: ', page_links(user_type))
     }
-  }, []);
+  }, [userType]);
+
   useEffect(() => {
     const fetchData = async () => {
       const user_data = await getUserFromLocalStorage();
@@ -34,6 +40,12 @@ const App = () => {
     fetchData();
   }, []);
 
+  const returnPages = (pages) => {
+    const secondTimeUser = checksecondTimeUser()
+    const the_pages = secondTimeUser? pages:[...startingPages, ...pages]
+    return the_pages
+  }
+
   if (!fontsLoaded || hideSplashScreen) {
     return null; // Show loading screen or splash screen until fonts are loaded and user data is fetched
   }
@@ -42,8 +54,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         { 
-          getUserTypeFromLocalStorage()?
-            page_links(userType).map((page, index) => (
+          userType?
+          returnPages(page_links(userType)).map((page, index) => (
               <Stack.Screen
                 key={index}
                 name={page.name}
@@ -54,7 +66,7 @@ const App = () => {
                 userType={userType}
               />
             )
-          ):auth_pages.map((page, index) => (
+          ):returnPages(all_page_links).map((page, index) => (
               <Stack.Screen
                 key={index}
                 name={page.name}

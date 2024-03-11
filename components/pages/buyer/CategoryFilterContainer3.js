@@ -22,14 +22,14 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
       <Image
         style={styles.cursorIconLayout}
         contentFit="cover"
-        source={require("../../../assets/left-cursor1.png")}
+        source={require("../../../assets/images/icons/left-cursor1.png")}
       />
       <View style={styles.categoriesInner}>
         <View
           style={[styles.homeAppliancesParent, styles.phonestabletsPosition]}
         >
           <HomeAppliances
-            homeAppliancesYoullLoveAn={require("../../../assets/images/cat1.png")}
+            homeAppliancesYoullLoveAn={require("../../../assets/images/samples/cat1.png")}
             homeApplicances="Home Applicances"
             homeAppliancesPosition="unset"
             homeAppliancesBackgroundColor="unset"
@@ -50,9 +50,9 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
               ]}
             >
               <Image
-                style={styles.istockphoto583851138612x612Icon}
+                style={styles.istockImage}
                 contentFit="cover"
-                source={require("../../../assets/istockphoto583851138612x612-12.png")}
+                source={require("../../../assets/images/samples/crack_phone-12.png")}
               />
             </View>
             <Text style={[styles.phonestablets, styles.computerstvsTypo]}>
@@ -64,7 +64,7 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
               <Image
                 style={styles.download11}
                 contentFit="cover"
-                source={require("../../../assets/download-1-1.png")}
+                source={require("../../../assets/images/samples/tvs.png")}
               />
             </View>
             <Text style={[styles.computerstvs, styles.computerstvsTypo]}>
@@ -76,7 +76,7 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
               <Image
                 style={styles.download11}
                 contentFit="cover"
-                source={require("../../../assets/download-1-1.png")}
+                source={require("../../../assets/images/samples/tvs.png")}
               />
             </View>
             <Text style={[styles.computerstvs, styles.computerstvsTypo]}>
@@ -88,7 +88,7 @@ const CategoryFilterContainer3 = memo(({ computersTVsMarginTop }) => {
       <Image
         style={[styles.rightCursorIcon, styles.cursorIconLayout]}
         contentFit="cover"
-        source={require("../../../assets/right-cursor1.png")}
+        source={require("../../../assets/images/icons/right-cursor1.png")}
       />
     </View>
   );
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 10,
   },
-  istockphoto583851138612x612Icon: {
+  istockImage: {
     width: 77,
     height: 70,
   },

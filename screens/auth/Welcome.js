@@ -4,14 +4,17 @@ import { useNavigation } from "@react-navigation/native";
 import { WelcomeStyles } from "../../assets/styles/auth/welcomeStyles";
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
+import { setUserType } from "./navigate";
 
-const Welcome = ({setUserType, userType}) => {
+const Welcome = ({userType}) => {
   const navigation = useNavigation();
 
   const openReadMoreText = () => {
     // Implement your logic for opening read more text
   };
   const handleSubmit = (type) => {
+    console.log('usertype on wecome: ', type)
+    setUserType(type)
     navigation.navigate("Login", { userType: type });
   };
   
@@ -32,7 +35,7 @@ const Welcome = ({setUserType, userType}) => {
           <Image
             style={WelcomeStyles.aboutChild}
             contentFit="cover"
-            source={require("../../assets/frame-187.png")}
+            source={require("../../assets/images/auth/logoabout.png")}
           />
           <Pressable style={WelcomeStyles.readMore} onPress={openReadMoreText}>
             <Text style={WelcomeStyles.readMore1}>

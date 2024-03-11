@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import Property1Title from "../components/Property1Title";
-import ProductSearchContainer2 from "../components/ProductSearchContainer2";
+import ProductSearchContainer2 from "../components/pages/ProductSearchContainer2";
 import { FontSize, FontFamily, Color, Border, Padding } from "../GlobalStyles";
 
 const Search = () => {
@@ -31,7 +31,7 @@ const Search = () => {
               <Image
                 style={styles.regularsearchIcon}
                 contentFit="cover"
-                source={require("../assets/regularsearch1.png")}
+                source={require("../assets/images/icons/regularsearch1.png")}
               />
             </View>
           </View>

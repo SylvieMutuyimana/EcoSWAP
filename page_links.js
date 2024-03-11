@@ -24,7 +24,6 @@ import MYITEMS from "./screens/seller/MYITEMS";
 import SellerProfile from "./screens/seller/PROFILE";
 import SelluploadItems from "./screens/seller/SelluploadItems";
 import SELL from "./screens/seller/SELL";
-import SELL1 from "./screens/seller/SELL1";
 
 //item pages
 import Item from "./screens/item/Item";
@@ -35,9 +34,9 @@ import Item11 from "./screens/item/Item11";
 //more pages
 import About from "./components/auth/About";
 import Search from "./screens/Search";
-import Menu from "./components/Menu";
-import BuyerMenu from "./components/pages/BuyerMenu";
-import { getUserTypeFromLocalStorage } from "./components/data/localStorage";
+import { getLoggerUserTypeFromLocalStorage } from "./components/data/localStorage";
+import BuyerMenu from "./components/nav/BuyerMenu";
+import SellerMenu from "./components/nav/SellerMenu";
 
 const similar_menu = [
     {name:'TERMS/POLICIES', link: null},
@@ -61,15 +60,16 @@ export const menuPages = {
     ]
 }
 
-export const auth_pages = [
+export const startingPages = [
     {name: "StartingPage", component: StartingPage, options: {headerShown: false }}, 
+]
+
+export const auth_pages = [
     {name: "Welcome", component: Welcome, options: {headerShown: false }}, 
     {name: "Login", component: Login, options: {headerShown: false }}, 
     {name: "CreateAccount", component: CreateAccount, options: {headerShown: false }}, 
     {name: "Pin", component: Pin, options: {headerShown: false }}, 
-    {name: "SessionTimeOut", component: SessionTimeOut, options: {headerShown: false }}, 
-    {name: "BuyerLoading", component: BuyerLoading, options: {headerShown: false }}, 
-    {name: "SellerLoading", component: SellerLoading, options: {headerShown: false }}, 
+    {name: "SessionTimeOut", component: SessionTimeOut, options: {headerShown: false }}
 ]
 
 export const footerPages = {
@@ -87,36 +87,40 @@ export const footerPages = {
     ]
 }
 export const buyer_pages = [
+    {name: "BuyerLoading", component: BuyerLoading, options: {headerShown: false }}, 
     ...footerPages.buyer,
     {name: "CATEGORIES2", component: CATEGORIES2, options: {headerShown: false }}, 
     {name: "CATEGORIES1", component: CATEGORIES1, options: {headerShown: false }}, 
 ]
 export const seller_pages = [
+    {name: "SellerLoading", component: SellerLoading, options: {headerShown: false }}, 
     ...footerPages.seller,
     {name: "SelluploadItems", component: SelluploadItems, options: {headerShown: false }}, 
-    {name: "SELL1", component: SELL1, options: {headerShown: false }}, 
 
 ]
 export const other_pages = [
     {name: "Search", component: Search, options: {headerShown: false }},
 ]
+
 export const all_page_links = [
     ...auth_pages, ...buyer_pages, ...seller_pages, ...other_pages,
     {name: "Item2", component: Item2, options: {headerShown: false }}, 
     {name: "Item11", component: Item11, options: {headerShown: false }}, 
     {name: "About", component: About, options: {headerShown: false }}, 
     {name: "BuyerMenu", component: BuyerMenu, options: {headerShown: false }}, 
+    {name: "SellerMenu", component: SellerMenu, options: {headerShown: false }}, 
     {name: "Item", component: Item, options: {headerShown: false }}, 
     {name: "Item1", component: Item1, options: {headerShown: false }}, 
-    {name: "Menu", component: Menu, options: {headerShown: false }}
 ]
-const find_page = (theName, theArray)=>theArray.find(page=>page.name === theName)
 
-export const page_links = () => {
+const find_page = (theName)=>all_page_links.find(page=>page.name === theName)
+
+export const page_links = (user_type) => {
     let links = [...other_pages, ...auth_pages]; 
-    if (getUserTypeFromLocalStorage() === 'seller') {
+    console.log('user_type on page_links: ', user_type)
+    if (user_type === 'seller') {
         links = [ ...seller_pages, ...links]; 
-    } else if (getUserTypeFromLocalStorage() === 'buyer'){
+    } else if (user_type === 'buyer'){
         links = [ ...buyer_pages, ...links]; 
     }
     return links;

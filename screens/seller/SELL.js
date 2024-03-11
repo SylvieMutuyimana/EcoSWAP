@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import ItemContainer1 from "../../components/ItemContainer1";
+import ItemContainer1 from "../../components/pages/item/ItemContainer1";
 import SoldItemsContainer from "../../components/pages/seller/SoldItemsContainer";
 import SaleItemsContainer from "../../components/pages/seller/SaleItemsContainer";
 import { Padding} from "../../GlobalStyles";

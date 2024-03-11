@@ -2,7 +2,7 @@ import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import ItemDetailsContainer from "../../components/ItemDetailsContainer";
+import ItemDetailsContainer from "../../components/pages/item/ItemDetailsContainer";
 import SimilarItemsContainer from "../../components/SimilarItemsContainer";
 import { Color, FontFamily, FontSize, Border, Padding } from "../../GlobalStyles";
 

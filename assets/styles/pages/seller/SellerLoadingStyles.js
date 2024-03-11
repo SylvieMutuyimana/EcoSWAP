@@ -97,7 +97,7 @@ export const SellerLoadingStyles = StyleSheet.create({
     height: 39,
     width: 61,
   },
-  item7: {
+  item_right: {
     marginLeft: 24,
   },
   theItems: {

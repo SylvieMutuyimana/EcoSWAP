@@ -12,12 +12,10 @@ const SaleItemsContainer = memo(() => {
           <Text style={styles.description}>
             <Text style={styles.ionaBlenderWithANewGlass}>
               <Text style={styles.ionaBlenderWithANewGlass1}>
-                <Text
-                  style={styles.ionaBlenderWith}
-                >{`Iona blender with a new glass, but the moto is spoilt
-`}</Text>
-                <Text style={styles.rwf}>{`20,000 rwf
-`}</Text>
+                <Text style={styles.ionaBlenderWith}>
+                  Iona blender with a new glass, but the moto is spoilt
+                </Text>
+                <Text style={styles.rwf}>20,000 rwf</Text>
               </Text>
               <Text style={styles.blankLine}>
                 <Text style={styles.ionaBlenderWith}> </Text>
@@ -25,46 +23,40 @@ const SaleItemsContainer = memo(() => {
             </Text>
             <Text style={styles.blankLine}>
               <Text style={styles.checkItemTypo}>
-                <Text
-                  style={styles.checkItem}
-                >{`Check item     Check bids     edit price     `}</Text>
+                <Text style={styles.checkItem}>
+                  Check item     Check bids     edit price
+                </Text>
                 <Text style={styles.removeX}>Remove (x)</Text>
               </Text>
             </Text>
           </Text>
-          <Image
-            style={styles.spoilBlender16303888286a58dIcon}
-            contentFit="cover"
-            source={require("../../../assets/spoil-blender-1630388828-6a58d22e-2.png")}
+          <Image style={styles.spoilBlender16303888286a58dIcon} contentFit="cover"
+            source={require("../../../assets/images/samples/spoil-blender2.png")}
           />
         </View>
         <View style={[styles.item2, styles.itemLayout]}>
           <Text style={styles.description}>
             <Text style={styles.ionaBlenderWithANewGlass}>
               <Text style={styles.ionaBlenderWithANewGlass1}>
-                <Text
-                  style={styles.ionaBlenderWith}
-                >{`Smashed screen iphone 4, front camera broken
-`}</Text>
-                <Text style={styles.rwf}>{`56,000 rwf
-`}</Text>
+                <Text style={styles.ionaBlenderWith}>
+                  Smashed screen iphone 4, front camera broken
+                </Text>
+                <Text style={styles.rwf}>56,000 rwf</Text>
               </Text>
               <Text style={styles.blankLine2}> </Text>
             </Text>
             <Text style={[styles.checkItemCheckBids2, styles.checkItemTypo]}>
-              <Text
-                style={styles.checkItem}
-              >{`Check item     Check bids     edit price     `}</Text>
+              <Text style={styles.checkItem}>
+                Check item     Check bids     edit price
+              </Text>
               <Text style={styles.removeX}>Remove (x)</Text>
             </Text>
           </Text>
-          <Image
-            style={styles.istockphoto583851138612x612Icon}
-            contentFit="cover"
-            source={require("../../../assets/istockphoto583851138612x612-17.png")}
+          <Image style={styles.istockImage} contentFit="cover"
+            source={require("../../../assets/images/samples/cracked_phone3.png")}
           />
         </View>
-        <Text style={styles.viewAll}>{`View all -->`}</Text>
+        <Text style={styles.viewAll}>View all {`-->`}</Text>
       </View>
     </View>
   );
@@ -138,7 +130,7 @@ const styles = StyleSheet.create({
   checkItemCheckBids2: {
     fontSize: FontSize.size_5xs,
   },
-  istockphoto583851138612x612Icon: {
+  istockImage: {
     top: 5,
     left: 15,
     width: 81,

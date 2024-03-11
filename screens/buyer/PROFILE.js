@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import BuyerMenu from "../../components/pages/BuyerMenu";
+import BuyerMenu from "../../components/nav/BuyerMenu";
 import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 
@@ -30,7 +30,7 @@ const BuyerProfile = () => {
       </View>
       <View style={[styles.image, styles.imageSpaceBlock]}>
         <Image style={styles.imageChild} contentFit="cover"
-          source={require("../../assets/frame-1644.png")}
+          source={require("../../assets/images/samples/user_image.png")}
         />
       </View>
       <View style={[styles.details, styles.imageSpaceBlock]}>

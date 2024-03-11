@@ -10,11 +10,11 @@ const CategoryFilterContainer1 = memo(() => {
       <Image
         style={styles.cursorIconLayout}
         contentFit="cover"
-        source={require("../../../assets/left-cursor.png")}
+        source={require("../../../assets/images/icons/left-cursor.png")}
       />
       <View style={[styles.homeAppliancesParent, styles.categoriesFlexBox]}>
         <HomeAppliances
-          homeAppliancesYoullLoveAn={require("../../../assets/images/cat1.png")}
+          homeAppliancesYoullLoveAn={require("../../../assets/images/samples/cat1.png")}
           homeApplicances="Home Applicances"
           homeAppliancesPosition="unset"
           homeAppliancesBackgroundColor="unset"
@@ -29,14 +29,12 @@ const CategoryFilterContainer1 = memo(() => {
         <View style={styles.homeLayout}>
           <View
             style={[
-              styles.istockphoto583851138612x612Wrapper,
+              styles.stockphotoWrapper,
               styles.wrapperLayout,
             ]}
           >
-            <Image
-              style={styles.istockphoto583851138612x612Icon}
-              contentFit="cover"
-              source={require("../../../assets/istockphoto583851138612x612-14.png")}
+            <Image style={styles.stockphotoIcon} contentFit="cover"
+              source={require("../../../assets/images/samples/cracked_phone_s.png")}
             />
           </View>
           <Text style={[styles.phonestablets, styles.computerstvsLayout]}>
@@ -45,10 +43,8 @@ const CategoryFilterContainer1 = memo(() => {
         </View>
         <View style={[styles.homeAppliances1, styles.homeLayout]}>
           <View style={styles.wrapperLayout}>
-            <Image
-              style={styles.download11}
-              contentFit="cover"
-              source={require("../../../assets/download-1-11.png")}
+            <Image style={styles.download11} contentFit="cover"
+              source={require("../../../assets/images/samples/tvs1.png")}
             />
           </View>
           <Text style={[styles.computerstvs, styles.computerstvsLayout]}>
@@ -59,7 +55,7 @@ const CategoryFilterContainer1 = memo(() => {
       <Image
         style={[styles.rightCursorIcon, styles.cursorIconLayout]}
         contentFit="cover"
-        source={require("../../../assets/right-cursor.png")}
+        source={require("../../../assets/images/icons/right-cursor.png")}
       />
     </View>
   );
@@ -96,11 +92,11 @@ const styles = StyleSheet.create({
     height: 20,
     width: 10,
   },
-  istockphoto583851138612x612Icon: {
+  stockphotoIcon: {
     width: 77,
     height: 70,
   },
-  istockphoto583851138612x612Wrapper: {
+  stockphotoWrapper: {
     top: 11,
     left: 18,
     borderStyle: "solid",

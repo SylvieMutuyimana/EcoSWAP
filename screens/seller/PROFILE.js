@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
-import SellerMenu from "../../components/pages/SellerMenu";
+import SellerMenu from "../../components/nav/SellerMenu";
 import TITLEPAGE from "../../components/nav/TITLEPAGE";
 import { Color, FontSize, Border, Padding, FontFamily } from "../../GlobalStyles";
 import SellerPageTemplate from "./Template";
@@ -30,7 +30,7 @@ const SellerProfile = () => {
       </View>
       <View style={[styles.image, styles.imageSpaceBlock]}>
         <Image style={styles.imageChild} contentFit="cover"
-          source={require("../../assets/frame-1644.png")}
+          source={require("../../assets/images/samples/user_image.png")}
         />
       </View>
       <View style={[styles.details, styles.imageSpaceBlock]}>

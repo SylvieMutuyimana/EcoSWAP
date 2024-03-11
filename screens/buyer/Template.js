@@ -1,18 +1,16 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native"; // Added Pressable
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { View, StyleSheet, Text } from "react-native"; // Added Pressable
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
-import NavBuyer from "../../components/nav/buyer/NavBuyer";
+import NavBuyer from "../../components/nav/NavBuyer";
 
-const BuyerPageTemplate = ({authMessage,children, page_name,the_page, specificFooter}) => {
+const BuyerPageTemplate = ({children, page_name, the_page}) => {
   const userType = "buyer"
-  const navigation = useNavigation();
   const TheFooter = ()=>{
     if(page_name){
       if(the_page !=='menu'){
         return(
-          <NavBuyer page_name={page_name} userType={userType}/>
+          <NavBuyer page_name={page_name==='Loading'?page_name='BuyerHome':page_name} userType={userType}/>
         )
       }else{return false}
     }else{return false}

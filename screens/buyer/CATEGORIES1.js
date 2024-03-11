@@ -2,11 +2,10 @@ import React, { useState, useCallback } from "react";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import CategoryFilterContainer3 from "../../components/pages/buyer/CategoryFilterContainer3";
-import ProductSearchContainer from "../../components/ProductSearchContainer";
-import ContainerItem from "../../components/ContainerItem";
-import NavCategories from "../../components/nav/buyer/old/NavCategories";
+import ProductSearchContainer from "../../components/pages/ProductSearchContainer";
+import ContainerItem from "../../components/pages/item/ContainerItem";
 import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
-import BuyerMenu from "../../components/pages/BuyerMenu";
+import BuyerMenu from "../../components/nav/BuyerMenu";
 
 const CATEGORIES1 = () => {
   const [menuiconVisible, setMenuiconVisible] = useState(false);
@@ -36,26 +35,26 @@ const CATEGORIES1 = () => {
               </View>
               <View style={styles.items1}>
                 <ContainerItem
-                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/images/samples/spoil-blender-13.png")}
+                  productDimensionsCode={require("../../assets/images/icons/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop="unset"
                 />
                 <ContainerItem
-                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/images/samples/spoil-blender-13.png")}
+                  productDimensionsCode={require("../../assets/images/icons/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />
                 <ContainerItem
-                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/images/samples/spoil-blender-13.png")}
+                  productDimensionsCode={require("../../assets/images/icons/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />
                 <ContainerItem
-                  dimensionCode={require("../../assets/spoil-blender-1630388828-6a58d22e-13.png")}
-                  productDimensionsCode={require("../../assets/biheartfill1.png")}
+                  dimensionCode={require("../../assets/images/samples/spoil-blender-13.png")}
+                  productDimensionsCode={require("../../assets/images/icons/biheartfill1.png")}
                   propBackgroundColor="#c0c0c0"
                   propMarginTop={10}
                 />
@@ -63,16 +62,6 @@ const CATEGORIES1 = () => {
             </View>
           </View>
         </View>
-        <NavCategories
-          navCategoryPosition="unset"
-          navCategoryBorderStyle="solid"
-          navCategoryBorderColor="#8d8a8a"
-          navCategoryBorderTopWidth={1}
-          onHOMEPress={() => navigation.navigate("HOMES")}
-          onCATEGORYChosenPress={() => navigation.navigate("CATEGORIES1")}
-          onCARTPress={() => navigation.navigate("CART")}
-          onPROFILEPress={() => navigation.navigate("PROFILE")}
-        />
       </View>
 
       <Modal animationType="fade" transparent visible={menuiconVisible}>
