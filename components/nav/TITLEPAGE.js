@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_base,
     fontWeight: "900",
     fontFamily: FontFamily.interBlack,
-    color: Color.colorsDefault,
     textAlign: "left",
     width: "100%",
     height: 20,

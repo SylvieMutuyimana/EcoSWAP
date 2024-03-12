@@ -34,20 +34,15 @@ const SellerProfile = () => {
         />
       </View>
       <View style={[styles.details, styles.imageSpaceBlock]}>
-        <Text style={[ styles.dataContainer,
-            styles.dataContainer1,
-          ]}>
+        <Text style={styles.dataContainer}>
           <Text style={styles.name}>Name: </Text>
           <Text style={styles.text}>Muneza Lionel</Text>
         </Text>
-        <Text style={[ styles.accountTypeRegularContainer,
-            styles.dataContainer1,
-          ]}
-        >
-          <Text style={styles.name}>Account type:</Text>
-          <Text style={styles.text}>Regular</Text>
+        <Text style={styles.dataContainer}>
+          <Text style={styles.name}>Account type: </Text>
+          <Text style={styles.text}>{userType}</Text>
         </Text>
-        <Text style={[styles.username, styles.dataContainer1]}>
+        <Text style={styles.dataContainer}>
           <Text style={styles.name}>Username:</Text>
           <Text style={styles.text}>l_muneza</Text>
         </Text>
@@ -83,13 +78,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     overflow: "hidden",
   },
-  dataContainer1: {
+  dataContainer: {
     width: 122,
     textAlign: "left",
     color: Color.colorsDefault,
     fontSize: FontSize.size_smi,
-    left: 5,
-    position: "absolute",
+    marginLeft:5,
+    marginTop: 10
   },
   fluentnavFilledIconOverlay: {
     flex: 1,
@@ -121,18 +116,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: FontFamily.interRegular,
-  },
-  dataContainer: {
-    top: 9,
-    height: 42,
-  },
-  accountTypeRegularContainer: {
-    top: 107,
-    height: 39,
-  },
-  username: {
-    top: 58,
-    height: 41,
   },
   details: {
     width: 298,

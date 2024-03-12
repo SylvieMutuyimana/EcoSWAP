@@ -13,7 +13,7 @@ const MYITEMS = () => {
   const navigation = useNavigation();
 
   return (
-    <SellerPageTemplate page_name ='My Items'>
+    <SellerPageTemplate page_name ='MyItems'>
       <View style={styles.heading}>
         <Pressable onPress={() => navigation.goBack()}>
           <Text style={styles.text}>{`<--`}</Text>

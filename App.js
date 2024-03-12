@@ -11,10 +11,15 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = useState(true);
-  const [fontsLoaded, error] = useFonts(theFonts);
+  const [fontsLoaded, setFonts] = useFonts(theFonts);
   const [userData, setUserData] = useState(null);
   const [userType, setUserType] = useState(getLoggerUserTypeFromLocalStorage())
   console.log('userType: ', userType)
+  useEffect(()=>{
+    if(theFonts && !fontsLoaded){
+      setFonts(theFonts)
+    }
+  },[fontsLoaded])
   useEffect(() => {
     const user_type = getLoggerUserTypeFromLocalStorage()
     if(!userType){
@@ -56,25 +61,23 @@ const App = () => {
         { 
           userType?
           returnPages(page_links(userType)).map((page, index) => (
-              <Stack.Screen
-                key={index}
-                name={page.name}
-                component={page.component}
-                options={page.options}
-                userData={userData}
-                setUserData={setUserData}
-                userType={userType}
-              />
-            )
-          ):returnPages(all_page_links).map((page, index) => (
-              <Stack.Screen
-                key={index}
-                name={page.name}
-                component={page.component}
-                options={page.options}
-              />
-            )
-          )
+            <Stack.Screen
+              key={index}
+              name={page.name}
+              component={page.component}
+              options={page.options}
+              userData={userData}
+              setUserData={setUserData}
+              userType={userType}
+            />
+          )):returnPages(all_page_links).map((page, index) => (
+            <Stack.Screen
+              key={index}
+              name={page.name}
+              component={page.component}
+              options={page.options}
+            />
+          ))
         }
 
       </Stack.Navigator>

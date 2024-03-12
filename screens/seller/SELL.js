@@ -12,7 +12,7 @@ const SELL = () => {
   const navigation = useNavigation();
 
   return (
-    <SellerPageTemplate page_name ='SELL'>
+    <SellerPageTemplate page_name ='Sell'>
       <View style={[styles.newItesmParent, styles.sellSpaceBlock]}>
         <ItemContainer1 />
         <View style={styles.items}>

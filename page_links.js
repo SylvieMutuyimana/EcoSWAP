@@ -113,8 +113,6 @@ export const all_page_links = [
     {name: "Item1", component: Item1, options: {headerShown: false }}, 
 ]
 
-const find_page = (theName)=>all_page_links.find(page=>page.name === theName)
-
 export const page_links = (user_type) => {
     let links = [...other_pages, ...auth_pages]; 
     console.log('user_type on page_links: ', user_type)

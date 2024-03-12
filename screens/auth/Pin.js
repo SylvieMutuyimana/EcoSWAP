@@ -44,7 +44,7 @@ const Pin = ({setAuthMessage, route}) => {
             <View style={authStyles.formfields}>
               {pinError&&(<Text style={authStyles.error}>{pinError}</Text>)}
               <TextInput style={authStyles.input}
-                placeholder={field.placeholder}
+                placeholder={'Enter the Pin'}
                 onChangeText={(text) => setPin(text)}
               />
             </View>

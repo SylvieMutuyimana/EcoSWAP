@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, Modal } from "react-native";
+import { StyleSheet } from "react-native";
 import { Color, Padding, Border, FontFamily, FontSize } from "../../../GlobalStyles";
 
 export const WelcomeStyles = StyleSheet.create({
@@ -53,7 +53,6 @@ export const WelcomeStyles = StyleSheet.create({
     width: 226,
     height: 18,
     fontSize: FontSize.size_xs,
-    color: Color.primaryPureWhite,
     textAlign: "center",
     color: Color.primaryPureWhite,
   },

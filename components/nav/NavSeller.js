@@ -14,6 +14,7 @@ import profileChosen from "../../assets/images/nav/buyer/vector24.png";
 import { useNavigation } from "@react-navigation/core";
 
 const NavSeller = ({ page_name, userType }) => {
+  console.log("page_name on nav: ", page_name)
   const navigation = useNavigation();
   const footer_pages = footerPages?.[userType];
   const next_page = (theName) => {

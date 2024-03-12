@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Padding, Color, Border, FontSize, FontFamily } from "../../../../GlobalStyles";
+import { Padding, Color, FontSize, FontFamily } from "../../../../GlobalStyles";
 
 export const sellerHomeStyles = StyleSheet.create({
   viewFlexBox: {

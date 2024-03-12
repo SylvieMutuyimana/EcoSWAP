@@ -7,7 +7,7 @@ import { authStyles } from "../../assets/styles/auth/authStyles";
 import { unauthoriseUser } from "./navigate";
 import { getUserFromLocalStorage } from "../../components/data/localStorage";
 
-const CreateAccount = ({authMessage, route}) => {
+const CreateAccount = ({authMessage}) => {
   const userType = getUserFromLocalStorage();
 
   const navigation = useNavigation();
@@ -56,7 +56,7 @@ const CreateAccount = ({authMessage, route}) => {
     if (missing_field && missing_field!=='password1') {
       const labe_ = formFields.find(field=>field.name === missing_field).label
       setError(`Missing ${labe_}`);
-    } else if (wrongPhone(loginDetails.phoneNum)) {
+    } else if (wrongPhone(signupDetails.phoneNum)) {
       setError('Invalid phone number');
     } else if(isValidEmail(signupDetails.email)){
       setError('Invalid email');

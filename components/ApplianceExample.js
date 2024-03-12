@@ -1,17 +1,14 @@
 import React, { memo } from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Pressable, ImageSourcePropType } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import { Color, Border } from "../GlobalStyles";
 
-const ApplianceExample = memo(
-  ({ homeAppliancesYoullLoveAn, onApplianceExamplePress }) => {
+const ApplianceExample = memo(({ homeAppliancesYoullLoveAn, onApplianceExamplePress }) => {
     return (
-      <Pressable
-        style={styles.applianceExample}
+      <Pressable style={styles.applianceExample}
         onPress={onApplianceExamplePress}
       >
-        <View
-          style={[
+        <View style={[
             styles.homeAppliancesYoullLoveAndWrapper,
             styles.applianceExampleChildBg,
           ]}

@@ -41,7 +41,6 @@ const CATEGORIES2 = () => {
           </View>
         </View>
       </View>
-      <CategoryFilterContainer4 />
     </View>
   );
 };

@@ -44,8 +44,8 @@ const BuyerProfile = () => {
             styles.dataContainer1,
           ]}
         >
-          <Text style={styles.name}>Account type:</Text>
-          <Text style={styles.text}>Regular</Text>
+          <Text style={styles.name}>Account type: </Text>
+          <Text style={styles.text}>{userType}</Text>
         </Text>
         <Text style={[styles.username, styles.dataContainer1]}>
           <Text style={styles.name}>Username:</Text>
