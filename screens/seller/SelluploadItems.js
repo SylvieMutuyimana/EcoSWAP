@@ -1,10 +1,48 @@
-import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import React from "react";
+import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
-import ImageContainer from "../../components/ImageContainer";
 import PriceContainer from "../../components/PriceContainer";
 import { useNavigation } from "@react-navigation/native";
 import { Color, Border, FontFamily, FontSize, Padding } from "../../GlobalStyles";
+
+const ImageStyles = StyleSheet.create({
+  emailSpaceBlock: {
+    marginLeft: 10,
+    overflow: "hidden",
+  },
+  vectorIcon: {
+    width: 60,
+    height: 60,
+  },
+  icoutlineCloudUploadIcon: {
+    width: 24,
+    height: 24,
+  },
+  email1: {
+    position: "absolute",
+    top: 11,
+    left: 18,
+    fontSize: FontSize.size_base,
+    fontStyle: "italic",
+    fontFamily: FontFamily.interLight,
+    color: Color.colorsDefault,
+    textAlign: "left",
+    width: 68,
+  },
+  email: {
+    borderRadius: Border.br_8xs,
+    backgroundColor: Color.colorWhitesmoke,
+    elevation: 4,
+    width: 220,
+    height: 41,
+  },
+  vectorParent: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    paddingBottom: Padding.p_3xs,
+    overflow: "hidden",
+  },
+});
 
 const SelluploadItems = () => {
   const navigation = useNavigation();
@@ -16,10 +54,18 @@ const SelluploadItems = () => {
           <Text style={styles.selldonateYourItem}>Sell/Donate your item</Text>
           <View style={styles.details}>
             <View style={[styles.frameParent, styles.frameParentSpaceBlock]}>
-              <ImageContainer
-                imageDimensions={require("../../assets/images/icons/vector12.png")}
-                productCode={require("../../assets/images/icons/icoutlinecloudupload.png")}
-              />
+              <View style={ImageStyles.vectorParent}>
+                <Image style={ImageStyles.vectorIcon} contentFit="cover"
+                  source={require("../../assets/images/icons/vector12.png")}
+                />
+                <Image style={[ImageStyles.icoutlineCloudUploadIcon, ImageStyles.emailSpaceBlock]}
+                  contentFit="cover"
+                  source={require("../../assets/images/icons/icoutlinecloudupload.png")}
+                />
+                <View style={[ImageStyles.email, ImageStyles.emailSpaceBlock]}>
+                  <Text style={ImageStyles.email1}>Image</Text>
+                </View>
+              </View>
               <View style={[styles.email, styles.emailShadowBox]}>
                 <Text style={[styles.email1, styles.emailTypo]}>Item Name</Text>
               </View>
@@ -27,9 +73,7 @@ const SelluploadItems = () => {
                 <Text style={[styles.email3, styles.emailTypo]}>
                   Item Category
                 </Text>
-                <Image
-                  style={styles.vectorIcon}
-                  contentFit="cover"
+                <Image style={styles.vectorIcon} contentFit="cover"
                   source={require("../../assets/images/icons/vector13.png")}
                 />
               </View>
@@ -38,19 +82,15 @@ const SelluploadItems = () => {
                   Description
                 </Text>
               </View>
-              <PriceContainer
-                listingDetails="Price"
+              <PriceContainer listingDetails="Price" locationType="Free"
                 listingIdentifier={require("../../assets/images/icons/vector14.png")}
-                locationType="Free"
                 dimensionIdentifier={require("../../assets/images/icons/vector15.png")}
               />
-              <PriceContainer
-                listingDetails="Province"
+              <PriceContainer listingDetails="Province" propWidth={15} propHeight={7}
                 listingIdentifier={require("../../assets/images/icons/vector13.png")}
                 locationType="District"
                 dimensionIdentifier={require("../../assets/images/icons/vector13.png")}
-                propWidth={15}
-                propHeight={7}
+                
               />
               <View style={[styles.email6, styles.emailShadowBox]}>
                 <Text style={[styles.email1, styles.emailTypo]}>Sector</Text>
@@ -65,12 +105,9 @@ const SelluploadItems = () => {
               </View>
             </View>
           </View>
-          <Pressable
-            style={styles.login}
-            onPress={() => navigation.navigate("Pin")}
-          >
+          <View style={styles.login}>
             <Text style={styles.upload}>UPLOAD</Text>
-          </Pressable>
+          </View>
         </View>
       </View>
     </View>

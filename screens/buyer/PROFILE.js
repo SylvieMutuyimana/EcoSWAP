@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
@@ -11,21 +10,20 @@ const BuyerProfile = () => {
   const [fluentnavigation16FilledIconVisible,
     setFluentnavigation16FilledIconVisible,
   ] = useState(false);
-  const navigation = useNavigation();
   const userType  = 'buyer'; 
 
-  const openFluentnavigation16FilledIcon = useCallback(() => {
+  const openFilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(true);
   }, []);
 
-  const closeFluentnavigation16FilledIcon = useCallback(() => {
+  const closeFilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(false);
   }, []);
 
   return (
     <BuyerPageTemplate page_name ='BuyerProfile'>
       <View style={styles.titlePage} >
-      <TITLEPAGE onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
+      <TITLEPAGE onMenuIconPress={openFilledIcon}/>
 
       </View>
       <View style={[styles.image, styles.imageSpaceBlock]}>
@@ -57,9 +55,9 @@ const BuyerProfile = () => {
       >
         <View style={styles.fluentnavFilledIconOverlay}>
           <Pressable style={styles.fluentnaviFilledIcon}
-            onPress={closeFluentnavigation16FilledIcon}
+            onPress={closeFilledIcon}
           />
-          <BuyerMenu onClose={closeFluentnavigation16FilledIcon} />
+          <BuyerMenu onClose={closeFilledIcon} />
         </View>
       </Modal>
     </BuyerPageTemplate>

@@ -11,15 +11,9 @@ import homeChosen from "../../assets/images/nav/buyer/vector7.png";
 import uploadChosen from "../../assets/images/nav/seller/vector21.png";
 import myItemsChosen from "../../assets/images/nav/seller/vector25.png";
 import profileChosen from "../../assets/images/nav/buyer/vector24.png";
-import { useNavigation } from "@react-navigation/core";
 
 const NavSeller = ({ page_name, userType }) => {
-  console.log("page_name on nav: ", page_name)
-  const navigation = useNavigation();
   const footer_pages = footerPages?.[userType];
-  const next_page = (theName) => {
-    return footer_pages?.find(page => page?.footerName === theName)?.name;
-  };
   const thePage = (theName) => {
     return footer_pages?.find(page => page?.name === theName)?.footerName;
   };
@@ -38,7 +32,6 @@ const NavSeller = ({ page_name, userType }) => {
 
   const changePage = (theName) => {
     setPage(theName);
-    navigation.navigate(userType ? next_page(theName) : 'SessionTimeOut');
   };
   console.log('page_name: ', page_name)
   console.log('currentPage: ', currentPage)

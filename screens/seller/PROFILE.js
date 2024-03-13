@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
 import { Text, StyleSheet, View, Pressable, Modal } from "react-native";
 import { Image } from "expo-image";
 import SellerMenu from "../../components/nav/SellerMenu";
@@ -11,21 +10,20 @@ const SellerProfile = () => {
   const [fluentnavigation16FilledIconVisible,
     setFluentnavigation16FilledIconVisible,
   ] = useState(false);
-  const navigation = useNavigation();
   const userType  = 'seller'; 
 
   const openFluentnavigation16FilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(true);
   }, []);
 
-  const closeFluentnavigation16FilledIcon = useCallback(() => {
+  const closeFilledIcon = useCallback(() => {
     setFluentnavigation16FilledIconVisible(false);
   }, []);
 
   return (
     <SellerPageTemplate page_name ='SellerProfile'>
       <View style={styles.titlePage} >
-      <TITLEPAGE onFluentnavigation16FilledPress={openFluentnavigation16FilledIcon}/>
+      <TITLEPAGE onMenuIconPress={openFluentnavigation16FilledIcon}/>
 
       </View>
       <View style={[styles.image, styles.imageSpaceBlock]}>
@@ -52,9 +50,9 @@ const SellerProfile = () => {
       >
         <View style={styles.fluentnavFilledIconOverlay}>
           <Pressable style={styles.fluentnaviFilledIcon}
-            onPress={closeFluentnavigation16FilledIcon}
+            onPress={closeFilledIcon}
           />
-          <SellerMenu onClose={closeFluentnavigation16FilledIcon} />
+          <SellerMenu onClose={closeFilledIcon} />
         </View>
       </Modal>
     </SellerPageTemplate>

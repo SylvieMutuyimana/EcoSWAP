@@ -2,6 +2,7 @@ import React, { useMemo, memo } from "react";
 import {StyleSheet, View } from "react-native";
 import HomeAppliances from "../../HomeAppliances";
 import { Padding } from "../../../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
@@ -19,6 +20,7 @@ const SpecificCategoryItems = memo(
         ...getStyleValue("left", propLeft),
       };
     }, [propOverflow, propMarginTop, propPosition, propTop, propLeft]);
+    const navigation = useNavigation();
 
     return (
       <View style={[styles.categories, cATEGORIESStyle]}>

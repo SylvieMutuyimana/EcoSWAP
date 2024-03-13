@@ -3,12 +3,12 @@ import {Text,StyleSheet,Pressable,View,} from "react-native";
 import { Image } from "expo-image";
 import { FontSize, FontFamily, Color } from "../../GlobalStyles";
 
-const TITLEPAGE = memo(({onFluentnavigation16FilledPress}) => {
+const TITLEPAGE = memo(({onMenuIconPress}) => {
 
     return (
       <View style={styles.headerProfile}>
         <Text style={styles.profile}>PROFILE</Text>
-        <Pressable style={styles.fluentnavFilled} onPress={onFluentnavigation16FilledPress}>
+        <Pressable style={styles.fluentnavFilled} onPress={onMenuIconPress}>
           <Image style={styles.icon} contentFit="cover" 
             source={require("../../assets/images/icons/menu_white.png")} />
         </Pressable>

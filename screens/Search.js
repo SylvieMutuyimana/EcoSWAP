@@ -1,27 +1,71 @@
-import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
-import Property1Title from "../components/Property1Title";
-import ProductSearchContainer2 from "../components/pages/ProductSearchContainer2";
 import { FontSize, FontFamily, Color, Border, Padding } from "../GlobalStyles";
+import React from "react";
+import { Image } from "expo-image";
+import { StyleSheet, Text, View } from "react-native";
+import { FontSize, FontFamily, Color } from "../GlobalStyles";
 
 const Search = () => {
+  const ProductSearchContainer2 =() => {
+    return (
+      <View style={ProductContStyles.container}>
+        <Text style={[ProductContStyles.terakhirDicari, ProductContStyles.tma2WirelessTypo]}>
+          Terakhir Dicari
+        </Text>
+        <View style={ProductContStyles.lastSearchLists}>
+          <View style={ProductContStyles.lastItemFlexBox}>
+            <Image style={ProductContStyles.iconLayout} contentFit="cover"
+              source={require("../../assets/images/icons/icon--clock.png")}
+            />
+            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
+              TMA2 Wireless
+            </Text>
+            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
+              contentFit="cover"
+              source={require("../../assets/images/icons/icon--x.png")}
+            />
+          </View>
+          <View style={[ProductContStyles.lastSearchItem1, ProductContStyles.lastItemFlexBox]}>
+            <Image style={ProductContStyles.iconLayout} contentFit="cover"
+              source={require("../../assets/images/icons/icon--clock.png")}
+            />
+            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
+              Cable
+            </Text>
+            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
+              contentFit="cover"
+              source={require("../../assets/images/icons/icon--x.png")}
+            />
+          </View>
+          <View style={[ProductContStyles.lastSearchItem1, ProductContStyles.lastItemFlexBox]}>
+            <Image style={ProductContStyles.iconLayout}
+              contentFit="cover"
+              source={require("../../assets/images/icons/icon--clock.png")}
+            />
+            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
+              Macbook
+            </Text>
+            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
+              contentFit="cover"
+              source={require("../../assets/images/icons/icon--x.png")}
+            />
+          </View>
+        </View>
+      </View>
+    );
+  }
   return (
     <View style={styles.search}>
       <View style={[styles.thepage, styles.thepagePosition]}>
         <View style={[styles.pagecontent, styles.thepagePosition]}>
           <View style={styles.searchWrapper}>
-            <Property1Title
-              megaMall="Search"
-              property1Title1Position="absolute"
-              property1Title1BackgroundColor="unset"
-              property1Title1MarginLeft={-180}
-              property1Title1Top={0}
-              property1Title1Left="50%"
-              property1Title1Width={360}
-              property1Title1Height={55}
-              megaMallLeft={161}
-            />
+            <View style={[SearchContainerstyles.property1title1]}>
+              <Image style={SearchContainerstyles.left_icon} contentFit="cover"
+                source={require("../assets/images/icons/left_icon.png")}
+              />
+              <Text style={[SearchContainerstyles.megaMall]}>{'Search'}</Text>
+            </View>
           </View>
           <View style={styles.field}>
             <View style={styles.guysimmmonsgmailcomParent}>
@@ -41,7 +85,83 @@ const Search = () => {
     </View>
   );
 };
+const ProductContStyles = StyleSheet.create({
+  tma2WirelessTypo: {
+    textAlign: "left",
+    color: Color.blueShadow,
+    lineHeight: 20,
+    letterSpacing: 0,
+    fontSize: FontSize.font_size,
+  },
+  iconLayout: {
+    overflow: "hidden",
+    height: 20,
+    width: 20,
+  },
+  lastItemFlexBox: {
+    flexDirection: "row",
+    width: 306,
+    alignItems: "center",
+  },
+  terakhirDicari: {
+    fontWeight: "500",
+    fontFamily: FontFamily.dMSansMedium,
+  },
+  tma2Wireless: {
+    flex: 1,
+    fontFamily: FontFamily.dMSansRegular,
+    marginLeft: 10,
+  },
+  iconX: {
+    marginLeft: 10,
+  },
+  lastSearchItem1: {
+    marginTop: 25,
+  },
+  lastSearchLists: {
+    justifyContent: "center",
+    marginTop: 20,
+    alignItems: "center",
+    width: 311,
+  },
+  container: {
+    marginTop: 10,
+    width: 311,
+  },
+});
 
+const SearchContainerstyles = StyleSheet.create({
+  left_icon: {
+    top: 16,
+    left: 20,
+    width: 24,
+    height: 24,
+    overflow: "hidden",
+    position: "absolute",
+  },
+  megaMall: {
+    left: 161,
+    top: 18,
+    fontSize: FontSize.size_base,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "500",
+    fontFamily: FontFamily.dMSansMedium,
+    color: Color.colorsDefault,
+    textAlign: "center",
+    position: "absolute",
+  },
+  property1title1: {
+    backgroundColor: Color.primaryPureWhite,
+    shadowColor: "rgba(0, 0, 0, 0.05)",
+    shadowOffset: {width: 0, height: 1},
+    shadowRadius: 3, elevation: 3,
+    shadowOpacity: 1,
+    width: 360,position: 'absolute',
+    height: 55,marginLeft: -180,
+    left: "50%", top:0
+  },
+});
 const styles = StyleSheet.create({
   thepagePosition: {
     left: 0,

@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Pressable, Text, View } from "react-native";
 import { Image } from "expo-image";
 import EwasteSlideshowContainer from "../../components/EwasteSlideshowContainer";
-import ApplianceExample from "../../components/ApplianceExample";
 import { useNavigation } from "@react-navigation/native";
 import { BuyerLoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
+import { Color, Border } from "../GlobalStyles";
+
 import BuyerPageTemplate from "./Template";
 const BuyerLoading = () => {
   const navigation = useNavigation();
-  const userType = "buyer"
   useEffect(() => {
     console.log('waiting for timetimer')
     const timer = setTimeout(() => {
@@ -68,16 +68,26 @@ const BuyerLoading = () => {
         <View style={BuyerLoadingStyles.categories1}>
           <View style={BuyerLoadingStyles.categories2}>
           {[...Array(5)].map((_, index) => (
-              <ApplianceExample key={index}
-              homeAppliancesYoullLoveAn={require("../../assets/images/samples/cat.png")}
+              <TheItem key={index}
             />
-            ))}
+          ))}
           </View>
         </View>
       </React.Fragment>
     )
   }
-
+  const TheItem = () => {
+    return (
+      <View style={applianceStyles.TheItem}>
+        <View style={applianceStyles.applianceContainer}>
+          <Image style={applianceStyles.applianceImage} contentFit="cover"
+            source={require("../../assets/images/samples/cat.png")}
+          />
+        </View>
+        <View style={applianceStyles.TheItemChild}/>
+      </View>
+    );
+  }
   return (
     <BuyerPageTemplate page_name ='Loading'>
       {/*search*/}
@@ -106,5 +116,37 @@ const BuyerLoading = () => {
     </BuyerPageTemplate>
   );
 };
+
+const applianceStyles = StyleSheet.create({
+  applianceImage: {
+    width: 70,
+    display: "none",
+    height: 60,
+  },
+  applianceContainer: {
+    backgroundColor: Color.silver,
+    position: "absolute",
+    top: 1,
+    left: 10,
+    borderRadius: Border.br_81xl,
+    width: 60,
+    height: 60,
+    overflow: "hidden",
+  },
+  TheItemChild: {
+    backgroundColor: Color.silver,
+    position: "absolute",
+    top: 64,
+    left: 5,
+    width: 72,
+    height: 6,
+  },
+  TheItem: {
+    borderRadius: Border.br_mini,
+    width: 80,
+    height: 76,
+    overflow: "hidden",
+  },
+});
 
 export default BuyerLoading;

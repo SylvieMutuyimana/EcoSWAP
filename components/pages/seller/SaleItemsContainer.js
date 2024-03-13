@@ -1,9 +1,9 @@
-import React, { memo } from "react";
+import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { Color, FontFamily, FontSize, Border, Padding } from "../../../GlobalStyles";
 
-const SaleItemsContainer = memo(() => {
+const SaleItemsContainer = ()=> {
   return (
     <View style={styles.saleItems}>
       <Text style={styles.itemsForSale}>Items for sale</Text>
@@ -13,7 +13,7 @@ const SaleItemsContainer = memo(() => {
             <Text style={styles.ionaBlenderWithANewGlass}>
               <Text style={styles.ionaBlenderWithANewGlass1}>
                 <Text style={styles.ionaBlenderWith}>
-                  Iona blender with a new glass, but the moto is spoilt
+                  Iona blender with a new glass, but the motor is spoilt
                 </Text>
                 <Text style={styles.rwf}>20,000 rwf</Text>
               </Text>
@@ -60,7 +60,7 @@ const SaleItemsContainer = memo(() => {
       </View>
     </View>
   );
-});
+}
 
 const styles = StyleSheet.create({
   itemLayout: {
