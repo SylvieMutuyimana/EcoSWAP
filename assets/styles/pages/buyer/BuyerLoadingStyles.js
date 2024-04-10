@@ -1,10 +1,15 @@
 import { StyleSheet } from "react-native";
 import { Padding, Color, Border, FontSize, FontFamily } from "../../../../GlobalStyles";
 
+
+
+
+
+
 export const BuyerLoadingStyles = StyleSheet.create({
   search: {
-    paddingLeft: Padding.p_3xs,
-    paddingTop: Padding.p_3xs,
+    paddingLeft: Padding.item_p_h,
+    paddingTop: Padding.item_p_h,
     paddingRight: Padding.p_12xs,
     alignItems: "center",
     justifyContent:"center",
@@ -14,7 +19,7 @@ export const BuyerLoadingStyles = StyleSheet.create({
     flexDirection: "row",
     overflow: "hidden",
   },
-  searchProductNameParent: {
+  searchContainer: {
     borderRadius: Border.br_8xs,
     width: 290,
     paddingHorizontal: Padding.p_mini,
@@ -74,9 +79,9 @@ export const BuyerLoadingStyles = StyleSheet.create({
     position: "absolute",
   },
   viewFlexBox: {
-    paddingVertical: Padding.p_2xs,
-    paddingHorizontal: Padding.p_3xs,
-    borderRadius: Border.br_3xs,
+    paddingVertical: Padding.item_p_v,
+    paddingHorizontal: Padding.item_p_h,
+    borderRadius: Border.item_br,
     justifyContent: "center",
     backgroundColor: Color.primaryPureWhite,
     flexDirection: "row",

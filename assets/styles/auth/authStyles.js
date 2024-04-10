@@ -52,7 +52,7 @@ export const authStyles = StyleSheet.create({
       height: 4,
     },
     shadowColor: "rgba(0, 0, 0, 0.25)",
-    backgroundColor: Color.colorSilver,
+    backgroundColor: Color.input,
     borderRadius: Border.br_8xs,
     fontSize: FontSize.size_base,
     fontStyle: "italic",

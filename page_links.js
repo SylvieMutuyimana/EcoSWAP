@@ -12,29 +12,27 @@ import SellerLoading from "./screens/seller/SellerLoading";
 //buyer pages
 import BuyerHome from "./screens/buyer/HOME";
 import CATEGORIES from "./screens/buyer/CATEGORIES";
-import CATEGORIES1 from "./screens/buyer/CATEGORIES1";
 import CART from "./screens/buyer/CART";
-import CATEGORIES2 from "./screens/buyer/CATEGORIES2";
 import BuyerProfile from "./screens/buyer/PROFILE";
 
 //seller pages
 import SellerHome from "./screens/seller/HOME";
 import MYITEMS from "./screens/seller/MYITEMS";
 import SellerProfile from "./screens/seller/PROFILE";
-import SelluploadItems from "./screens/seller/SelluploadItems";
+import SelluploadItems from "./screens/seller/sell/SelluploadItems";
 import SELL from "./screens/seller/SELL";
 
 //item pages
-import Item from "./screens/item/Item";
-import Item1 from "./screens/item/Item1";
-import Item2 from "./screens/item/Item2";
-import Item11 from "./screens/item/Item11";
+import SellerItem from "./screens/item/seller/SellerItem";
 
 //more pages
 import About from "./components/auth/About";
 import Search from "./screens/Search";
 import BuyerMenu from "./components/nav/BuyerMenu";
 import SellerMenu from "./components/nav/SellerMenu";
+import BuyerItem from "./screens/item/buyer/BuyerItem";
+import CheckOutBuyer from "./screens/buyer/cart/checkOut";
+import ItemsDisplayPage from "./screens/item/ItemsDisplayPage";
 
 const similar_menu = [
     {name:'TERMS/POLICIES', link: null},
@@ -86,8 +84,6 @@ export const footerPages = {
 export const buyer_pages = [
     {name: "BuyerLoading", component: BuyerLoading, options: {headerShown: false }}, 
     ...footerPages.buyer,
-    {name: "CATEGORIES2", component: CATEGORIES2, options: {headerShown: false }}, 
-    {name: "CATEGORIES1", component: CATEGORIES1, options: {headerShown: false }}, 
 ]
 export const seller_pages = [
     {name: "SellerLoading", component: SellerLoading, options: {headerShown: false }}, 
@@ -95,23 +91,27 @@ export const seller_pages = [
     {name: "SelluploadItems", component: SelluploadItems, options: {headerShown: false }}, 
 
 ]
+
+export const item_pages = [
+    {name: "SellerItem", component: SellerItem, options: {headerShown: false }}, 
+    {name: "BuyerItem", component: BuyerItem, options: {headerShown: false }}, 
+    {name: "CheckOutBuyer", component: CheckOutBuyer, options: {headerShown: false }}, 
+    {name: "ItemsDisplayPage", component: ItemsDisplayPage, options: {headerShown: false }}, 
+]
+
 export const other_pages = [
     {name: "Search", component: Search, options: {headerShown: false }},
-    {name: "Item2", component: Item2, options: {headerShown: false }}, 
-    {name: "Item11", component: Item11, options: {headerShown: false }}, 
     {name: "About", component: About, options: {headerShown: false }}, 
     {name: "BuyerMenu", component: BuyerMenu, options: {headerShown: false }}, 
     {name: "SellerMenu", component: SellerMenu, options: {headerShown: false }}, 
-    {name: "Item", component: Item, options: {headerShown: false }}, 
-    {name: "Item1", component: Item1, options: {headerShown: false }}, 
 ]
 
 export const all_page_links = [
-    ...auth_pages, ...buyer_pages, ...seller_pages, ...other_pages,
+    ...auth_pages, ...buyer_pages, ...seller_pages, ...other_pages, ...item_pages,
 ]
 
 export const page_links = (user_type) => {
-    let links = [...other_pages, ...auth_pages]; 
+    let links = [...other_pages, ...auth_pages, ...item_pages]; 
     console.log('user_type on page_links: ', user_type)
     if (user_type === 'seller') {
         links = [ ...seller_pages, ...links]; 

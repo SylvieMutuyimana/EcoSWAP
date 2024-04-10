@@ -3,11 +3,18 @@ import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { FontSize, FontFamily, Color, Padding } from "../../GlobalStyles";
 
-const StatusBar = () => {
+const getTime = () => {
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  return `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+};
+
+const StatusBar1 = () => {
     return (
       <View style={[styles.statusBar, styles.timeFlexBox]}>
         <View style={styles.timeFlexBox}>
-          <Text style={styles.time1}>9:41</Text>
+          <Text style={styles.time1}>{getTime()}</Text>
         </View>
         <View style={[styles.theiconbar, styles.timeFlexBox]}>
           <Image
@@ -70,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StatusBar;
+export default StatusBar1;

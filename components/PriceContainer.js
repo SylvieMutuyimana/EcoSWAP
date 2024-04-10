@@ -1,54 +1,27 @@
-import React, { useMemo, memo } from "react";
-import { Text, StyleSheet, View, ImageSourcePropType } from "react-native";
+import React from "react";
+import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { Padding, Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 
-const getStyleValue = (key, value) => {
-  if (value === undefined) return;
-  return { [key]: value === "unset" ? undefined : value };
-};
-const PriceContainer = memo(
-  ({
-    listingDetails,
-    listingIdentifier,
-    locationType,
-    dimensionIdentifier,
-    propWidth,
-    propHeight,
-  }) => {
-    const vectorIconStyle = useMemo(() => {
-      return {
-        ...getStyleValue("width", propWidth),
-        ...getStyleValue("height", propHeight),
-      };
-    }, [propWidth, propHeight]);
-
-    return (
-      <View style={styles.emailParent}>
-        <View style={styles.emailShadowBox}>
-          <Text style={styles.email1}>{listingDetails}</Text>
-          <Image
-            style={styles.vectorIcon}
-            contentFit="cover"
-            source={listingIdentifier}
-          />
-        </View>
-        <View style={[styles.email2, styles.emailShadowBox]}>
-          <Text style={styles.email1}>{locationType}</Text>
-          <Image
-            style={[styles.vectorIcon1, vectorIconStyle]}
-            contentFit="cover"
-            source={dimensionIdentifier}
-          />
-        </View>
+const PriceContainer =  () => {
+  return (
+    <View style={styles.emailParent}>
+      <View style={styles.emailShadowBox}>
+        <Text style={styles.email1}>Price</Text>
+        <Image style={styles.vectorIcon} contentFit="cover" 
+          source={require("../assets/images/icons/cursor_bottom.png")}
+        />
       </View>
-    );
-  }
-);
+      <View style={[styles.email2, styles.emailShadowBox]}>
+        <Text style={styles.email1}>Free</Text>
+      </View>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   emailShadowBox: {
-    paddingVertical: Padding.p_2xs,
+    paddingVertical: Padding.item_p_v,
     paddingHorizontal: Padding.p_smi,
     justifyContent: "center",
     alignItems: "center",
@@ -79,9 +52,9 @@ const styles = StyleSheet.create({
     marginLeft: 31,
   },
   vectorIcon1: {
-    width: 10,
-    height: 10,
-    marginLeft: 31,
+    width: 15,
+    height: 17,
+    marginLeft: 31
   },
   email2: {
     marginLeft: 10,

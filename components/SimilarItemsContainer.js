@@ -1,19 +1,19 @@
-import React, { memo } from "react";
+import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { Color, Border, FontSize, FontFamily, Padding } from "../GlobalStyles";
 
-const SimilarItemsContainer = memo(() => {
+const SimilarItemsContainer = () => {
   return (
     <View style={[styles.similarItems, styles.itemsFlexBox]}>
       <Text style={styles.heading}>SIMILAR ITEMS</Text>
       <View style={[styles.items, styles.itemsFlexBox]}>
         <View style={styles.itemLayout}>
-          <Image style={[styles.biheartFillIcon, styles.biheartIconPosition]}
-            contentFit="cover" source={require("../assets/images/icons/biheartfill1.png")}
+          <Image style={[styles.wish_blackIcon, styles.biheartIconPosition]}
+            contentFit="cover" source={require("../assets/images/icons/wish_black.png")}
           />
           <Image style={[styles.nokia1Icon, styles.iconPosition]}
-            contentFit="cover" source={require("../assets/images/samples/nokia-12.png")}
+            contentFit="cover" source={require("../assets/images/samples/nokia.png")}
           />
           <Text style={styles.description}>
             <Text style={styles.nokiaPhoneCantStart20000}>
@@ -28,28 +28,32 @@ const SimilarItemsContainer = memo(() => {
             <Text style={styles.checkItem}>Check item Bid wish</Text>
           </Text>
         </View>
-        <View style={[styles.item3, styles.itemLayout]}>
-          <Text style={styles.description}>
-            <Text style={styles.nokiaPhoneCantStart20000}>
-              <Text style={styles.nokiaPhoneCant}>
-                Smashed screen iphone 4 ...
+        {(
+        [[...Array(8)].map((_,index)=>(
+          <View style={[styles.item3, styles.itemLayout]} key={index}>
+              <Text style={styles.description}>
+                <Text style={styles.nokiaPhoneCantStart20000}>
+                  <Text style={styles.nokiaPhoneCant}>
+                    Smashed screen iphone 4 ...
+                  </Text>
+                  <Text style={styles.rwf}> 20,000 rwf </Text>
+                  <Text style={styles.nokiaPhoneCant}> </Text>
+                </Text>
+                <Text style={styles.checkItem}>Check item Bid wish</Text>
               </Text>
-              <Text style={styles.rwf}> 20,000 rwf </Text>
-              <Text style={styles.nokiaPhoneCant}> </Text>
-            </Text>
-            <Text style={styles.checkItem}>Check item Bid wish</Text>
-          </Text>
-          <Image style={[styles.istockphotoIcon, styles.iconPosition]}
-            contentFit="cover" source={require("../assets/images/samples/similarItem.png")}
-          />
-          <Image style={[styles.biheartFillIcon1, styles.biheartIconPosition]}
-            contentFit="cover" source={require("../assets/images/icons/biheartfill1.png")}
-          />
-        </View>
+              <Image style={[styles.istockphotoIcon, styles.iconPosition]}
+                contentFit="cover" source={require("../assets/images/samples/cracked_screen.png")}
+              />
+              <Image style={[styles.wish_blackIcon1, styles.biheartIconPosition]}
+                contentFit="cover" source={require("../assets/images/icons/wish_black.png")}
+              />
+            </View>
+          ))]
+        )}
       </View>
     </View>
   );
-});
+}
 
 const styles = StyleSheet.create({
   itemsFlexBox: {
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     height: 65,
     width: 325,
     backgroundColor: Color.primaryPureWhite,
-    borderRadius: Border.br_3xs,
+    borderRadius: Border.item_br,
     overflow: "hidden",
   },
   heading: {
@@ -82,7 +86,7 @@ const styles = StyleSheet.create({
     height: 12,
     color: Color.colorsDefault,
   },
-  biheartFillIcon: {
+  wish_blackIcon: {
     top: 41,
     left: 295,
     width: 10,
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
     top: 7,
     height: 50,
   },
-  biheartFillIcon1: {
+  wish_blackIcon1: {
     height: "18.46%",
     width: "3.08%",
     top: "63.08%",

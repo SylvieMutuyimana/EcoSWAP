@@ -1,24 +1,38 @@
 import * as React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Platform, StyleSheet, View } from "react-native";
 import StatusBar1 from "../components/nav/StatusBar1";
 import { Border, Color, Width } from "../GlobalStyles";
 import { getUserTypeFromLocalStorage } from "../components/data/localStorage";
 
-const FullPageTemplate = ({ status_bar, green_back, children, TheFooter, the_page}) => {
+const FullPageTemplate = ({ status_bar, green_back, children, TheFooter, page_name, SecondFooter, SecondHeader}) => {
   const userType = getUserTypeFromLocalStorage();
-  console.log('the_page: ', the_page)
+  console.log('page_name: ', page_name)
   return (
-    <View style={[styles.fullPage, green_back ? styles.auth : styles.notAuth]}>
-      {status_bar && <StatusBar1 />}
-      <View style={[styles.thePage, (TheFooter && the_page !== 'menu') ? styles.withfooter : styles.withoutfooter]}>
+    <View style={[styles.fullPage, page_name ==='Search'?styles.search: green_back ? styles.auth : styles.notAuth,
+      page_name=== 'Cart'?styles.notScrollPagefullPage:null
+    ]}>
+      {(status_bar && Platform.OS !== 'ios') && <StatusBar1 />}
+      {SecondHeader && (
+        <View style={styles.SecondHeader}>
+          {SecondHeader()}
+        </View>
+      )}
+      <View style={[styles.thePage, (TheFooter && page_name !== 'menu') ? styles.withfooter : styles.withoutfooter,
+        page_name=== 'Cart'?styles.notScrollPage:null
+      ]}>
         {
           React.Children.map(children, (child) => {
             return React.cloneElement(child, { userType: userType });
           })
         }
       </View>
+      {SecondFooter && (
+        <View style={styles.SecondFooter}>
+          {SecondFooter()}
+        </View>
+      )}
       {
-        the_page!=='menu' && TheFooter && (
+        page_name!=='menu' && TheFooter && (
           <View style={styles.footer}>
             {TheFooter()}
           </View>
@@ -36,14 +50,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
+  notScrollPagefullPage: {
+    position:"relative",
+  },
   auth: {
+    paddingTop: 40,
     backgroundColor: Color.green,
   },
   notAuth: {
     backgroundColor: Color.grey,
   },
+  search:{
+
+  },
   thePage: {
-    width: 360,
     overflowY: "scroll",
     overflowX: 'hidden',
     width: '100%',
@@ -52,9 +72,29 @@ const styles = StyleSheet.create({
   },
   withoutfooter: {
     height: '100%',
+
   },
   withfooter: {
     height: 'calc(100% - 40px - 64px)',
+  },
+  SecondHeader:{
+    height:50,
+    width: '100%',
+    minWidth: Width.minPageWidth,
+    maxWidth: Width.maxPageWidth,
+  },
+  SecondFooter:{
+    height:60,
+    width: '100%',
+    minWidth: 300,
+    maxWidth: 360,
+    position:"fixed",
+    bottom:70,
+    zIndex:1
+  },
+  notScrollPage:{
+    overflow: "hidden",
+    height: 'calc(100% - 40px - 64px - 50px)',
   },
   footer: {
     backgroundColor: Color.footerBackground,

@@ -1,133 +1,121 @@
-import React, { useState, useCallback } from "react";
-import { Text, View, Pressable, Modal, TextInput, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, View, TextInput, Pressable } from "react-native";
 import { Image } from "expo-image";
-import { useNavigation } from "@react-navigation/native";
 import BuyerPageTemplate from "./Template";
-import { buyerHomeStyles } from "../../assets/styles/pages/buyer/buyerHomeStyles";
-import Search from "../Search";
-import { LoadingStyles } from "../../assets/styles/pages/buyer/BuyerLoadingStyles";
-import CategoryFilterContainer1 from "../../components/pages/buyer/CategoryFilterContainer1";
-import ContainerItem3 from "../../components/pages/item/ContainerItem3";
-import ContainerItem2 from "../../components/pages/item/ContainerItem2";
-import ContainerItem1 from "../../components/pages/item/ContainerItem1";
-import ContainerItem from "../../components/pages/item/ContainerItem";
-import { FontSize, FontFamily, Color, Padding, Border } from "../../GlobalStyles";
+import ContainerItem from "../../components/pages/item/itemscontainer/ContainerItem";
+import { Width } from "../../GlobalStyles";
+import CategoryNav from "../../components/pages/buyer/category/CategoryNav";
+import HomePageItemsContTemplate from "../../components/pages/shared/HomePageItemsContainer";
+import { sampleCategories, getItems } from "../../components/data/sampleData";
+import { CategoryPageStyles } from "../../assets/styles/pages/shared/CategoryPageStyles";
+import { returnListStyles } from "../../assets/styles/pages/SearchStyles";
+import { useNavigation } from "@react-navigation/core";
+import { navigateBuyerItem } from "../item/navigateItem";
 
-const CATEGORIES = () => {
-  const navigation = useNavigation();
-  const [searchContainer, setsearchContainer] = useState(false);
+const CATEGORIES = ({route}) => {
+  const chosenCat = route?.params?.chosenCat;
+  const navigation = useNavigation()
+  const theItems = getItems('cat Items')
+  const theCategories_ = sampleCategories
+  const [selectedCat, setSelectedCat] = useState(chosenCat?chosenCat:theCategories_[0].name)
+  const returnCatItems = ()=>{
+    return theItems?.filter(item => item.category === selectedCat) || null
+  }
 
-  const openSearchContainer = useCallback(() => {
-    setsearchContainer(true);
-  }, []);
+  const [categoryItems, setCategoryItems] = useState(returnCatItems());
+  const [filteredItems, setFilteredItems] = useState(categoryItems);
+  const [n_items, setn_items] = useState(8)
+  const [searchQuery, setSearchQuery] = useState(null);
 
-  const closesearchContainer = useCallback(() => {
-    setsearchContainer(false);
-  }, []);
-  const [searcInput, setInput] = useState(null)
-  const searchPart = ()=>{
-    return(
-      <Pressable onPress={openSearchContainer} 
-        style={[LoadingStyles.search, LoadingStyles.searchFlexBox]}
-      >
-        <View style={[LoadingStyles.searchProductNameParent, LoadingStyles.headingFlexBox]} >
-          <TextInput style={LoadingStyles.searchProductName}
-            placeholder={'Search Product Name'} onChangeText={(text) => setInput(text)}
-          />
-          <Image style={LoadingStyles.searchButton} contentFit="cover"
+  console.log('selectedCat:', selectedCat)
+  console.log('categoryItems:', categoryItems)
+  console.log('filteredItems:', filteredItems)
+
+  useEffect(() => {
+    const categoryData = theItems?.filter(item => item.category === selectedCat) || []
+    setCategoryItems(categoryData)
+  }, [selectedCat]);
+
+  useEffect(() => {
+    let filteredData = returnCatItems() 
+    setCategoryItems(filteredData)
+    if (searchQuery && searchQuery !== '') {
+      filteredData = filterItems(filteredData)
+    } 
+    setFilteredItems(filteredData)
+  }, [categoryItems, searchQuery]);
+
+  const filterItems = (items) => {
+    const filtered = items?.filter(item => 
+      item?.name?.toLowerCase().includes(searchQuery.toLowerCase())
+      || item?.description?.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    return filtered || []
+  };
+
+  const changeCat = (name) => {
+    setSelectedCat(name);
+  };
+
+  const SearchPart = () => {
+    return (
+      <View style={CategoryPageStyles.search}>
+        <View style={[CategoryPageStyles.searchContainer, CategoryPageStyles.catSearch]}>
+          <TextInput style={CategoryPageStyles.searchProductName}
+            placeholder={'Search Product Name'} onChangeText={(text)=>setSearchQuery(text)}/>
+          <Image style={CategoryPageStyles.searchButton} resizeMode="cover"
             source={require("../../assets/images/icons/searchButton.png")}
           />
         </View>
-        <Image style={LoadingStyles.menuicon} contentFit="cover"
-          source={require("../../assets/images/icons/menuicon.png")}
-        />
-      </Pressable>
-    )
+      </View>
+    );
+  };
+
+  const item_link = 'BuyerItem'
+
+  const chooseItem = (item)=>{
+    navigateBuyerItem(item, 'cat')
+    navigation.navigate(item_link)
   }
+
   return (
     <BuyerPageTemplate page_name ='Categories'>
-      <View style={[styles.categoriesParent, styles.itemsFlexBox]}>
-        <CategoryFilterContainer1 />
-        <View style={[styles.items, styles.itemsFlexBox]}>
-          <View style={styles.homeAppliancesWrapper}>
-            <Text style={styles.homeAppliances}>HOME APPLIANCES</Text>
+      <View style={CategoryPageStyles.container}>
+        <HomePageItemsContTemplate maxWidth={Width.maxContWidth}>
+          <View style={CategoryPageStyles.nav}>
+            <CategoryNav changeCat={changeCat} selectedCat={selectedCat}/>
           </View>
-          <View style={[styles.items1, styles.itemsFlexBox]}>
-            <ContainerItem3 />
-            <ContainerItem2 />
-            <ContainerItem1 />
-            <ContainerItem
-              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
-              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
-            />
-            <ContainerItem
-              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
-              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
-              propBackgroundColor="#fff"
-              propMarginTop={10}
-            />
-            <ContainerItem
-              dimensionCode={require("../../assets/images/samples/spoil-blender-11.png")}
-              productDimensionsCode={require("../../assets/images/icons/biheartfill.png")}
-              propBackgroundColor="#fff"
-              propMarginTop={10}
-            />
+        </HomePageItemsContTemplate>
+        
+        <View style={CategoryPageStyles.content}>
+          <Text style={CategoryPageStyles.headText}>{selectedCat}</Text>
+          <>{SearchPart()}</>
+          <View style={CategoryPageStyles.theitems}>
+            {(filteredItems && filteredItems?.length>0) ?
+              (filteredItems.slice(0, n_items)).map((item, index) => (
+                <React.Fragment key={index}>
+                  <ContainerItem key={index} theItem={item} chooseItem={chooseItem}/>
+                </React.Fragment>
+              )):(
+                <View><Text>No items to display</Text></View>
+              )
+            }
           </View>
+          {
+            filteredItems?.length > n_items ?(
+              <Pressable style={returnListStyles.seemore} onPress={()=>{
+                setn_items((filteredItems?.length-n_items)>8 ? n_items+8: n_items + filteredItems?.length-n_items)
+              }}>
+                <Text style={returnListStyles.seemoreText}>
+                  See More
+                </Text>
+              </Pressable>
+            ):null
+          }
         </View>
       </View>
-      <Modal animationType="fade" transparent visible={searchContainer}>
-        <View style={buyerHomeStyles.searchContainerOverlay}>
-          <Pressable
-            style={buyerHomeStyles.searchContainerBg}
-            onPress={closesearchContainer}
-          />
-          <Search onClose={closesearchContainer} />
-        </View>
-      </Modal>
     </BuyerPageTemplate>
   );
 };
-const styles = StyleSheet.create({
-  itemsFlexBox: {
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  homeAppliances: {
-    fontSize: FontSize.size_3xs,
-    fontWeight: "600",
-    fontFamily: FontFamily.interSemiBold,
-    color: Color.colorsDefault,
-    textAlign: "left",
-    width: 124,
-    height: 13,
-  },
-  homeAppliancesWrapper: {
-    width: 325,
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-  items1: {
-    backgroundColor: Color.colorMediumblue_300,
-    marginTop: 5,
-  },
-  items: {
-    paddingHorizontal: Padding.p_mid_5,
-    paddingVertical: 0,
-    marginTop: 10,
-  },
-  categoriesParent: {
-    width: 360,
-    height: 676,
-  },
-  categories1: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 800,
-    justifyContent: "center",
-    paddingHorizontal: 0,
-    paddingVertical: Padding.p_28xl,
-  },
-});
+
 export default CATEGORIES;

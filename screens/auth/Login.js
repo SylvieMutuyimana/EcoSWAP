@@ -25,7 +25,9 @@ const Login = ({authMessage, route }) => {
 
   const unauthorisedUser= ()=>{
     const funct_ = unauthoriseUser(userType)
-    navigation.navigate(funct_, { userType: userType});
+    if(funct_){
+      navigation.navigate(funct_, { userType: userType});
+    }
   }
   const authorisedUser = () => {
     const funct_ = authoriseUser(userType, loginDetails)

@@ -1,234 +1,142 @@
-import { Text, StyleSheet, View } from "react-native";
+import { Pressable, Text, TextInput, View } from "react-native";
 import { Image } from "expo-image";
-import { FontSize, FontFamily, Color, Border, Padding } from "../GlobalStyles";
-import React from "react";
-import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
-import { FontSize, FontFamily, Color } from "../GlobalStyles";
+import React, { useEffect, useState } from "react";
+import { contStyles, returnListStyles, styles, suggestionListStyles } from "../assets/styles/pages/SearchStyles";
+import { getItems } from "../components/data/sampleData";
+import FullPageTemplate from "./FullPageTemplate";
+import { MaterialIcons } from '@expo/vector-icons'; 
+import { useNavigation } from "@react-navigation/core";
+import { suggestable_items } from "../components/data/suggestable_items";
 
 const Search = () => {
-  const ProductSearchContainer2 =() => {
-    return (
-      <View style={ProductContStyles.container}>
-        <Text style={[ProductContStyles.terakhirDicari, ProductContStyles.tma2WirelessTypo]}>
-          Terakhir Dicari
-        </Text>
-        <View style={ProductContStyles.lastSearchLists}>
-          <View style={ProductContStyles.lastItemFlexBox}>
-            <Image style={ProductContStyles.iconLayout} contentFit="cover"
-              source={require("../../assets/images/icons/icon--clock.png")}
-            />
-            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
-              TMA2 Wireless
-            </Text>
-            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
-              contentFit="cover"
-              source={require("../../assets/images/icons/icon--x.png")}
-            />
-          </View>
-          <View style={[ProductContStyles.lastSearchItem1, ProductContStyles.lastItemFlexBox]}>
-            <Image style={ProductContStyles.iconLayout} contentFit="cover"
-              source={require("../../assets/images/icons/icon--clock.png")}
-            />
-            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
-              Cable
-            </Text>
-            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
-              contentFit="cover"
-              source={require("../../assets/images/icons/icon--x.png")}
-            />
-          </View>
-          <View style={[ProductContStyles.lastSearchItem1, ProductContStyles.lastItemFlexBox]}>
-            <Image style={ProductContStyles.iconLayout}
-              contentFit="cover"
-              source={require("../../assets/images/icons/icon--clock.png")}
-            />
-            <Text style={[ProductContStyles.tma2Wireless, ProductContStyles.tma2WirelessTypo]}>
-              Macbook
-            </Text>
-            <Image style={[ProductContStyles.iconX, ProductContStyles.iconLayout]}
-              contentFit="cover"
-              source={require("../../assets/images/icons/icon--x.png")}
-            />
-          </View>
-        </View>
-      </View>
-    );
+  const allItems = getItems('search Data')
+  const navigation = useNavigation()
+  const [searchQuery, setSearchQuery] = useState(null);
+  const [pageError, setError] = useState(null);
+  const [filteredItems, setFilteredItems] = useState(null)
+  const [n_items, setn_items] = useState(8)
+  const [suggestedItems, setSuggestions] = useState(suggestable_items?.slice(0,8))
+  console.log('suggestedItems: ',suggestedItems)
+  console.log('n_items: ',n_items)
+  console.log('filteredItems: ',filteredItems?.length)
+
+  const [callSearch, setSearchCall] = useState(null)
+  const filter__ = (allItems) => {
+    const filtered = allItems?.filter(item => {
+      if (typeof item === 'string') {
+        return item?.toLowerCase()?.includes(searchQuery?.toLowerCase());
+      } else {
+        return item?.name.toLowerCase()?.includes(searchQuery?.toLowerCase());
+      }
+    });
+    return filtered;
+  }  
+  useEffect(()=>{
+    if(callSearch){
+      if(searchQuery && searchQuery!==''){
+        const filtered = filter__(allItems)
+        if (filtered && filtered?.length > 0) {
+          setFilteredItems(filtered);
+          setError(null);
+        } else {
+          setFilteredItems(null)
+          setError("No matching items found");
+        }
+      }else{
+        setError("Enter the item name or category");
+      }
+    }else{
+      if(searchQuery && searchQuery!==''){
+        const suggested = filter__(suggestable_items)
+        setSuggestions(suggested?.slice(0,8));
+      }else{
+        setSuggestions(suggestable_items?.slice(0,8));
+      }
+    }
+  },[searchQuery, callSearch])
+  const returnItems = ()=>{
+    return(
+      <>
+        {
+          filteredItems?.slice(0,n_items).map((item_, index)=>(
+            <View style={[returnListStyles.theItem, index===0?returnListStyles.firstItem:null]} key={index}>
+              <View ext style={returnListStyles.leftside}>
+                <Image style={returnListStyles.img} contentFit="cover"
+                  source={{ uri: item_.image }} 
+                />
+              </View>
+              <View style={returnListStyles.rightside}>
+                <Text style={returnListStyles.description}>{item_?.description}</Text>
+                <Text style={returnListStyles.price}>{item_?.price} {' Rwf'}</Text>
+              </View>
+            </View>
+          ))
+        }
+        {
+          filteredItems?.length > n_items ?(
+            <Pressable style={returnListStyles.seemore} onPress={()=>{
+              setn_items((filteredItems?.length-n_items)>8 ? n_items+8: n_items + filteredItems?.length-n_items)
+            }}>
+              <Text style={returnListStyles.seemoreText}>
+                See More <MaterialIcons name="keyboard-arrow-down" size={20} color="black" />
+              </Text>
+            </Pressable>
+          ):null
+        }
+      </>
+    )
+  }
+  const suggestedSearching = ()=>{
+    return(
+      <>
+        {
+          suggestedItems?.slice(0,8).map((item_, index)=>(
+            <View style={suggestionListStyles.theItem} key={index}>
+              <Text style={suggestionListStyles.itemText}>
+                {item_}
+              </Text>
+              <MaterialIcons name="chevron-right" style={suggestionListStyles.rightIcon}/>
+            </View>
+          ))
+        }
+      </>
+    )
   }
   return (
-    <View style={styles.search}>
-      <View style={[styles.thepage, styles.thepagePosition]}>
-        <View style={[styles.pagecontent, styles.thepagePosition]}>
-          <View style={styles.searchWrapper}>
-            <View style={[SearchContainerstyles.property1title1]}>
-              <Image style={SearchContainerstyles.left_icon} contentFit="cover"
-                source={require("../assets/images/icons/left_icon.png")}
-              />
-              <Text style={[SearchContainerstyles.megaMall]}>{'Search'}</Text>
-            </View>
+    <FullPageTemplate page_name ='Search'  status_bar={true} >
+      <View style={[styles.pagecontent]}>
+        <View style={styles.searchWrapper}>
+          <MaterialIcons name="arrow-back" style={styles.icon_left}  onPress={()=>navigation.goBack()}/>
+          <View style={[styles.SearchContainer]}>
+            <Image style={styles.searchIcon} contentFit="cover"
+              source={require("../assets/images/icons/search.png")}
+            />
+            <TextInput style={styles.input} 
+              placeholder={'Search Product Name'} onChangeText={(text)=>setSearchQuery(text)}/>
           </View>
-          <View style={styles.field}>
-            <View style={styles.guysimmmonsgmailcomParent}>
-              <Text style={styles.guysimmmonsgmailcom}>
-                Search Product Name
-              </Text>
-              <Image
-                style={styles.regularsearchIcon}
-                contentFit="cover"
-                source={require("../assets/images/icons/regularsearch1.png")}
-              />
-            </View>
-          </View>
-          <ProductSearchContainer2 />
+          <Pressable style={styles.searchButton} onPress={()=> setSearchCall(true)}>
+            <Text style={styles.searchButtonText}>SEARCH</Text>
+          </Pressable>
         </View>
+        <View style={contStyles.container}>
+          {
+            pageError?(
+              <View style={suggestionListStyles.theItem}>
+                <Text style={suggestionListStyles.itemText}>
+                  {pageError}
+                </Text>
+              </View>   
+            ):callSearch?(
+              <>{returnItems()}</>
+            ):(
+              <>{suggestedSearching()}</>
+            )
+          }
+        </View>      
       </View>
-    </View>
+    </FullPageTemplate>
+
   );
 };
-const ProductContStyles = StyleSheet.create({
-  tma2WirelessTypo: {
-    textAlign: "left",
-    color: Color.blueShadow,
-    lineHeight: 20,
-    letterSpacing: 0,
-    fontSize: FontSize.font_size,
-  },
-  iconLayout: {
-    overflow: "hidden",
-    height: 20,
-    width: 20,
-  },
-  lastItemFlexBox: {
-    flexDirection: "row",
-    width: 306,
-    alignItems: "center",
-  },
-  terakhirDicari: {
-    fontWeight: "500",
-    fontFamily: FontFamily.dMSansMedium,
-  },
-  tma2Wireless: {
-    flex: 1,
-    fontFamily: FontFamily.dMSansRegular,
-    marginLeft: 10,
-  },
-  iconX: {
-    marginLeft: 10,
-  },
-  lastSearchItem1: {
-    marginTop: 25,
-  },
-  lastSearchLists: {
-    justifyContent: "center",
-    marginTop: 20,
-    alignItems: "center",
-    width: 311,
-  },
-  container: {
-    marginTop: 10,
-    width: 311,
-  },
-});
-
-const SearchContainerstyles = StyleSheet.create({
-  left_icon: {
-    top: 16,
-    left: 20,
-    width: 24,
-    height: 24,
-    overflow: "hidden",
-    position: "absolute",
-  },
-  megaMall: {
-    left: 161,
-    top: 18,
-    fontSize: FontSize.size_base,
-    letterSpacing: 0,
-    lineHeight: 20,
-    fontWeight: "500",
-    fontFamily: FontFamily.dMSansMedium,
-    color: Color.colorsDefault,
-    textAlign: "center",
-    position: "absolute",
-  },
-  property1title1: {
-    backgroundColor: Color.primaryPureWhite,
-    shadowColor: "rgba(0, 0, 0, 0.05)",
-    shadowOffset: {width: 0, height: 1},
-    shadowRadius: 3, elevation: 3,
-    shadowOpacity: 1,
-    width: 360,position: 'absolute',
-    height: 55,marginLeft: -180,
-    left: "50%", top:0
-  },
-});
-const styles = StyleSheet.create({
-  thepagePosition: {
-    left: 0,
-    width: 360,
-    position: "absolute",
-    overflow: "hidden",
-  },
-  searchWrapper: {
-    height: 55,
-    width: 360,
-  },
-  guysimmmonsgmailcom: {
-    fontSize: FontSize.font_size,
-    lineHeight: 18,
-    fontWeight: "500",
-    fontFamily: FontFamily.dMSansMedium,
-    color: Color.secondaryHalfGrey,
-    textAlign: "left",
-    display: "flex",
-    width: 251,
-    alignItems: "center",
-  },
-  regularsearchIcon: {
-    width: 20,
-    height: 20,
-    overflow: "hidden",
-  },
-  guysimmmonsgmailcomParent: {
-    height: "100%",
-    top: "0%",
-    right: "0%",
-    bottom: "0%",
-    left: "0%",
-    borderRadius: Border.br_3xs,
-    backgroundColor: Color.secondaryOffGrey,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: Padding.p_xl,
-    paddingVertical: Padding.p_base,
-    alignItems: "center",
-    position: "absolute",
-    width: "100%",
-  },
-  field: {
-    width: 325,
-    height: 50,
-    marginTop: 10,
-  },
-  pagecontent: {
-    top: 0,
-    height: 676,
-    alignItems: "center",
-    width: 360,
-  },
-  thepage: {
-    top: 40,
-    height: 696,
-    width: 360,
-  },
-  search: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    height: 800,
-    overflow: "hidden",
-    width: "100%",
-  },
-});
 
 export default Search;

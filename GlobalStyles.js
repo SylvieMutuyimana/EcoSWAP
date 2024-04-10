@@ -18,6 +18,11 @@ export const FontFamily = {
 };
 /* font sizes */
 export const FontSize = {
+  size_default: 15,
+  headings: {
+    h2: 20
+  },
+  size_all: 13,
   size_base: 16,
   size_xs: 12,
   size_mini: 15,
@@ -33,11 +38,19 @@ export const FontSize = {
   size_smi: 13,
   size_5xl: 24,
 };
+
+export const fontWeight={
+  fontDefault: "600",
+  headings: {
+    h2: "600",
+  },
+}
 /* Colors */
+
 export const Color = {
   green: "#063e2a",
   colorDarkslategray_100: "rgba(6, 62, 42, 0.17)",
-  colorsDefault: "#000",
+  colorsDefault: "black",
   primaryPureWhite: "#fff",
   grey: "#d9d9d9",
   secondaryOffGrey: "#fafafa",
@@ -68,6 +81,11 @@ export const Color = {
   colorDarkgray: "rgba(156, 156, 156, 0.8)",
   brightOrange: "#c16902",
   primary: "#db3022",
+  navCat:  "rgba(156, 156, 156, 0.77)",
+
+  input:"rgba(192, 192, 192, 0.13)",
+  otherInput:"rgba(192, 192, 192, 0.13)",
+  searchBackground: "#fff"
 };
 /* Paddings */
 export const Padding = {
@@ -79,7 +97,7 @@ export const Padding = {
   p_28xl: 47,
   p_sm_5: 14,
   p_7xs: 6,
-  p_3xs: 10,
+  item_p_h: 10,
   p_mid_5: 18,
   p_9xs: 4,
   p_7xs_5: 6,
@@ -88,7 +106,7 @@ export const Padding = {
   p_lg: 18,
   p_10xs: 3,
   p_smi: 13,
-  p_2xs: 11,
+  item_p_v: 11,
   p_12xs: 1,
   p_8xs: 5,
   p_base_5: 16,
@@ -109,12 +127,21 @@ export const Border = {
   br_8xs: 5,
   br_21xl: 40,
   br_xl: 20,
-  br_3xs: 10,
+  item_br: 10,
   br_mini: 15,
   br_81xl: 100,
   br_31xl: 50,
 };
 export const Width = {
   maxPageWidth:420,
-  minPageWidth:360
+  minPageWidth:360,
+  maxContWidth:390,
+  minContWidth:360
+}
+
+export const item_size = {
+  icon:{
+    back_size: 50,
+    back_fontsize: 30,
+  }
 }

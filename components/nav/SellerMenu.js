@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { View, StyleSheet, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
@@ -6,7 +6,7 @@ import { Padding, Border, FontSize, FontFamily, Color } from "../../GlobalStyles
 import { menuPages } from "../../page_links";
 import SellerPageTemplate from "../../screens/seller/Template";
 import { LogOut } from "./navigate";
-const SellerMenu =  memo(({ onClose }) => {
+const SellerMenu =  ({ onClose }) => {
   const navigation = useNavigation();
   const userType = 'seller'
   const changePage = (name,link)=>{
@@ -18,7 +18,7 @@ const SellerMenu =  memo(({ onClose }) => {
     }
   }
   return (
-    <SellerPageTemplate the_page ='menu'>
+    <SellerPageTemplate page_name ='menu'>
       <View style={styles.details}>
         <View style={styles.cancelboldParent}>
           <Pressable onPress={onClose}>
@@ -36,7 +36,7 @@ const SellerMenu =  memo(({ onClose }) => {
               <Pressable key={index} style={styles.parentFlexBox} onPress={()=>changePage(item_.name,item_.link)}>
                 <Text style={styles.home}>{item_.name}</Text>
                 <Image style={styles.vectorIcon} contentFit="cover"
-                  source={require("../../assets/images/icons/right-cursor2.png")}
+                  source={require("../../assets/images/icons/icon_right.png")}
                 />
               </Pressable>
             ))
@@ -45,7 +45,7 @@ const SellerMenu =  memo(({ onClose }) => {
       </View>
     </SellerPageTemplate>
   );
-});
+};
 
 const styles = StyleSheet.create({
   parentFlexBox: {

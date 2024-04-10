@@ -19,7 +19,6 @@ export const WelcomeStyles = StyleSheet.create({
     fontSize: FontSize.size_xs,
     color: Color.primaryPureWhite,
     textAlign: "center",
-    color: Color.primaryPureWhite,
   },
   title: {
     justifyContent: "center",

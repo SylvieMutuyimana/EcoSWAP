@@ -8,9 +8,9 @@ export const logUser = (userType) => {
     setLoggedLocalStorageUserType(userType)
     if (userType === "seller") {
         return('SellerLoading')
-    } else {
+    } else if (userType === "buyer") {
         return('BuyerLoading')
-    }
+    } 
 }
 export const unauthoriseUser = (userType) => {
     console.log("userType on unauthoriseUser: ", userType)

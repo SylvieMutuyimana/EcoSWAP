@@ -1,21 +1,19 @@
-import React, { memo } from "react";
+import React from "react";
 import {Text,StyleSheet,Pressable,View,} from "react-native";
 import { Image } from "expo-image";
-import { FontSize, FontFamily, Color } from "../../GlobalStyles";
+import { FontSize, FontFamily } from "../../GlobalStyles";
 
-const TITLEPAGE = memo(({onMenuIconPress}) => {
-
+const TITLEPAGE = ({onMenuIconPress}) => {
     return (
       <View style={styles.headerProfile}>
         <Text style={styles.profile}>PROFILE</Text>
-        <Pressable style={styles.fluentnavFilled} onPress={onMenuIconPress}>
+        <Pressable style={styles.fluentnavFilled} onPress={()=>onMenuIconPress()}>
           <Image style={styles.icon} contentFit="cover" 
             source={require("../../assets/images/icons/menu_white.png")} />
         </Pressable>
       </View>
     );
   }
-);
 
 const styles = StyleSheet.create({
   profile: {

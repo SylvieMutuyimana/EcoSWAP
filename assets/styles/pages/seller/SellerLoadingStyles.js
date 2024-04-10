@@ -38,9 +38,9 @@ export const SellerLoadingStyles = StyleSheet.create({
     position: "absolute",
   },
   itemFlexBox: {
-    paddingVertical: Padding.p_2xs,
-    paddingHorizontal: Padding.p_3xs,
-    borderRadius: Border.br_3xs,
+    paddingVertical: Padding.item_p_v,
+    paddingHorizontal: Padding.item_p_h,
+    borderRadius: Border.item_br,
     backgroundColor: Color.primaryPureWhite,
     flexDirection: "row",
     justifyContent: "center",
@@ -148,9 +148,5 @@ export const SellerLoadingStyles = StyleSheet.create({
   },
   newItems1: {
     paddingHorizontal: Padding.p_xs,
-  },
-  homepageitems: {
-    paddingTop: Padding.p_xl,
-    overflow: "hidden",
   },
 });

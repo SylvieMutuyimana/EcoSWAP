@@ -11,15 +11,11 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = useState(true);
-  const [fontsLoaded, setFonts] = useFonts(theFonts);
+  const [fontsLoaded] = useFonts(theFonts);
   const [userData, setUserData] = useState(null);
   const [userType, setUserType] = useState(getLoggerUserTypeFromLocalStorage())
   console.log('userType: ', userType)
-  useEffect(()=>{
-    if(theFonts && !fontsLoaded){
-      setFonts(theFonts)
-    }
-  },[fontsLoaded])
+  
   useEffect(() => {
     const user_type = getLoggerUserTypeFromLocalStorage()
     if(!userType){

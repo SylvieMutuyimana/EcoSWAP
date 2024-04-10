@@ -1,38 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Border, Color, Padding, FontSize, FontFamily } from "../../GlobalStyles";
 import { footerPages } from "../../page_links";
-import homeunChosen from "../../assets/images/nav/buyer/vector20.png";
-import uploadunChosen from "../../assets/images/nav/seller/vector23.png";
-import myItemsunChosen from "../../assets/images/nav/seller/vector22.png";
-import profileunChosen from "../../assets/images/nav/buyer/vector9.png";
-import homeChosen from "../../assets/images/nav/buyer/vector7.png";
-import uploadChosen from "../../assets/images/nav/seller/vector21.png";
-import myItemsChosen from "../../assets/images/nav/seller/vector25.png";
-import profileChosen from "../../assets/images/nav/buyer/vector24.png";
+import { useNavigation } from "@react-navigation/core";
+import { theIcons } from "./navImages";
 
 const NavSeller = ({ page_name, userType }) => {
   const footer_pages = footerPages?.[userType];
+  const navigation = useNavigation()
   const thePage = (theName) => {
     return footer_pages?.find(page => page?.name === theName)?.footerName;
   };
   const [currentPage, setPage] = useState(thePage(page_name));
-
-  useEffect(() => {
-    setPage(thePage(page_name));
-  }, [page_name]); 
-
-  const theIcons = {
-    "HOME": { unchosen: homeunChosen, chosen: homeChosen },
-    "SELL": { unchosen: uploadunChosen, chosen: uploadChosen },
-    "MY ITEMS": { unchosen: myItemsunChosen, chosen: myItemsChosen },
-    "PROFILE": { unchosen: profileunChosen, chosen: profileChosen},
-  };
-
   const changePage = (theName) => {
     setPage(theName);
+    navigation.navigate(footer_pages?.find(page => page?.footerName === theName)?.name)
   };
+
   console.log('page_name: ', page_name)
   console.log('currentPage: ', currentPage)
   return (
@@ -115,7 +100,7 @@ const ChosenStyles = StyleSheet.create({
   },
   icon: {
     backgroundColor: Color.colorsDefault,
-    padding: Padding.p_3xs,
+    padding: Padding.item_p_h,
   },
   text: {
     fontSize: FontSize.size_4xs,
