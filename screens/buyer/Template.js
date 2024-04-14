@@ -16,7 +16,7 @@ const BuyerPageTemplate = ({children, page_name, SecondFooter, SecondHeader}) =>
     }else{return false}
   }
   return (
-    <FullPageTemplate status_bar={true} green_back={false} TheFooter={TheFooter} 
+    <FullPageTemplate green_back={false} TheFooter={TheFooter} 
       page_name={page_name} SecondFooter={SecondFooter} SecondHeader={SecondHeader}
     > 
       <View style={pageStyles.pageContent}>

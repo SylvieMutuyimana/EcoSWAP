@@ -2,22 +2,11 @@ import React from "react";
 import { Text, Pressable, View, TextInput } from "react-native";
 import { Image } from "expo-image";
 import { BuyerPageItemDetailsStyles } from "../../../../../assets/styles/pages/item/ItemPageDetailsStyles";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { item_size } from "../../../../../GlobalStyles";
 
-const ItemDetailsContainer = ({ onBackPress, onMoredetailsPress, callMoreDetails, changePriceBid, onSubmitPriceBid, theItem}) => {
+const ItemDetailsContainer = ({ onMoredetailsPress, callMoreDetails, changePriceBid, onSubmitPriceBid, theItem}) => {
 
   return (
     <View style={BuyerPageItemDetailsStyles.itemContainer}>
-      <View style={BuyerPageItemDetailsStyles.header}>
-        <Pressable onPress={onBackPress}>
-          <MaterialCommunityIcons name="arrow-left" style={BuyerPageItemDetailsStyles.back} size={item_size.icon.back} color="black" />
-        </Pressable>
-        <Text style={BuyerPageItemDetailsStyles.HeaderText}>Phone- Iphone 4</Text>
-        <Image style={BuyerPageItemDetailsStyles.headerMenuIcon} contentFit="cover"
-          source={require("../../../../../assets/images/icons/menu_dots.png")}
-        />
-      </View>
       <View style={BuyerPageItemDetailsStyles.itemdetails}>
         <View style={BuyerPageItemDetailsStyles.theItem}>
           <View style={BuyerPageItemDetailsStyles.imagesContainer}>
@@ -48,7 +37,7 @@ const ItemDetailsContainer = ({ onBackPress, onMoredetailsPress, callMoreDetails
                 placeholder="Amount rwf" onChangeText={(text)=>changePriceBid(text)}
               />
             </View>
-            <Pressable style={BuyerPageItemDetailsStyles.purchaseButton} onPress={onSubmitPriceBid}>
+            <Pressable style={BuyerPageItemDetailsStyles.purchaseButton} onPress={()=>onSubmitPriceBid()}>
               <Text style={BuyerPageItemDetailsStyles.purchaseButtonText}>PURCHASE</Text>
             </Pressable>
           </View>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Pressable, TextInput, ScrollView } from "react-native";
+import { Text, View, Pressable, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ItemDetailsContainer from "../../../components/pages/item/itemPages/seller/ItemDetailsContainer";
 import ItemPageTemplate from "../Template";
@@ -10,7 +10,8 @@ import { cartStyles } from "../../../assets/styles/pageStyles";
 import { BuyerPageItemDetailsStyles } from "../../../assets/styles/pages/item/ItemPageDetailsStyles";
 import { cartItemsStyles } from "../../../assets/styles/pages/shared/cartItemsStyles";
 import { typeItemPageStyles } from "../../../assets/styles/pages/item/typeItemPageStyles";
-import { getSellerLocalItem } from "../navigateItem";
+import { getSellerLocalItem, navigateDisplayItems, navigateSellerItem, navigateToAcceptBid } from "../navigateItem";
+import { ItemsDisplayPageHeader } from "../../../components/pages/item/ItemsDisplayPageHeader";
 
 const SellerItem = () => {
   const theItem = getSellerLocalItem()
@@ -18,27 +19,29 @@ const SellerItem = () => {
   const similarItems = getItems('similar Data')
   const [callBids, setBidsCall] = useState(false);
   const [onEditItem, setEditItemCall] = useState(false)
-  const [newDetails, setNewDetails] = useState(false)
+  const [newDetails, setNewDetails] = useState({
+    price:null, description:null
+  })
   const [theError, setError] = useState(null)
   const [theMessage, setMessage] = useState(null)
   const onchangeItemDet = (type, text) => {
     setNewDetails(prev => ({
-      ...prev, // Keep the previous state
-      [type]: text // Update the state with the new value for the specified type
+      ...prev,  [type]: text 
     }));
   };
 
   const submitNewDetails =()=>{
-    if(newDetails){
+    if(newDetails.price || newDetails.description){
       if(newDetails['price'] && (isNaN(newDetails['price']))) {
         setError('Invalid Price. Please enter a valid integer.')
       }else{
-        setError(null)
+        Object.keys(newDetails).forEach(key => {
+          if(newDetails[key]){
+            theItem[key] = newDetails[key];
+          }
+        });
+        setMessage('Item updated successfully')
       }
-      Object.keys(newDetails).forEach(key => {
-        theItem[key] = newDetails[key];
-      });
-      setMessage('Item updated successfully')
     }
   }
 
@@ -57,10 +60,23 @@ const SellerItem = () => {
     console.log('chosenBid: ', chosenBid)
     setChosenBid(theBid)
   }
-
-  const onAcceptBid = () => {
-    
+  const item_link = 'AcceptBidPage'
+  const onAcceptBid = (theItem) => {
+    navigateToAcceptBid(theItem, 'new')
+    navigation.navigate(item_link)
   };
+  
+
+  const ifChosenBid = (theBid)=>{
+    console.log('ifChosenBid')
+    console.log('theBid: ', theBid)
+    console.log('chosenBid: ', chosenBid)
+    if(chosenBid && chosenBid.price && chosenBid.username){
+      if(theBid.price === chosenBid.price && theBid.username === chosenBid.username){
+        return true
+      }
+    }
+  }
   const TheBidsContainer = ()=>{
     return(
       <React.Fragment>
@@ -73,14 +89,14 @@ const SellerItem = () => {
               <Pressable style={typeItemPageStyles.moredetailsRow} key={index} onPress={()=>changeBid(theBid)}>
                 <View style={cartItemsStyles.selectIcon} >
                   {
-                    theBid === chosenBid && (
+                    ifChosenBid(theBid) && (
                       <View style={cartItemsStyles.clickedIcon} >
                       </View>
                     )
                   }
                 </View>
-                <Text>
-                  {theBid.username}: {theItem.price}
+                <Text style={typeItemPageStyles.biddedItem}>
+                  {theBid.username}: {theItem.price.toLocaleString()} RWF
                 </Text>
               </Pressable>
             ))}
@@ -110,7 +126,6 @@ const SellerItem = () => {
         <View style={[BuyerPageItemDetailsStyles.inputCont, typeItemPageStyles.inputField]}>
           <TextInput style={[BuyerPageItemDetailsStyles.priceInput, typeItemPageStyles.input]}
             multiline={true} onChangeText={(text)=>onchangeItemDet('description', text)}
-            value={newDetails?.description}
             placeholder="description..."
           />
         </View>
@@ -128,7 +143,7 @@ const SellerItem = () => {
           <Text style={BuyerPageItemDetailsStyles.purchaseButtonText}>UPDATE</Text>
         </Pressable>
         <Text style={[typeItemPageStyles.moredetailsRow, typeItemPageStyles.seller, typeItemPageStyles.heading]}>
-            Edit the item details
+            .
         </Text>
         <Text style={[typeItemPageStyles.moredetailsRow, typeItemPageStyles.seller, typeItemPageStyles.heading]}>
           Edit the item details
@@ -137,14 +152,26 @@ const SellerItem = () => {
       </React.Fragment>
     )
   }
+  const displayItems = (headingTitle, theItems)=>{
+    const item_link = 'SellerItem'
+    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
+  }
+  const chooseItem = (item, item_link)=>{
+    navigateSellerItem(item, 'new')
+    navigation.navigate(item_link)
+  }
+  const SecondHeader =()=>{
+    return(
+      <ItemsDisplayPageHeader heading={theItem.name} page_type={'item'}/>
+    )
+  }
 
   return (
-    <ItemPageTemplate>
+    <ItemPageTemplate SecondHeader={SecondHeader}>
       <View style={[typeItemPageStyles.thepage, cartStyles.container]}>
         <View style={typeItemPageStyles.pagecontent}>
           <View style={typeItemPageStyles.theitem}>
             <ItemDetailsContainer
-              onBackPress={() => navigation.goBack()}
               theItem={theItem}
               onCallBidsPress={onCallBidsPress}
               callBids={callBids}
@@ -165,8 +192,8 @@ const SellerItem = () => {
           </View>
           {
             !onEditItem&&(
-              <HomePageItemsContTemplate headingTitle={'Similar Items -->'}>
-                <SavedItemsContainer theItems={similarItems} number_items={'12'}/>
+              <HomePageItemsContTemplate headingTitle={'Similar Items'} displayItems={displayItems} theItems={similarItems}>
+                <SavedItemsContainer theItems={similarItems} number_items={'12'} chooseItem={chooseItem}  item_link = {'SellerItem'}/>
               </HomePageItemsContTemplate>
             )
           }

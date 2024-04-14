@@ -24,7 +24,7 @@ const BuyerLoading = () => {
 
   const NewItemsContainer = () => {
     return (
-      <Home2ColItems page_name ='Loading'/>
+      <Home2ColItems page_name ='Loading' />
     );
   };
   return (

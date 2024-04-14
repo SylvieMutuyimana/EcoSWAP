@@ -6,7 +6,7 @@ import { getItems } from "../../components/data/sampleData";
 import { cartStyles } from "../../assets/styles/pageStyles";
 import HomePageItemsContTemplate from "../../components/pages/shared/HomePageItemsContainer";
 import CartItemsContainer from "../../components/pages/item/itemscontainer/CartItemsContainer";
-import { setBuyerItemstoCheckout } from "../item/navigateItem";
+import { navigateBuyerItem, navigateDisplayItems, setBuyerItemstoCheckout } from "../item/navigateItem";
 import { useNavigation } from "@react-navigation/native";
 
 const CART = () => {
@@ -66,24 +66,31 @@ const CART = () => {
       </View>
     );
   };
+  const chooseItem = (item, item_link)=>{
+    navigateBuyerItem(item, 'new')
+    navigation.navigate(item_link)
+  }
+  
+  const displayItems = (headingTitle, theItems)=>{
+    const item_link = 'BuyerItem'
+    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
+  }
+
+  const item_link = 'BuyerItem'
 
   return (
-    <BuyerPageTemplate
-      page_name="Cart"
-      SecondFooter={SecondFooter}
-      SecondHeader={SecondHeader}
-    >
+    <BuyerPageTemplate page_name="Cart" SecondFooter={SecondFooter} SecondHeader={SecondHeader}>
       <View style={cartStyles.container}>
         <CartItemsContainer
           theItems={cartItems}
           addNewSelection={addNewSelection}
           selectedItems={selectedItems}
         />
-        <HomePageItemsContTemplate headingTitle={"My Wishlist -->"}>
-          <WishlistCartItems theItems={wishlistItems} number_items={"8"} />
+        <HomePageItemsContTemplate headingTitle={"My Wishlist"} displayItems={displayItems} theItems={wishlistItems}>
+          <WishlistCartItems theItems={wishlistItems} number_items={"8"} chooseItem={chooseItem}  item_link = {item_link} />
         </HomePageItemsContTemplate>
-        <HomePageItemsContTemplate headingTitle={"Similar Items -->"}>
-          <WishlistCartItems theItems={similarItems} number_items={"12"} />
+        <HomePageItemsContTemplate headingTitle={"Similar Items"} displayItems={displayItems} theItems={wishlistItems}>
+          <WishlistCartItems theItems={similarItems} number_items={"12"} chooseItem={chooseItem}  item_link = {item_link} />
         </HomePageItemsContTemplate>
       </View>
     </BuyerPageTemplate>

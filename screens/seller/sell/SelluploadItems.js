@@ -1,253 +1,136 @@
-import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { Pressable, Text, TextInput, View } from "react-native";
 import { Image } from "expo-image";
-import PriceContainer from "../../../components/PriceContainer";
-import { Color, Border, FontFamily, FontSize, Padding } from "../../../GlobalStyles";
-
-const ImageStyles = StyleSheet.create({
-  emailSpaceBlock: {
-    marginLeft: 10,
-    overflow: "hidden",
-  },
-  vectorIcon: {
-    width: 60,
-    height: 60,
-  },
-  uploadIcon: {
-    width: 24,
-    height: 24,
-  },
-  email1: {
-    position: "absolute",
-    top: 11,
-    left: 18,
-    fontSize: FontSize.size_base,
-    fontStyle: "italic",
-    fontFamily: FontFamily.interLight,
-    color: Color.colorsDefault,
-    textAlign: "left",
-    width: 68,
-  },
-  email: {
-    borderRadius: Border.br_8xs,
-    backgroundColor: Color.colorWhitesmoke,
-    elevation: 4,
-    width: 220,
-    height: 41,
-  },
-  vectorParent: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    paddingBottom: Padding.item_p_h,
-    overflow: "hidden",
-  },
-});
+import { UploaderContStyles, selluploadStyles } from "../../../assets/styles/pages/seller/SelluploadStyles";
+import { ItemsDisplayPageHeader } from "../../../components/pages/item/ItemsDisplayPageHeader";
+import ItemPageTemplate from "../../item/Template";
+import { authStyles } from "../../../assets/styles/auth/authStyles";
+import { useNavigation } from "@react-navigation/native";
+import { otherPagesStyles } from "../../../assets/styles/pageStyles";
+import { typeItemPageStyles } from "../../../assets/styles/pages/item/typeItemPageStyles";
+import ErrorContainer from "../../../components/errorContainer";
 
 const SelluploadItems = () => {
-  return (
-    <View style={[styles.selluploadItems, styles.frameParentSpaceBlock]}>
-      <View style={[styles.newItesmWrapper, styles.frameParentSpaceBlock]}>
-        <View style={styles.newItesm}>
-          <Text style={styles.selldonateYourItem}>Sell/Donate your item</Text>
-          <View style={styles.details}>
-            <View style={[styles.frameParent, styles.frameParentSpaceBlock]}>
-              <View style={ImageStyles.vectorParent}>
-                <Image style={ImageStyles.vectorIcon} contentFit="cover"
-                  source={require("../../../assets/images/icons/img_uploader.png")}
-                />
-                <Image style={[ImageStyles.uploadIcon, ImageStyles.emailSpaceBlock]}
-                  contentFit="cover"
-                  source={require("../../../assets/images/icons/upload.png")}
-                />
-                <View style={[ImageStyles.email, ImageStyles.emailSpaceBlock]}>
-                  <Text style={ImageStyles.email1}>Image</Text>
-                </View>
-              </View>
-              <View style={[styles.email, styles.emailShadowBox]}>
-                <Text style={[styles.email1, styles.emailTypo]}>Item Name</Text>
-              </View>
-              <View style={[styles.email2, styles.emailShadowBox]}>
-                <Text style={[styles.email3, styles.emailTypo]}>
-                  Item Category
-                </Text>
-                <Image style={styles.vectorIcon} contentFit="cover"
-                  source={require("../../../assets/images/icons/cursor_bottom.png")}
-                />
-              </View>
-              <View style={[styles.email4, styles.emailShadowBox]}>
-                <Text style={[styles.email1, styles.emailTypo]}>
-                  Description
-                </Text>
-              </View>
-              <PriceContainer/>
-              <PriceContainer/>
-              <View style={[styles.email6, styles.emailShadowBox]}>
-                <Text style={[styles.email1, styles.emailTypo]}>Sector</Text>
-              </View>
-              <View style={[styles.email8, styles.emailShadowBox]}>
-                <Text style={[styles.email1, styles.emailTypo]}>Cell</Text>
-              </View>
-              <View style={[styles.email10, styles.emailShadowBox]}>
-                <Text style={[styles.email1, styles.emailTypo]}>
-                  Location Description
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.login}>
-            <Text style={styles.upload}>UPLOAD</Text>
-          </View>
+  const navigation = useNavigation()
+  const [itemDetails, setDetails] = useState({
+    name:'this data', category: null, description:null, price:null,
+    province:null, district:null, cell:null, street:null, 
+  });
+  const handleChange = (fieldName, text) => {
+    setDetails(prev => ({ ...prev, [fieldName]: text }));
+  };
+  const [errorInput, setErrorInput] =useState(null)
+  const [successMessage, setSuccess] =useState(null)
+  const [firstClick, setClick] = useState(false)
+  const ImageUploaderContainer = ()=>{
+    return(
+      <View style={UploaderContStyles.container}>
+        <Image style={UploaderContStyles.uploadIcon} contentFit="cover"
+          source={require("../../../assets/images/icons/img_uploader.png")}
+        />
+        <View style={UploaderContStyles.uploaderTextCont}>
+          <Text style={UploaderContStyles.uploaderText}>Upload Image</Text>
         </View>
       </View>
-    </View>
+    )
+  }
+  
+  const SecondHeader =()=>{
+    return(
+      <ItemsDisplayPageHeader heading={'Sell Items'} page_type={'SellItems'}/>
+    )
+  }
+  const onSubmit =()=>{
+    console.log('itemDetails: ', itemDetails); 
+    if(firstClick){
+      setErrorInput('Important details are missing')
+      setSuccess(null)
+    }else{
+      setSuccess('Item successfully added')
+      setErrorInput(null)
+      setClick(true)
+    }
+  }
+
+  const successFull =()=>{
+    navigation.navigate('MyItems')
+  }
+
+  const AFieldRow =({label, placeholder, fieldName})=>{
+    return(
+      <View style={selluploadStyles.theField}>
+        <View style={[authStyles.fieldHead, selluploadStyles.row]}>
+          <Text style={selluploadStyles.label}>{label}</Text>
+        </View>
+        <TextInput style={[authStyles.input, selluploadStyles.row1]} placeholder={placeholder}
+          onChangeText={(text) => handleChange(fieldName, text)}
+        />
+      </View>
+    )
+  }
+
+
+  return (
+    <ItemPageTemplate SecondHeader={SecondHeader}>
+      {
+        successMessage&& (
+          <View style={typeItemPageStyles.errorContainer}>
+            <ErrorContainer onRetry={successFull}  errorText={successMessage} buttonText='OK'/>
+          </View>
+        )
+      }
+      <View style={[otherPagesStyles.container, selluploadStyles.container]} >
+        <View style={selluploadStyles.details}>
+          {
+            errorInput && (
+              <View>
+                <Text style={{color:'brown', fontSize: 16}}>{errorInput}</Text>
+              </View>
+            )
+          }
+          <ImageUploaderContainer />
+          <AFieldRow label={'Item Name'} placeholder={'Item Name'} 
+            fieldName={'name'}  key="name" 
+          /> 
+          <View style={selluploadStyles.theField}>
+            <View style={[authStyles.fieldHead, selluploadStyles.row]}>
+              <Text style={selluploadStyles.label}>Item Name</Text>
+            </View>
+            <TextInput style={[authStyles.input, selluploadStyles.row1]} placeholder={'name'}
+              onChangeText={(text) => handleChange('name', text)}
+            />
+          </View>
+          <AFieldRow label={'Item Category'} placeholder={'Item Category'} 
+            fieldName={'category'} key="category"
+          />
+          <AFieldRow label={'Item Description'} placeholder={'Item Description'} 
+            fieldName={'description'} key="description"
+          />
+          <AFieldRow label={'Price'} placeholder={'Price'} 
+            fieldName={'price'} key="price"
+          />
+          <View>
+            <Text>Location</Text>
+          </View>
+          <AFieldRow label={'Province'} placeholder={'Province'} 
+            fieldName={'province'} key="province"
+          />
+          <AFieldRow label={'District'} placeholder={'District'} 
+            fieldName={'district'} key="district"
+          />
+          <AFieldRow label={'Cell'} placeholder={'Cell'} 
+            fieldName={'cell'} key="cell"
+          />
+          <AFieldRow label={'Street Number'} placeholder={'Street Number'} 
+            fieldName={'street'} key="street"
+          />
+        </View>
+        <Pressable style={selluploadStyles.button} onPress={()=>onSubmit()}>
+          <Text style={selluploadStyles.buttonText}>UPLOAD</Text>
+        </Pressable>
+      </View>
+    </ItemPageTemplate>
   );
 };
-
-const styles = StyleSheet.create({
-  frameParentSpaceBlock: {
-    paddingHorizontal: 0,
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  emailShadowBox: {
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    borderRadius: Border.br_8xs,
-    overflow: "hidden",
-    shadowOpacity: 1,
-    elevation: 4,
-    shadowRadius: 4,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-  },
-  emailTypo: {
-    fontFamily: FontFamily.interLight,
-    fontStyle: "italic",
-    fontSize: FontSize.size_base,
-    textAlign: "left",
-    color: Color.colorsDefault,
-  },
-  selldonateYourItem: {
-    fontSize: FontSize.size_xl,
-    fontWeight: "700",
-    fontFamily: FontFamily.interBold,
-    height: 21,
-    width: 290,
-    textAlign: "left",
-    color: Color.colorsDefault,
-  },
-  email1: {
-    top: 11,
-    left: 18,
-    width: 185,
-    position: "absolute",
-    fontFamily: FontFamily.interLight,
-    fontStyle: "italic",
-  },
-  email: {
-    height: 41,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    width: 290,
-  },
-  email3: {
-    width: 200,
-  },
-  vectorIcon: {
-    width: 15,
-    height: 7,
-    marginLeft: 49,
-  },
-  email2: {
-    flexDirection: "row",
-    paddingHorizontal: Padding.p_smi,
-    paddingVertical: Padding.item_p_v,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  email4: {
-    height: 41,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    width: 290,
-  },
-  email6: {
-    height: 41,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    width: 290,
-  },
-  email8: {
-    height: 41,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    width: 290,
-  },
-  email10: {
-    height: 41,
-    marginTop: 15,
-    backgroundColor: Color.colorWhitesmoke,
-    width: 290,
-  },
-  frameParent: {
-    paddingVertical: Padding.p_9xs,
-  },
-  details: {
-    paddingTop: Padding.p_4xs,
-    paddingBottom: Padding.p_lg,
-    overflow: "hidden",
-  },
-  upload: {
-    top: 15,
-    left: 23,
-    fontWeight: "900",
-    fontFamily: FontFamily.interBlack,
-    color: Color.primaryPureWhite,
-    textAlign: "center",
-    width: 96,
-    fontSize: FontSize.size_base,
-    position: "absolute",
-  },
-  login: {
-    backgroundColor: Color.colorsDefault,
-    width: 142,
-    height: 50,
-    borderRadius: Border.br_8xs,
-    overflow: "hidden",
-  },
-  newItesm: {
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  newItesmWrapper: {
-    width: 360,
-    height: 676,
-    paddingVertical: Padding.p_mini,
-  },
-  selluploadItems: {
-    borderRadius: Border.br_6xl,
-    backgroundColor: Color.grey,
-    flex: 1,
-    width: "100%",
-    height: 800,
-    paddingVertical: Padding.p_28xl,
-    justifyContent: "center",
-    shadowOpacity: 1,
-    elevation: 4,
-    shadowRadius: 4,
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowColor: "rgba(0, 0, 0, 0.25)",
-    paddingHorizontal: 0,
-  },
-});
 
 export default SelluploadItems;

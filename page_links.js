@@ -31,8 +31,11 @@ import Search from "./screens/Search";
 import BuyerMenu from "./components/nav/BuyerMenu";
 import SellerMenu from "./components/nav/SellerMenu";
 import BuyerItem from "./screens/item/buyer/BuyerItem";
-import CheckOutBuyer from "./screens/buyer/cart/checkOut";
+import CheckOutBuyer from "./screens/buyer/cart/CheckOutBuyer";
 import ItemsDisplayPage from "./screens/item/ItemsDisplayPage";
+import AcceptBidPage from "./screens/seller/acceptBid/AcceptBidPage";
+import SoldItem from "./screens/item/seller/Soldtem";
+import MyOrdersPage from "./screens/buyer/orders/MyOrdersPage";
 
 const similar_menu = [
     {name:'TERMS/POLICIES', link: null},
@@ -96,6 +99,9 @@ export const item_pages = [
     {name: "SellerItem", component: SellerItem, options: {headerShown: false }}, 
     {name: "BuyerItem", component: BuyerItem, options: {headerShown: false }}, 
     {name: "CheckOutBuyer", component: CheckOutBuyer, options: {headerShown: false }}, 
+    {name: "AcceptBidPage", component: AcceptBidPage, options: {headerShown: false }}, 
+    {name: "SoldItem", component: SoldItem, options: {headerShown: false }}, 
+    {name: "MyOrders", component: MyOrdersPage, options: {headerShown: false }}, 
     {name: "ItemsDisplayPage", component: ItemsDisplayPage, options: {headerShown: false }}, 
 ]
 

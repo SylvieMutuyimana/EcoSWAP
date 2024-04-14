@@ -96,7 +96,7 @@ export const BuyerLoadingStyles = StyleSheet.create({
   },
   frameItem: {
     left: 5,
-    width: 68,
+    widthheight: 68,
   },
   rectangleParent: {
     width: 343,

@@ -9,7 +9,6 @@ export const typeItemPageStyles = StyleSheet.create({
     paddingVertical: 10,
     fontSize: FontSize.size_default,
     position: 'relative',
-    backgroundColor:'red'
   },
   errorContainer: {
     position: 'absolute',
@@ -30,11 +29,9 @@ export const typeItemPageStyles = StyleSheet.create({
     height: "100%",
     alignItems: "center",
     width: "100%",
-    backgroundColor:'green'
   },
   theitem: {
     alignItems: "center",
-    backgroundColor:'indigo'
   },
   moredetails: {
     width: "100%",
@@ -63,15 +60,16 @@ export const typeItemPageStyles = StyleSheet.create({
   },
   button: {
     marginTop: 10,
-    marginLeft: 0,
-    width: 300
+    width: "60%",
+    marginLeft: "20%",
+    height: 50
   },
   descriptionInput: {
     height: 50,
   },
   inputField:{
     textAlign:'left',
-    width: "90%",
+    width: "97%",
     margin:0,
     marginTop:10,
     marginLeft: 0
@@ -79,6 +77,9 @@ export const typeItemPageStyles = StyleSheet.create({
   input:{
     textAlign:'left',
     width: "100%",
+  },
+  biddedItem:{
+    marginLeft: 5
   }
 });
 

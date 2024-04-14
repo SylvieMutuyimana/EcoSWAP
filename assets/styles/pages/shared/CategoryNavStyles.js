@@ -42,7 +42,7 @@ export const CategoryNavStyles = StyleSheet.create({
     justifyContent: "center",
     padding: 0,
     height: '100%',
-    width: 113,
+    width: 120,
     overflow: "hidden",
   },
   chosenItem: {

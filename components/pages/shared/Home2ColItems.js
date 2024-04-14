@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Color,  Border } from "../../../GlobalStyles";
 
-const Home2ColItems = ({ theItems, page_name, number_items, chooseItem}) => {
+const Home2ColItems = ({ theItems, page_name, number_items, chooseItem, item_link}) => {
   const theItems_ = number_items?theItems?.slice(0, number_items):theItems?.slice(0, 12)
 
   return (
@@ -22,7 +22,7 @@ const Home2ColItems = ({ theItems, page_name, number_items, chooseItem}) => {
             </View>
           ))]
         ):theItems_?.slice(0, 12).map((item, index) => (
-          <Pressable style={[styles.theItem, index>1 ? styles.theItem_ : null]} onPress={()=>chooseItem(item)} key={index}>
+          <Pressable style={[styles.theItem, index>1 ? styles.theItem_ : null]} onPress={()=>chooseItem(item, item_link)} key={index}>
             <Image style={styles.img} resizeMode="cover" source={item.image} />
             <View style={styles.details}>
               <Text style={styles.description}>{item.description}</Text>

@@ -33,6 +33,21 @@ export const navigateSellerItem = (theItem, chosenItemType) => {
 };
 
 
+const sellerLocalAcceptedBid = 'sellerLocalAcceptedBid'
+const sellerLocalAcceptedBidType = 'sellerLocalAcceptedBidType'
+
+export const setSellerLocalAcceptedBid=(theItem)=> setLocalStorageProp_(sellerLocalAcceptedBid, theItem)
+export const getSellerLocalAcceptedBid =()=>  getPropsFromLocalStorage(sellerLocalItem)
+
+export const setSellerLocalAcceptedBidType =(theItem)=> setLocalStorageProp_(sellerLocalAcceptedBidType, theItem)
+export const getSellerLocalAcceptedBidType =()=>  getPropsFromLocalStorage(sellerLocalAcceptedBidType)
+
+export const navigateToAcceptBid = (theItem, chosenItemType) => {
+    console.log('theItem: ', theItem)
+    setSellerLocalAcceptedBid(theItem)
+    setSellerLocalAcceptedBidType(chosenItemType)
+};
+
 
 const buyerCheckoutItems = 'buyerLocalItem'
 export const setCheckoutItems =(theItem)=> setLocalStorageProp_(buyerCheckoutItems, theItem)
@@ -44,14 +59,18 @@ export const setBuyerItemstoCheckout = (items) => {
 
 
 const displayLocalItem = 'displayLocalItem'
+const displayLocalItemHeading = 'displayLocalItemHeading'
 export const setDisplayItems=(theItems)=> setLocalStorageProp_(displayLocalItem, theItems)
 export const getDisplayItems=()=>  getPropsFromLocalStorage(displayLocalItem)
 
-export const setDisplayItemsType =(theItems)=> setLocalStorageProp_(displayLocalItem, theItems)
-export const getDisplayItemsType =()=>  getPropsFromLocalStorage(displayLocalItem)
+export const setDisplayItemsHeading =(headingTitle)=> setLocalStorageProp_(displayLocalItemHeading, headingTitle)
+export const getDisplayItemsHeading =()=>  getPropsFromLocalStorage(displayLocalItemHeading)
 
-export const navigateDisplayItems = (theItems, chosenItemType) => {
-    console.log('theItem: ', theItems)
+export const navigateDisplayItems = (navigation, headingTitle, theItems, item_link) => {
+    console.log('navigateDisplayItems: ')
+    console.log('headingTitle: ',headingTitle)
+    console.log('items: ',theItems)
+    setDisplayItemsHeading(headingTitle)
     setDisplayItems(theItems)
-    setDisplayItemsType(chosenItemType)
+    navigation.navigate('ItemsDisplayPage', {item_link: item_link});
 };

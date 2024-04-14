@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: Border.item_br,
     backgroundColor: Color.primaryPureWhite,
-    height: 90, 
+    height: 105, 
     overflow: "hidden",
     width: '100%'
   },

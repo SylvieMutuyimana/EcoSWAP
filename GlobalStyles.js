@@ -134,7 +134,7 @@ export const Border = {
 };
 export const Width = {
   maxPageWidth:420,
-  minPageWidth:360,
+  minPageWidth:375,
   maxContWidth:390,
   minContWidth:360
 }

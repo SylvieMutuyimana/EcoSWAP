@@ -2,9 +2,9 @@ import React from "react";
 import { Text, StyleSheet, View, Image, Pressable } from "react-native";
 import { Color } from "../../../../GlobalStyles";
 
-const WishlistCartItem = ({theItem, page_name, chooseItem}) => {
+const WishlistCartItem = ({theItem, page_name, chooseItem, item_link}) => {
   return (
-    <Pressable style={styles.item} onPress={()=>page_name=== 'Loading'?null:chooseItem(theItem)}>
+    <Pressable style={styles.item} onPress={()=>page_name=== 'Loading'?null:chooseItem(theItem, item_link)}>
       {
         page_name === 'Loading'?(
           <React.Fragment>

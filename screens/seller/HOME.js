@@ -13,19 +13,37 @@ import { navigateDisplayItems, navigateSellerItem } from "../item/navigateItem";
 const SellerHome = () => {
   const requestItems = getItems('request')
   const soldItems = getItems('sold items')
-  const item_link = 'SellerItem'
   const navigation =useNavigation()
-  const chooseItem = (item)=>{
+  const chooseItem = (item, item_link)=>{
     navigateSellerItem(item, 'new')
     navigation.navigate(item_link)
   }
   const RequestsContainer = () => {
+    const item_link = 'SellerItem'
     return (
-      <Home2ColItems item_link = {item_link} theItems={requestItems} number_items={'8'} chosenItemType={'request'} chooseItem={chooseItem}/>
+      <HomePageItemsContTemplate headingTitle={'REQUESTS'} displayItems={displayItems} theItems={requestItems}>
+        <Home2ColItems item_link = {item_link} theItems={requestItems} number_items={'8'} chosenItemType={'request'} chooseItem={chooseItem}/>
+      </HomePageItemsContTemplate>
     );
   };
-  const displayItems = (item_types, items)=>{
-    navigateDisplayItems(item_types, items)
+
+  const WishlistContainer = () => {
+    const item_link = 'SoldItem'
+    return (
+      <HomePageItemsContTemplate headingTitle={'SOLD ITEMS'} displayItems={displayItems} theItems={soldItems}>
+        <WishlistCartItems theItems={soldItems} number_items={'16'} chooseItem={chooseItem} item_link = {item_link} />
+      </HomePageItemsContTemplate>
+    );
+  };
+
+  const displayItems = (headingTitle, theItems)=>{
+    let item_link
+    if(headingTitle==='SOLD ITEMS'){
+      item_link='SoldItem'
+    }else{
+      item_link='SellerItem'
+    }
+    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
   }
   return (
     <SellerPageTemplate page_name ='SellerHome'>
@@ -33,16 +51,12 @@ const SellerHome = () => {
         <HomeSlideshow />
         {
           requestItems && requestItems?.length>0 &&(
-            <HomePageItemsContTemplate headingTitle={'REQUESTS'} displayItems={displayItems} >
-              <RequestsContainer/>
-            </HomePageItemsContTemplate>
+            <RequestsContainer />
           )
         }
         {
           soldItems && soldItems?.length>0 &&(
-            <HomePageItemsContTemplate headingTitle={'SOLD ITEMS '} displayItems={displayItems} theItems={soldItems}>
-              <WishlistCartItems theItems={soldItems} number_items={'12'} chooseItem={chooseItem}  />
-            </HomePageItemsContTemplate>
+            <WishlistContainer />
           )
         }
       </View>

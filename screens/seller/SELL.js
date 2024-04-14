@@ -1,7 +1,6 @@
 import React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
-import SoldItemsContainer from "../../components/pages/seller/SoldItemsContainer";
 import SaleItemsContainer from "../../components/pages/seller/SaleItemsContainer";
 import { FontSize, Color, Padding, Border } from "../../GlobalStyles";
 import SellerPageTemplate from "./Template";
@@ -9,9 +8,11 @@ import { otherPagesStyles } from "../../assets/styles/pageStyles";
 import HomePageItemsContTemplate from "../../components/pages/shared/HomePageItemsContainer";
 import { getItems } from "../../components/data/sampleData";
 import { FontAwesome } from '@expo/vector-icons'; 
+import { navigateDisplayItems } from "../item/navigateItem";
+import { useNavigation } from "@react-navigation/native";
 
 const SELL = () => {
-  const soldItems = getItems('sold Data')
+  const navigation = useNavigation();
   const saleItems = getItems('sale Data')
   const n_of_items = {
     sale:2, sold:3, star: 3, reviews: 8
@@ -20,12 +21,12 @@ const SELL = () => {
     return (
       <View style={ItemStyles.uploaderContainer}>
         <View style={ItemStyles.uploadNewItem}>
-          <View style={ItemStyles.upload}>
+          <Pressable style={ItemStyles.upload} onPress={()=>navigation.navigate('SelluploadItems')}>
             <Image style={ItemStyles.img} contentFit="cover"
               source={require("../../assets/images/icons/upload.png")}
             />
             <Text style={ItemStyles.newItem}>New item</Text>
-          </View>
+          </Pressable>
           <View style={ItemStyles.itemsSaleOverview}>
             <Text style={ItemStyles.row}>Sold item: {n_of_items.sold || 0}</Text>
             <Text style={[ItemStyles.rowTop, ItemStyles.row]}>
@@ -44,17 +45,22 @@ const SELL = () => {
       </View>
     );
   };
-
+  const displayItems = (headingTitle, theItems)=>{
+    let item_link
+    if(headingTitle==='Sold Items'){
+      item_link='SoldItem'
+    }else{
+      item_link='SellerItem'
+    }
+    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
+  }
   return (
     <SellerPageTemplate page_name ='Sell'>
       <View style={[otherPagesStyles.container, otherPagesStyles.top]}>
         <UploaderContainer />
         <View style={styles.items}>
-          <HomePageItemsContTemplate headingTitle={'Items For Sale -->'}>
-            <SaleItemsContainer theItems={saleItems} number_items={'3'}/>
-          </HomePageItemsContTemplate>
-          <HomePageItemsContTemplate headingTitle={'Sold Items -->'}>
-            <SoldItemsContainer theItems={soldItems} number_items={'4'}/>
+          <HomePageItemsContTemplate headingTitle={'Items For Sale'} displayItems={displayItems} theItems={saleItems}>
+            <SaleItemsContainer theItems={saleItems} number_items={'5'}/>
           </HomePageItemsContTemplate>
         </View>
       </View>

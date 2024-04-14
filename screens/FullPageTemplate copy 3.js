@@ -4,23 +4,21 @@ import StatusBar1 from "../components/nav/StatusBar1";
 import { Border, Color, Width } from "../GlobalStyles";
 import { getUserTypeFromLocalStorage } from "../components/data/localStorage";
 
-const FullPageTemplate = ({  green_back, children, TheFooter, page_name, SecondFooter, SecondHeader, ThirdHeader}) => {
+const FullPageTemplate = ({ status_bar, green_back, children, TheFooter, page_name, SecondFooter, SecondHeader}) => {
   const userType = getUserTypeFromLocalStorage();
   console.log('page_name: ', page_name)
   return (
     <View style={[styles.fullPage, page_name ==='Search'?styles.search: green_back ? styles.auth : styles.notAuth,
       page_name=== 'Cart'?styles.notScrollPagefullPage:null
     ]}>
-      {Platform.OS !== 'ios' && <StatusBar1 />}
+      {(status_bar && Platform.OS !== 'ios') && <StatusBar1 />}
       {SecondHeader && (
-        <View style={[styles.SecondHeader, page_name==='MyItems'||page_name==='Categories'||ThirdHeader?styles.HeaderCat:null]}>
+        <View style={styles.SecondHeader}>
           {SecondHeader()}
-          {ThirdHeader&& ThirdHeader()}
         </View>
       )}
       <View style={[styles.thePage, (TheFooter && page_name !== 'menu') ? styles.withfooter : styles.withoutfooter,
-        page_name=== 'Cart'?styles.notScrollPage:null,
-        page_name==='MyItems'||page_name==='Categories'? styles.catPage :null
+        page_name=== 'Cart'?styles.notScrollPage:null
       ]}>
         {
           React.Children.map(children, (child) => {
@@ -56,6 +54,7 @@ const styles = StyleSheet.create({
     position:"relative",
   },
   auth: {
+    paddingTop: 40,
     backgroundColor: Color.green,
   },
   notAuth: {
@@ -111,13 +110,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: '#8d8a8a',
     borderTopWidth: 1,
-  },
-  HeaderCat:{
-    height: 113,
-  },
-  catPage:{
-    height: 'calc(100% - 40px - 113px)',
-  },
+  }
 });
 
 export default FullPageTemplate;

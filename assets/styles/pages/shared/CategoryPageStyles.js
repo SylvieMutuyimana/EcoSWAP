@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Border, Color, FontSize, Width } from "../../../../GlobalStyles";
+import { Color, FontSize, Width } from "../../../../GlobalStyles";
 
 export const CategoryPageStyles = StyleSheet.create({
   search: {
@@ -33,6 +33,7 @@ export const CategoryPageStyles = StyleSheet.create({
   },
   listedItems: {
     width: 130,
+    height: 50,
     margin: 0,
   },
   searchProductName: {
@@ -52,15 +53,11 @@ export const CategoryPageStyles = StyleSheet.create({
     resizeMode: "cover", 
     marginLeft: 10
   },
-  
-  container: {
-    width: "100%",
-    alignItems: "center",
-  },
   nav:{
     backgroundColor: Color.navCat,
     width: "100%",
-    maxWidth: Width.maxPageWidth
+    maxWidth: Width.maxPageWidth,
+    height: 113,
   },
   content: {
     paddingVertical: 0,

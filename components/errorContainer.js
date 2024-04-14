@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
-import { Color, FontSize } from '../GlobalStyles';
+import { Color } from '../GlobalStyles';
 
-const ErrorContainer = ({ errorText, onRetry }) => {
+const ErrorContainer = ({ errorText, onRetry, buttonText }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.errorText}>{errorText} </Text>
       <Pressable style={styles.retryButton} onPress={onRetry}>
-        <Text style={styles.buttonText}>RETRY</Text>
+        <Text style={styles.buttonText}>{buttonText}</Text>
       </Pressable>
     </View>
   );

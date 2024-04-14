@@ -117,9 +117,9 @@ export const theItems_ = () => {
       
       item_._id = item_._id + (count + 12);
       item_.price = item.price + count * 120;
-      if(count%2===0){
+      if(count%1===0){
         const bids = []
-        const n_bids = count * 2
+        const n_bids = (count * 2)+1
         for (let n__ = 0; n__ < n_bids; n__++) {
           let a_bid = {}
           a_bid['price'] = item.price + n__ * 120;

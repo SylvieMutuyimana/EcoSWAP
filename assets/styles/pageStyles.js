@@ -1,6 +1,13 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { Color, FontFamily, FontSize, Padding, fontWeight } from "../../GlobalStyles";
 
+const CheckApp =()=>{
+    if(Platform.OS === 'ios' ){
+        return true
+    }else{
+        return false
+    }
+}
 export const pageStyles = StyleSheet.create({
     pageContent: {
         alignItems: "center",
@@ -28,7 +35,8 @@ export const homeStyles = StyleSheet.create({
     container: {
         paddingHorizontal:20,
         overflow: "hidden",
-        width:'100%'
+        width: "100%",
+        minWidth:CheckApp()?360 : 380,
     },
     seller:{
         paddingTop: Padding.p_xl,
@@ -39,7 +47,8 @@ export const otherPagesStyles = StyleSheet.create({
     container: {
         paddingHorizontal:20,
         overflow: "hidden",
-        width:'100%'
+        width: "100%",
+        minWidth:CheckApp()?360 : 380,    
     },
     top:{
         paddingTop: Padding.p_xl,

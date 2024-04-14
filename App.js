@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { all_page_links, page_links, startingPages } from "./page_links";
 import { theFonts } from "./components/accessories/fonts";
-import { checksecondTimeUser, getLoggerUserTypeFromLocalStorage, getUserFromLocalStorage } from "./components/data/localStorage";
+import { checksecondTimeUser, getLoggerUserTypeFromLocalStorage, getUserFromLocalStorage, setsecondTimeUser } from "./components/data/localStorage";
 import { StatusBar } from "react-native";
 
 const Stack = createNativeStackNavigator();
@@ -14,6 +14,7 @@ const App = () => {
   const [fontsLoaded] = useFonts(theFonts);
   const [userData, setUserData] = useState(null);
   const [userType, setUserType] = useState(getLoggerUserTypeFromLocalStorage())
+
   console.log('userType: ', userType)
   
   useEffect(() => {

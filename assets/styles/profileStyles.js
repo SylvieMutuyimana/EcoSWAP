@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Color, FontSize, Border, FontFamily } from "../../GlobalStyles";
+import { Color, Border } from "../../GlobalStyles";
 
 export const ProfileStyles = StyleSheet.create({
   titlePage:{
@@ -37,16 +37,27 @@ export const ProfileStyles = StyleSheet.create({
 
 
 export const ProfilePageStyles = StyleSheet.create({
-  topDetails:{
-    marginTop:20,
+  theDetails:{
+    width: "100%",
     backgroundColor: Color.lightGrey,
+    marginTop:20,
+    paddingHorizontal:20,
+    paddingBottom:15,
+    paddingTop:10,
     borderBottomColor: Color.primaryPureWhite,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  topDetails:{
     width: "100%",
     flexDirection: "row",
-    height: 100,
+    height: 80,
     alignItems:"center",
-    justifyContent:"center",
-    padding:20
   },
   topDetailsLeft:{
     width: "25%",
@@ -70,27 +81,147 @@ export const ProfilePageStyles = StyleSheet.create({
 
   details: {
     width: "100%",
-    marginTop: 10,
     overflow: "hidden",
     display: "grid", // Set display to grid
     gridTemplateColumns: "repeat(2, 1fr)", // Create two columns with equal width
     gap: 10, // Adjust the gap between grid items as needed
+    marginTop:10
   },
   dataContainer: {
     textAlign: "left",
     color: Color.colorsDefault,
-    fontSize: FontSize.size_smi,
     margin: "0", // Remove margin
   },
   
-  
   name: {
     fontWeight: "900",
-    fontFamily: FontFamily.interBlack,
+    fontSize: 15
   },
   text: {
-    fontFamily: FontFamily.interRegular,
     width: "100%",
-    marginTop:10
+    marginTop:10,
+    fontSize: 15
   },
 });
+
+export const HeadingStyles = StyleSheet.create({
+  container:{
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10
+  },
+  itemContainer: {
+    width: '50%',
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: Color.lightGrey,
+    elevation: 3,
+    paddingTop:5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  itemText: {
+    fontSize: 15,
+    color: Color.colorGray_400,
+    textAlign:'center',
+    paddingHorizontal:4
+  },
+  headingDetailsLeft:{
+    borderRadius:5,
+  },
+  headingDetailsRight:{
+    backgroundColor:Color.colorSilver,
+  }
+})
+
+
+export const ProfileLinkTypesStyles = StyleSheet.create({
+  container: {
+    width: '100%',
+    marginTop: 10,
+  },
+  itemContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    height: 60,
+    backgroundColor: Color.lightGrey,
+    marginBottom: 10,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  icon: {
+    marginLeft: 20,
+    marginRight: 10,
+  },
+  itemText: {
+    fontSize: 16,
+    color: Color.colorsDefault
+  }
+});
+
+export const DataOrderTypesStyles = StyleSheet.create({
+  div:{
+    width: '100%',
+    marginTop: 20,
+  },
+  heading:{
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  headingText:{
+    fontSize:15,
+    fontWeight: 'bold'
+  },
+  headingLink:{
+    fontSize:15,
+    color:Color.blue
+  },
+  container: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 5
+  },
+  itemContainer: {
+    width: '24%',
+    height: 80,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: Color.lightGrey,
+    elevation: 3,
+    paddingTop:5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84
+  },
+  icon: {
+    marginLeft: 20,
+    marginRight: 10,
+  },
+  itemText: {
+    fontSize: 15,
+    color: Color.colorGray_400,
+    textAlign:'center',
+    paddingHorizontal:4
+  }
+})

@@ -4,7 +4,7 @@ import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 import NavSeller from "../../components/nav/NavSeller";
 
-const SellerPageTemplate = ({children, page_name}) => {
+const SellerPageTemplate = ({children, page_name, SecondHeader}) => {
   const userType = "seller"
   const TheFooter = ()=>{
     if(page_name){
@@ -16,7 +16,7 @@ const SellerPageTemplate = ({children, page_name}) => {
     }else{return false}
   }
   return (
-    <FullPageTemplate status_bar={true} green_back={false} TheFooter={TheFooter} page_name={page_name} > 
+    <FullPageTemplate green_back={false} TheFooter={TheFooter} page_name={page_name} SecondHeader = {SecondHeader}> 
       <View style={pageStyles.pageContent}>
         {children}
       </View>

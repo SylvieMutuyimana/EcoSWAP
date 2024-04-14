@@ -14,8 +14,8 @@ const About = ({ closeReadMore }) => {
             </Pressable>
             <Image style={styles.frameChild} source={require("../../assets/images/auth/about/logo.png")} />
           </View>
-          <Text style={styles.isaneTechWas}>
-            Isane Tech was developed in 2022 with the goal of reducing the number of E-waste products that were being dumped. Isane aims to connect E-waste and second-hand appliances to exchange these products either for a fee or donation so that those who can, can put to use these electronics and stop them from being dumped.
+          <Text style={styles.ecoSWAPTechWas}>
+            ecoSWAP was developed in 2022 with the goal of reducing the number of E-waste products that were being dumped. ecoSWAP aims to connect E-waste and second-hand appliances to exchange these products either for a fee or donation so that those who can, can put to use these electronics and stop them from being dumped.
           </Text>
           <View style={styles.recycleLogoVectorPngVectorParent}>
             <Image style={styles.recycleLogoVectorPngVectorIcon} source={require("../../assets/images/auth/about/recyclelogo.png")} />
@@ -35,8 +35,9 @@ const About = ({ closeReadMore }) => {
 
 const styles = StyleSheet.create({
   aboutLayout: {
-    width: 360,
+    width: "100%",
     overflow: "hidden",
+    paddingTop: 40
   },
   vectorFlexBox: {
     flexDirection: "row",
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     overflow: "hidden",
   },
-  isaneTechWas: {
+  ecoSWAPTechWas: {
     height: 138,
     marginTop: 30,
     textAlign: "justify",

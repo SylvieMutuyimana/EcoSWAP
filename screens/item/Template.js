@@ -3,9 +3,9 @@ import { View } from "react-native"; // Added Pressable
 import FullPageTemplate from "../FullPageTemplate";
 import { pageStyles } from "../../assets/styles/pageStyles";
 
-const ItemPageTemplate = ({children, page_name}) => {
+const ItemPageTemplate = ({children, SecondHeader}) => {
   return (
-    <FullPageTemplate status_bar={true} green_back={false} page_name={page_name}> 
+    <FullPageTemplate green_back={false} SecondHeader={SecondHeader}> 
       <View style={pageStyles.pageContent}>
         {children}
       </View>

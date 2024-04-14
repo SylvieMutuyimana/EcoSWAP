@@ -3,19 +3,15 @@ import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ItemDetailsContainer from "../../../components/pages/item/itemPages/buyer/ItemDetailsContainer";
 import ItemPageTemplate from "../Template";
-import { getItems } from "../../../components/data/sampleData";
-import HomePageItemsContTemplate from "../../../components/pages/shared/HomePageItemsContainer";
-import SavedItemsContainer from "../../../components/pages/item/itemscontainer/SavedItemsContainer";
 import { cartStyles } from "../../../assets/styles/pageStyles";
 import ErrorContainer from "../../../components/errorContainer";
 import { typeItemPageStyles } from "../../../assets/styles/pages/item/typeItemPageStyles";
-import { getBuyerLocalItem, navigateBuyerItem, navigateDisplayItems } from "../navigateItem";
+import { getBuyerLocalItem} from "../navigateItem";
 import { ItemsDisplayPageHeader } from "../../../components/pages/item/ItemsDisplayPageHeader";
 
-const BuyerItem = () => {
+const AddNewItem = () => {
   const theItem = getBuyerLocalItem()
   const navigation = useNavigation();
-  const similarItems = getItems('similar Data')
   const [callMoreDetails, setMoreDetailsCall] = useState(false)
   const onMoredetailsPress = ()=>{
     setMoreDetailsCall(!callMoreDetails)
@@ -42,14 +38,6 @@ const BuyerItem = () => {
       navigation.navigate('Cart')
     }
   };
-  const displayItems = (headingTitle, theItems)=>{
-    const item_link = 'BuyerItem'
-    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
-  }
-  const chooseItem = (item, item_link)=>{
-    navigateBuyerItem(item, 'new')
-    navigation.navigate(item_link)
-  }
   const SecondHeader =()=>{
     return(
       <ItemsDisplayPageHeader heading={theItem.name} page_type={'item'}/>
@@ -92,13 +80,10 @@ const BuyerItem = () => {
               )
             }
           </View>
-          <HomePageItemsContTemplate headingTitle={'Similar Items'} displayItems={displayItems} theItems={similarItems}>
-            <SavedItemsContainer theItems={similarItems} number_items={'12'} chooseItem={chooseItem}  item_link = {'BuyerItem'}/>
-          </HomePageItemsContTemplate>
         </View>
       </View>
     </ItemPageTemplate>
   );
 };
 
-export default BuyerItem;
+export default AddNewItem;

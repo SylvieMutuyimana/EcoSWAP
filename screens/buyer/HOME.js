@@ -8,7 +8,6 @@ import { useNavigation } from "@react-navigation/core";
 import HomeSlideshow from "../../components/pages/shared/HomeSlideshow";
 import HomePageItemsContTemplate from "../../components/pages/shared/HomePageItemsContainer";
 import HomeCategoryNav from "../../components/pages/buyer/home/HomeCategoryNav";
-import { footerPages } from "../../page_links";
 import { Width } from "../../GlobalStyles";
 import { getItems } from "../../components/data/sampleData";
 import { homeStyles } from "../../assets/styles/pageStyles";
@@ -27,8 +26,9 @@ const BuyerHome = () => {
     navigation.navigate(item_link)
   }
 
-  const displayItems = (item_types, items)=>{
-    navigateDisplayItems(item_types, items)
+  const displayItems = (headingTitle, theItems)=>{
+    const item_link = 'BuyerItem'
+    navigateDisplayItems(navigation, headingTitle, theItems, item_link)
   }
 
   useEffect(()=>{
@@ -63,7 +63,7 @@ const BuyerHome = () => {
 
   const NewItemsContainer = () => {
     return (
-      <Home2ColItems theItems={newItems} page_name ={'BuyerHome'} number_items={'12'} chooseItem ={chooseItem} />
+      <Home2ColItems theItems={newItems} page_name ={'BuyerHome'} number_items={'12'} chooseItem ={chooseItem} item_link={item_link}/>
     );
   };
 
@@ -71,9 +71,8 @@ const BuyerHome = () => {
     <BuyerPageTemplate page_name ='BuyerHome'>
       <View style={homeStyles.container}>
         <SearchPart/>
-        <HomeSlideshow/>
-        <HomePageItemsContTemplate headingTitle='Categories' maxWidth={Width.maxContWidth} 
-          seeCatItems={footerPages.buyer.find(page=>page.footerName==='CATEGORIES').name}>
+        <HomeSlideshow loading_page = {false}/>
+        <HomePageItemsContTemplate headingTitle='Categories' maxWidth={Width.maxContWidth}>
           <HomeCategoryNav/>
         </HomePageItemsContTemplate>
         <HomePageItemsContTemplate headingTitle={'NEW ITEMS'} displayItems={displayItems} theItems={newItems}>

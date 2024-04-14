@@ -3,9 +3,7 @@ import { Text, View, TextInput, Pressable } from "react-native";
 import { Image } from "expo-image";
 import BuyerPageTemplate from "./Template";
 import ContainerItem from "../../components/pages/item/itemscontainer/ContainerItem";
-import { Width } from "../../GlobalStyles";
 import CategoryNav from "../../components/pages/buyer/category/CategoryNav";
-import HomePageItemsContTemplate from "../../components/pages/shared/HomePageItemsContainer";
 import { sampleCategories, getItems } from "../../components/data/sampleData";
 import { CategoryPageStyles } from "../../assets/styles/pages/shared/CategoryPageStyles";
 import { returnListStyles } from "../../assets/styles/pages/SearchStyles";
@@ -77,16 +75,16 @@ const CATEGORIES = ({route}) => {
     navigateBuyerItem(item, 'cat')
     navigation.navigate(item_link)
   }
-
+  const CatHeader = ()=>{
+    return(
+      <View style={CategoryPageStyles.nav}>
+        <CategoryNav changeCat={changeCat} selectedCat={selectedCat}/>
+      </View>
+    )
+  }
   return (
-    <BuyerPageTemplate page_name ='Categories'>
+    <BuyerPageTemplate page_name ='Categories' SecondHeader={CatHeader}>
       <View style={CategoryPageStyles.container}>
-        <HomePageItemsContTemplate maxWidth={Width.maxContWidth}>
-          <View style={CategoryPageStyles.nav}>
-            <CategoryNav changeCat={changeCat} selectedCat={selectedCat}/>
-          </View>
-        </HomePageItemsContTemplate>
-        
         <View style={CategoryPageStyles.content}>
           <Text style={CategoryPageStyles.headText}>{selectedCat}</Text>
           <>{SearchPart()}</>
